@@ -1,0 +1,15 @@
+Local:
+raspberry/files:
+	registerStudent//存储register模式下student的照片和指纹
+	examStudent//存储exam模式下,从server端的raspberry/files/student下载下来的照片和指纹
+	examRecord
+		exam0//存储exam模式下,考试编号为exam0的所有相关记录对应的照片和指纹
+		exam1
+		.....
+Server:
+raspberry/files:
+	student//存储register模式下从local端的rapsberry/files/registerStudent上传的照片和指纹
+	examRecord//
+		exam0//存储exam模式下,从local端的raspberry/files/examRecord/exam0上传的照片和指纹
+		exam1
+		.....

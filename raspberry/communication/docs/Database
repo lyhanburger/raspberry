@@ -1,0 +1,18 @@
+local:
+login_user:name, passwd, rights
+login_user_add:name, passwd, rights, is_uploaded
+register_student:id, name, class, face, finger,is_ic, is_uploaded,time 
+exam_student:exam_id int, stu_id, name, class, face, finger
+exam_record:exam_id, stu_id, face, sim_face, finger, sim_finger, is_ic, is_uploaded,time 
+exam_plan:exam_id
+speech: id, name, credit, location
+speech_record: spe_id, stu_id, signinFirst, signinSecond, is_append, is_uploaded,time
+
+server:
+login_user: name, passwd, rights
+student: id, name, class, face, finger, is_ic, time
+exam: id, name, location 
+exam_plan: exam_id, stu_id
+exam_record: exam_id, stu_id, face, sim_face, finger, sim_finger, is_ic, time
+speech: id, name, redit, location
+speech_record: spe_id, stu_id, is_append, time

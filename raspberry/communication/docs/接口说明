@@ -1,0 +1,74 @@
+login:
+	#新增user(user_id,user_name,user_rights)
+		loginUserInsert(2015211001,'raspberry',24)
+	#上传user(user_ids)可以输入一个参数,也可以输入多个参数
+		loginUserUpload(2015211001,2015211002)
+		loginUserUpload(2015211001)
+
+register:
+	#新增student(stu_id,stu_name,stu_class,finger,face,is_ic)
+		registerStudentInsert(2015211001,'Tesla',2015211101,1,1,"True")
+	#上传student(stu_ids)可以输入一个参数,也可以输入多个参数
+		registerStudnetUpload(2015211001,2015211002)
+		registerStudnetUpload(2015211001)
+
+exam:
+	#下载exam(exam_id_servers)[事先要通过view获取该考试在server端的id号]
+		examExamDownload(2,3)
+		examExamDownload(2)
+	#下载exam_member[记录某个考试有哪些学生参加](exam_id_servers)
+		examMemmberDownload(2,3)
+		examMemmberDownload(2,3)
+	#下载exam_student(exam_id_servers)
+		examStudentDownload(2,3)
+		examStudentDownload(2,3)
+	#新增record[签到记录](exam_id_server,stu_id,finger,sim_finger,face,sim_face,is_ic,is_appended,is_matched)
+		examRecordInsert(2,2015211001,4,90,4,75,"True","False","True")
+	#追加Student(stu_id,stu_name,stu_class)
+		examStudentAppend(2015210007,'Tom',2015211001)
+	#上传record((exam_id_server,stu_id)s)[可以输入一个元组,也可以输入多个元组]
+		examRecordUpload((2,2015211001),(1,2015211002))
+		examRecordUPload((2,2015211001))
+speech
+	#创建speech(spe_name,spe_location)  返回本地speech编号
+ 		speechSpeechInsert("高等数学在物理中的应用","3-333") return 3
+		speechSpeechInsert("高等数学在化学中的应用","4-444") return 4
+	#上传speech(spe_id_locals)
+		speechSpeechUpload(3,4)
+		speechSpeechUpload(3)
+	#第一次新增record[第一次签到](spe_id_local,stu_id)  
+		speechRecordInsertFirst(3,2015211001)
+	#第二次新增record[第二次签到](spe_id_local,stu_id)
+		speechRecordInsertSecond(3,2015211001)
+	#上传两次签到成功的record
+		speechRecordUpload(3,4)
+		speechRecordUpload(3)
+view
+	#创建查询user的类.
+		view=View("loginUser")
+			view.filter()
+	#创建查询新增User的类[user_add]
+		view = View("loginUserAdd")
+			#筛选用户(rights)
+			view.filter(35)//权限为35的新增user
+			view.filter()//所有新增user
+	#创建查询注册student的类
+		view = View("registerStudent")
+			#筛选注册学生(stu_id,stu_name,stu_class,has_finger,has_face)
+			view.filter('','','',"All","All")//查询所有信息
+			view.filter('','张三',20152111001,"All","True")//查询叫做名字中带有张三的,班级为2015211001的,有指纹的学生
+	#创建查询server端考试信息的类
+		view = View("examServer")
+			#筛选server端的考试信息(exam_id,exam_name,exam_locaiton,exam_teacher)
+			view.filter("","","","")//查询所有信息
+			view.filter(2,"高等数学","2-333","刘吉祐")
+	#创建查询local端考试信息的类
+		view = View("examLocal")
+			#筛选server端的考试信息(exam_id,exam_name,exam_locaiton,exam_teacher)
+			view.filter("","","","")//查询所有信息
+			view.filter(2,"高等数学","2-333","刘吉祐")		
+	#创建查询speech记录的类
+		view = View("speechRecord")
+			#筛选speechReocrd(spe_id_local,stu_id)
+			view.filter('','')//查询所有信息
+			view.filte(2,2015211001)//查询在讲座2的中学号为2015211001的记录

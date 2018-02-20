@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>/img/welcome.jpg</file>
+        <file>/img/close.png</file>
+        <file>/img/mini.png</file>
+        <file>/img/exam_bg.jpg</file>
+        <file>/img/fingerscan.png</file>
+        <file>/img/getfinger.png</file>
+        <file>/img/identimg.png</file>
+        <file>/img/identok.png</file>
+        <file>/img/log_bg.jpg</file>
+        <file>/img/new_bg.jpg</file>
+        <file>/img/noface.png</file>
+        <file>/img/nofinger.png</file>
+        <file>/img/nosure.png</file>
+        <file>/img/spk_bg.jpg</file>
+        <file>/img/sure.png</file>
+        <file>/img/spkbackhome.png</file>
+        <file>/img/card.png</file>
+        <file>/img/click.png</file>
+        <file>/img/text.png</file>
+    </qresource>
+</RCC>

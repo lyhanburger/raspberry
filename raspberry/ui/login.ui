@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>login</class>
+ <widget class="QDialog" name="login">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>401</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget{
+background-color: rgb(236,240,245);
+color:rgb(98, 99, 99);
+}
+
+QPushButton#login_buttn,
+QPushButton#back_buttn,
+QPushButton#NoCard_buttn
+{
+    color:white;
+    background-color:rgb(14 , 150 , 254);
+    border-radius:4px;
+    min-width: 90px;
+    max-width: 90px;
+    min-height: 25px;
+    max-height: 25px;
+}
+QPushButton#mini_buttn,
+QPushButton#close_buttn
+{
+    color:white;
+    background-color:rgb(182, 184, 184);
+    min-width: 21px;
+    max-width: 21px;
+    min-height: 21px;
+    max-height: 21px;
+}
+QPushButton#login_buttn:hover,
+QPushButton#back_buttn:hover,
+QPushButton#NoCard_buttn:hover
+{
+    color:white;
+    background-color:rgb(44 , 137 , 255);
+    border:0px;
+}
+
+QPushButton:selected
+{
+    color:white;
+    background-color:rgb(14 , 135 , 228);
+    padding-left:3px;
+    padding-top:3px;
+}
+QLineEdit
+{
+    background:white;
+    padding-left:5px ;
+    padding-top:1px ;
+    border-radius:3px;
+    border: 1px solid rgb(209 , 209 , 209);
+}
+QLineEdit:hover
+{
+    padding-top:0px ;
+    border: 1px solid rgb(21 , 131 , 221);
+}</string>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="page_2">
+    <widget class="QPushButton" name="NoCard_buttn">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>250</y>
+       <width>90</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>无职工卡</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Card_label">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>281</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>请刷卡</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::AutoText</enum>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page">
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>401</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout" rowstretch="5,0,0,0" columnminimumwidth="0,0,0,0">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>0</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>11</number>
+      </property>
+      <item row="2" column="0">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="user_name">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>用户名</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLineEdit" name="uname_edit"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="user_passwd">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>密    码</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="3">
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLineEdit" name="upasswd_edit">
+        <property name="inputMethodHints">
+         <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="4">
+       <widget class="QFrame" name="frame">
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="title">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>399</width>
+           <height>185</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>用户登陆</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="indent">
+          <number>0</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="close_buttn">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>X</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="mini_buttn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>0</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>min</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>260</y>
+       <width>301</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="back_buttn">
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string>返回刷卡</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="login_buttn">
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string>确认登陆</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>login_buttn</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>login</receiver>
+   <slot>judge()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>306</x>
+     <y>271</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>152</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>is_true()</signal>
+  <slot>judge()</slot>
+ </slots>
+</ui>

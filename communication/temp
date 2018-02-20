@@ -1,0 +1,210 @@
+#!/usr/bin/python3
+import time
+import config
+import psycopg2
+from PyQt5.QtSql import QSqlDatabase,QSqlTableModel
+class configLocalDB():
+	def __enter__(self):
+		self.conn = psycopg2.connect("dbname=%s user=%s host=%s password=%s "%(config.localDBName,config.localDBUser,config.localDBHost,config.localDBPasswd,))
+		self.cur = self.conn.cursor()
+		return self.cur
+	def __exit__(self,type,value,traceback):
+		self.cur.close()
+		self.conn.commit()
+		self.conn.close()
+	def getDB(self):
+		db = QSqlDatabase.addDatabase("QPSQL")
+		db.setHostName(config.localDBHost)
+		db.setPort(config.localDBPort)
+		db.setDatabaseName(config.localDBName)
+		db.setUserName(config.localDBUser)
+		db.setPassword(config.localDBPasswd)
+		if (db.open() == False):
+		    QMessageBox.critical(None, "Database Error", db.lastError().text())
+		return db
+class configServerDB():
+	def __enter__(self):
+		self.conn = psycopg2.connect("dbname=%s user=%s host=%s password=%s "%(config.serverDBName,config.serverDBUser,config.serverDBHost,config.serverDBPasswd,))
+		self.cur = self.conn.cursor()
+		return self.cur
+	def __exit__(self,type,value,traceback):
+		self.cur.close()
+		self.conn.commit()
+		self.conn.close()
+def setupLocalDB():
+	with configLocalDB() as cur:
+		cur.execute('''drop table if exists "user"''')
+		cur.execute("drop table if exists user_add")
+		cur.execute("drop table if exists register_student")
+		cur.execute('''create table if not exists "user"(name varchar primary key, passwd varchar, rights int)''')
+		cur.execute("create table if not exists user_add(name varchar primary key, passwd varchar, rights int, \
+		is_uploaded bool default false)") 
+		cur.execute("create table if not exists register_student(id int primary key, name varchar, class int, \
+		finger int, face int, is_ic bool, is_uploaded bool, time char(16))")
+	#	cur.execute("create table if not exists student_exam(exam_id int, id int , name char(30), class int, \
+	#	finger int, face int)")
+	#	cur.execute("create table if not exists exam_record(exam_id int, stu_id int, finger int, sim_finger int, \
+	#	face int, sim_face int, is_ic bool, is_uploaded bool, is_append bool, time char(16) primary key(exam_id,stu_id) )")
+	#	cur.execute("create table if not exists exam_plan(exam_id int, stu_id int)" )
+	#	cur.execute("create table if not exists speech(id int, name varchar, credit int, location varchar) ")
+	#	cur.execute("create table if not exists speech_record(sqp_id int, stu_id int, \
+	#	signin_first bool, signin_second bool, is_uploaded bool, time_first char(16))")
+def setupServerDB():
+	with configServerDB() as cur:
+		cur.execute('''drop table if exists "user"''')
+		cur.execute("drop table if exists student")
+		cur.execute('''create table if not exists "user"(name varchar primary key, passwd varchar, rights int)''')
+		cur.execute("create table if not exists student(id int primary key, name varchar, class int, \
+		finger int, face int, is_ic bool, time char(16))")
+	#	cur.execute("create table if not exists exam(id int, name varchar, location varchar)")
+	#	cur.execute("create table if not exists exam_record(exam_id int, stu_id int, finger int, sim_finger int, \
+	#	face int, sim_face int, is_ic bool, is_append bool, time char(16) )")
+	#	cur.execute("create table if not exists exam_plan(exam_id int, stu_id int)" )
+	#	cur.execute("create table if not exists speech(id int, name varchar, credit int, location varchar) ")
+	#	cur.execute("create table if not exists speech_record(spe_id int, stu_id int, \
+	#	time_first char(16))")
+def preloadServerDB():
+	with configServerDB() as cur:
+		cur.execute('''insert into  "user" values('pi','raspberry',127)''')
+def translateFilteriWords( args):
+		dic = {
+			'All':' is not null',
+			'True':'=true',
+			'False':'=false',
+			'':'.*'}	
+		args = list(args)
+		for aNo,arg in enumerate(args):
+			if arg in dic:
+				args[aNo]=dic[arg]
+			else:
+				args[aNo]=arg
+		return args
+def getModelLoginUser():
+	db = configLocalDB().getDB()
+	model = QSqlTableModel(db)
+	model.setTable("user_add")
+	return model
+def getFilterLoginUser(args):
+	filter = "name ~'%s' and is_uploaded ~'%s'"%(translateFilterWords(args))
+	return filter
+	
+def loginUserDownload():#OK
+	with configLocalDB() as curLocal:
+		with configServerDB() as curServer:
+			curServer.execute('''select * from "user" ''')
+			result = curServer.fetchall()
+			curLocal.execute('''truncate table "user"''')
+			for row in result:
+				curLocal.execute('''insert into "user" values %s ''',[row])
+def loginUserLogin(args):#OK
+	with configLocalDB() as cur:
+		cur.execute('''select rights from "user" where name='%s' and passwd ='%s' '''%args )
+		result = cur.fetchone()
+		if result == None:
+			return 0;
+		else:
+			return result[0]
+def loginUserAdd(args):#OK
+	with configLocalDB() as cur:
+		cur.execute("insert into user_add values('%s','%s',%s,false)"%args)
+def loginUserSelectKey(view,args):#OK
+	with configLocalDB() as cur:
+		print("loginUserSelect")
+		db = configLocalDB().db()
+		model = QSqlTableModel(None,db)
+		model.setTable("user_add")
+		sql = "name ~'%s' and  passwd ~'%s' and to_char(rights,'999') ~'%s' and is_uploaded %s"%tuple(translateFilter(args))
+		print(sql)
+		model.setFilter(sql)
+		model.select()
+		view.setModel(model)
+		cur.execute("select name from user_add where %s"%sql)
+		return cur.fetchone()
+def loginUserDelete(names):#OK
+	with configLocalDB() as cur:
+		print("loginUserDelete")
+		if(names == None ):
+			print("empty input")
+		for name in names:
+			cur.execute("delete from user_add where name = %s ",(name,))
+def loginUserUpload(names):#OK
+	with configLocalDB() as curLocal:
+		with configServerDB() as curServer:
+			print("loginUserUpload")
+			if(names == None):
+				print("empty input")
+			for name in names:
+				curLocal.execute("select name, passwd, rights from user_add where name = '%s'"%(name,))
+				row = curLocal.fetchone()
+				print(row)
+				curServer.execute('''insert into "user" values (%s,%s,%s) on conflict(name)\
+				do update set passwd=excluded.passwd ,rights=excluded.rights ''',row)
+def registerStudentAdd(args):#OK
+	with configLocalDB() as cur:#OK
+		cur.execute("insert into register_student(id, name, class, finger, face, is_ic, is_uploaded, time)\
+		values(%s,'%s',%s,%s,%s,%s,false,to_char(current_timestamp,'YYYY-MM-DD HH:MI'))"%args)
+def registerStudentSelect(view,args):#OK
+	with configLocalDB() as cur:
+		print("registerStudentSelect")
+		db = configLocalDB().db()
+		model = QSqlTableModel(None,db)
+		model.setTable("register_student")
+		sql = "to_char(id,'9999999999') ~'%s' and name~'%s' and to_char(class,'9999999999')~'%s' and \
+		finger between %s and %s and face between %s and %s and is_ic %s and is_uploaded %s and \
+		time between '%s' and '%s'"%tuple(translateFilter(args))
+		print(sql)
+		model.setFilter(sql)
+		model.select()
+		view.setModel(model)
+		cur.execute("select id from register_student where %s"%sql)
+		return cur.fetchone()
+def registerStudentDelete(ids):#OK
+	with configLocalDB() as cur:
+		print("registerStudentDelete")
+		if(ids == None ):
+			print("empty input")
+		for id in ids:
+			cur.execute("delete from register_student where id=%s",(id,))
+def registerStudentUpload(ids):
+	with configLocalDB() as curLocal:
+		with configServerDB() as curServer:
+			print("registerStudentUpload")
+			if(ids == None):
+				print("empty input")
+			for id  in ids:
+				curLocal.execute("select id, name, class, face, finger, is_ic, time   from register_student where id=%s",(id,))
+				row = curLocal.fetchone()
+				print(row)
+				curServer.execute("insert into student values %s on conflict(id) do update set\
+				name=excluded.name, class=excluded.class, face=excluded.face, \
+				finger=excluded.finger, is_ic=excluded.is_ic, time=excluded.time" ,[row])
+#def speechSpeechCreate():
+#def speechSpeechSelect():
+#def speechSpeechDelete():
+#def speechRecordAdd():
+#def speechRecordSelect():
+#def speechRecordDelete():
+#def speechRecordUpload():
+#def examPlanSelect():
+#def examStudentDownLoad():
+#def examStudentSelect():
+#def examRecordAdd():
+#def examRecordSelect():
+#def examRecordDelete():
+#def examRecordUpload():
+def main():
+	setupLocalDB()
+	setupServerDB()
+	preloadServerDB()
+
+	loginUserDownload()
+	print(loginUserLogin(("pi","raspberry")))
+	loginUserAdd(("pi1","raspberry",127))
+	#loginUserDelete(("pi1",))
+	registerStudentAdd(("2015211107", "fly", "2015211101", "1", "1", "True"))
+	registerStudentAdd(("2015211108", "fly", "2015211101", "1", "1", "True"))
+	registerStudentUpload((2015211107,2015211108))
+	registerStudentUpload((2015211107,2015211108))
+if __name__ == "__main__":
+	main()
+		

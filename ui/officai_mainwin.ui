@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>officai_mainwin</class>
+ <widget class="QMainWindow" name="officai_mainwin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>113</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="newstu_buttn">
+       <property name="text">
+        <string> 新生注册</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="updata_buttn">
+       <property name="text">
+        <string>数据更新</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QStackedWidget" name="offic_stackedwid">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>0</y>
+      <width>651</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="welcome_page">
+     <widget class="QLabel" name="welcome_label">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>250</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>welcome</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="newstu_page1">
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>10</y>
+        <width>20</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>270</y>
+        <width>321</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_3">
+      <property name="geometry">
+       <rect>
+        <x>143</x>
+        <y>10</y>
+        <width>20</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="newstupho_lable">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>10</y>
+        <width>101</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>photo</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>120</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="finger_label">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>130</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>finger</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="updata_page2"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

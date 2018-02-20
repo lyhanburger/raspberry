@@ -1,0 +1,5 @@
+login:一键上传,自动选择user_add中is_uploaded=false的记录上传
+register_student(stu_ids):选择性上传
+exam_record((exam_id, stu_id)s):选择性上传
+speech(spe_ids):选择性上传
+speech_record():一键上传

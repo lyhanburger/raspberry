@@ -1,0 +1,2677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>sysmainwindow</class>
+ <widget class="QMainWindow" name="sysmainwindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+background-color:rgb(238,241,245);
+}
+
+QWidget#menu{
+margin: 0px;
+padding: 0px;
+background-color:rgb(49,54,61);
+}
+QWidget#text_widget{
+margin: 0px;
+padding: 0px;
+background-color:rgb(49,54,61);
+}
+QPushButton#Newstu_buttn, QPushButton#Updata_buttn, QPushButton#Ident_buttn, QPushButton#Spk_buttn, QPushButton#Log_buttn, QPushButton#Offic_buttn, 
+QPushButton#Teach_buttn{
+color:rgb(175,170,170);
+height: 45px;
+background-color:rgb(49,54,61);
+border-width: 0px;
+border-color: #e36a75;
+border-style: solid;
+padding: 3px;
+font-size: 13px;
+}
+
+QPushButton#Newstu_buttn:hover, QPushButton#Updata_buttn:hover, QPushButton#Ident_buttn:hover, QPushButton#Spk_buttn:hover, QPushButton#Log_buttn:hover, QPushButton#Offic_buttn:hover, 
+QPushButton#Teach_buttn:hover{
+background-color: rgb(110,110,110);
+color: white;
+}
+
+QPushButton#Newstu_buttn:!enable, QPushButton#Updata_buttn:!enable, QPushButton#ident_buttn:!enable,
+QPushButton#info_buttn:!enable,
+ QPushButton#log_buttn:!enable,
+ QPushButton#offic_buttn:!enable, 
+QPushButton#teach_buttn:!enable{
+background-color: rgb(110,110,110);
+color: white;
+}
+
+
+QTabWidget::pane {
+        border: none;
+        border-top: 3px solid rgb(0, 75, 141);
+        background: rgb(187, 212, 238);
+}
+QTabWidget::tab-bar {
+        border: none;
+}
+QTabBar::tab {
+        border: none;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color: white;
+        background: rgb(120, 170, 220);
+        height: 28px;
+        min-width: 85px;
+        padding-left: 5px;
+        padding-right: 5px;
+}
+QTabBar::tab:hover {
+        background: rgb(0, 78, 161);
+}
+QTabBar::tab:selected {
+        color: white;
+        background: rgb(0, 75, 141);
+}
+QStatusBar {
+        background:rgb(238,243,250);
+        border: 0px solid rgb(230,245,250);
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+}
+QStatusBar::item {
+    border: none;
+    border-right: 1px solid rgb(111, 156, 207);
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>661</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox {
+        height: 20px;
+        border-radius: 4px;
+        border: 1px solid rgb(209 , 209 , 209);
+        background: white;
+}
+QComboBox:enabled {
+        color: rgb(84, 84, 84);
+}
+QComboBox:!enabled {
+        color: rgb(80, 80, 80);
+}
+QComboBox:enabled:hover, QComboBox:enabled:focus {
+        border: 1px solid rgb(21 , 131 , 221);
+}
+QComboBox::drop-down {
+        width: 20px;
+        border: none;
+        background: transparent;
+}
+QComboBox::drop-down:hover {
+        background: rgba(255, 255, 255, 30);
+}
+QComboBox::down-arrow {
+        image: url(:/White/arrowBottom);
+}
+QComboBox::down-arrow:on {
+        /**top: 1px;**/
+}
+QComboBox QAbstractItemView {
+        border: 1px solid rgb(111, 156, 207);
+        background: white;
+        outline: none;
+}
+QComboBox QAbstractItemView::item {
+        height: 25px;
+        color: rgb(73, 73, 73);
+}
+QComboBox QAbstractItemView::item:selected {
+        background: rgb(232, 241, 250);
+        color: rgb(2, 65, 132);
+}
+QLineEdit
+{
+    background:white;
+    padding-left:5px ;
+    padding-top:1px ;
+    border-radius:3px;
+    border: 1px solid rgb(209 , 209 , 209);
+}
+QLineEdit:hover
+{
+    padding-top:0px ;
+    border: 1px solid rgb(21 , 131 , 221);
+}
+
+QWidget{
+color:rgb(33,33,33);
+}
+QPushButton{
+color:white;
+background-color: rgb(0, 75, 141);	
+border:0px;
+border-radius:4px;
+}
+QPushButton:hover{
+color:white;
+background-color:rgb(108, 156, 224);
+border:0px;
+border-radius:4px;
+}
+QDateTimeEdit
+{
+    background:white;
+    padding-left:5px ;
+    padding-top:1px ;
+    border-radius:3px;
+    border: 1px solid rgb(209 , 209 , 209);
+}
+QDateTimeEdit:hover
+{
+    border: 1px solid rgb(21 , 131 , 221);
+}
+
+</string>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="newstu_page">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QTabWidget" name="newstu_tabWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>641</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777212</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Adobe Heiti Std</family>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
+      </property>
+      <property name="usesScrollButtons">
+       <bool>false</bool>
+      </property>
+      <property name="documentMode">
+       <bool>false</bool>
+      </property>
+      <property name="tabsClosable">
+       <bool>false</bool>
+      </property>
+      <property name="movable">
+       <bool>false</bool>
+      </property>
+      <property name="tabBarAutoHide">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="register_tab">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <attribute name="title">
+        <string>录入</string>
+       </attribute>
+       <widget class="QLabel" name="stu_idcard">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>10</y>
+          <width>131</width>
+          <height>191</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>idcard</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="newstuShowclass_label">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>430</y>
+          <width>141</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="Line" name="line_5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>230</y>
+          <width>321</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line_6">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>10</y>
+          <width>16</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="newstuShowid_label">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>400</y>
+          <width>141</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="stu_id">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>400</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>学     号</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="stu_name">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>370</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>姓     名</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>260</y>
+          <width>251</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="camera_Vlayout_2"/>
+       </widget>
+       <widget class="QLabel" name="stu_fingers">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>131</width>
+          <height>221</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>finger</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line_7">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>10</y>
+          <width>20</width>
+          <height>221</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="newstuShowname_label">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>370</y>
+          <width>131</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="stu_photoimg">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>20</y>
+          <width>91</width>
+          <height>131</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>photo</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="stu_idimg">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>320</y>
+          <width>51</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>IDcard</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="stu_fingerimg">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>180</y>
+          <width>91</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>finger</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="takphoto_buttn_2">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>440</y>
+          <width>61</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>拍照</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="stu_fin_buttn">
+        <property name="geometry">
+         <rect>
+          <x>532</x>
+          <y>460</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>完成录入</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="stu_clas">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>430</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>班     级</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="stu_nocard_buttn">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>210</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>无学生卡</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="pissucc_label">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>70</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>is_sucess</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="fissucc_label">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>225</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>is_sucess</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="upload_tab">
+       <attribute name="title">
+        <string>上传</string>
+       </attribute>
+       <widget class="QPushButton" name="newstuLook_buttn">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>460</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查找</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="newstuUpload_buttn">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>460</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>上传</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>281</width>
+          <height>361</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <property name="horizontalSpacing">
+          <number>17</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>21</number>
+         </property>
+         <item row="0" column="0" colspan="2">
+          <widget class="QFrame" name="photoframe">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="newstuPhotoimg_label">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>81</width>
+              <height>111</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>photo</string>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="newstuId_label">
+           <property name="text">
+            <string>学号</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="newstuName_label">
+           <property name="text">
+            <string>姓名</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="newstuId_lineEdit"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="newstuFace_label">
+           <property name="text">
+            <string>是否录入照片</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="newstuClass_lineEdit"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="newstuFinger_label">
+           <property name="text">
+            <string>是否录入指纹</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QComboBox" name="newstuFinger_combox">
+           <item>
+            <property name="text">
+             <string>All</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>False</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>True</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="newstuName_lineEdit"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="newstuClass_label">
+           <property name="text">
+            <string>班级</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QComboBox" name="newstuFinger_combox_2">
+           <item>
+            <property name="text">
+             <string>All</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>False</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>True</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QCheckBox" name="newstuChoicall_checkbox">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>460</y>
+          <width>87</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>全选</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_6">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>10</y>
+          <width>291</width>
+          <height>441</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QTableView" name="newstu_tableview"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="ident_page">
+     <widget class="QTabWidget" name="ident_tab">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>641</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Adobe Heiti Std</family>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
+   border: 2px solid grey;
+   border-radius: 5px;
+   background-color: #FFFFFF;
+}
+ 
+QProgressBar::chunk {
+   background-color: rgb(21 , 131 , 221);
+   width: 20px;
+}
+ 
+QProgressBar {
+   border: 2px solid grey;
+   border-radius: 5px;
+   text-align: center;
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="input_tab">
+       <attribute name="title">
+        <string>身份比对</string>
+       </attribute>
+       <widget class="QPushButton" name="ident_fin_buttn">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>470</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>完成录入</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ident_idimg">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>320</y>
+          <width>51</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>IDcard</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line_3">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>40</y>
+          <width>16</width>
+          <height>231</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>270</y>
+          <width>321</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ident_id_2">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>400</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>学     号</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ident_fingerimg">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>180</y>
+          <width>91</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>finger</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="takphoto_buttn">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>470</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>拍  照</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line_2">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>10</y>
+          <width>16</width>
+          <height>501</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="showname">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>370</y>
+          <width>151</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="showId">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>400</y>
+          <width>151</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ident_idcard">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>50</y>
+          <width>131</width>
+          <height>191</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>idcard</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ident_name">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>370</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>姓     名</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ident_clas">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>430</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>班     级</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="showclass">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>430</y>
+          <width>161</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>300</y>
+          <width>251</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="camera_Vlayout"/>
+       </widget>
+       <widget class="QLabel" name="ident_fingers">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>131</width>
+          <height>211</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>finger</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ident_photoimg">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>20</y>
+          <width>91</width>
+          <height>131</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>photo</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>50</y>
+          <width>178</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="same_Vlayout">
+         <item>
+          <widget class="QLabel" name="ident_sametext_ph0">
+           <property name="text">
+            <string>匹配程度</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="ident_samebar_pho">
+           <property name="value">
+            <number>24</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_5">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>200</y>
+          <width>178</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QLabel" name="ident_sametext_fin">
+           <property name="text">
+            <string>匹配程度</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="ident_samebar_fin">
+           <property name="value">
+            <number>24</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QPushButton" name="identNocard_buttn_2">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>250</y>
+          <width>81</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>无学生卡</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>291</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="identchoiceexam_label">
+           <property name="text">
+            <string>请选择考场</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="identchoiceexam_comboBox"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Upload_tab">
+       <attribute name="title">
+        <string>数据上传</string>
+       </attribute>
+       <widget class="QPushButton" name="search_buttn">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>470</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查找</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="infosamerate">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>40</y>
+          <width>60</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>匹配程度</string>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="info_samebar">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>80</y>
+          <width>118</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="value">
+         <number>24</number>
+        </property>
+       </widget>
+       <widget class="Line" name="line_4">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>10</y>
+          <width>20</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="info_photo">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>20</y>
+          <width>81</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>photo</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>10</y>
+          <width>271</width>
+          <height>461</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <property name="horizontalSpacing">
+          <number>8</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>0</number>
+         </property>
+         <item row="1" column="0">
+          <widget class="QLabel" name="identExamnum_label">
+           <property name="text">
+            <string>考场号</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="identId_lineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="identId_label">
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>学号</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="identExamnum_comboBox"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="identName_label">
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>姓名</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="identName_lineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="identClass_label">
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>班级</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="identClass_lineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="identFinger_label">
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>是否有指纹</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QComboBox" name="identFinger_combox">
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>All</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>False</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>True</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="identFace_label">
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>是否有照片</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QComboBox" name="identFace_combox">
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>All</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>False</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>True</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="identIC_label">
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>是否有IC卡</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QComboBox" name="identIC_combox">
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>All</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>False</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>True</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>是否比对成功</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QComboBox" name="identIsmatch_comboBox">
+           <item>
+            <property name="text">
+             <string>All</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>False</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>True</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>是否为考场考生</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QComboBox" name="identIsappend_comboBox">
+           <item>
+            <property name="text">
+             <string>All</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>False</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>True</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QPushButton" name="identUpload_buttn">
+        <property name="geometry">
+         <rect>
+          <x>500</x>
+          <y>470</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>上传</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="identChoicall_checkbox">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>470</y>
+          <width>87</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>全选</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_7">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>140</y>
+          <width>281</width>
+          <height>321</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QTableView" name="tableView"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="spk_page">
+     <widget class="QTabWidget" name="spk_tabWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>641</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="input_tab_2">
+       <attribute name="title">
+        <string>讲座签到</string>
+       </attribute>
+       <widget class="QStackedWidget" name="spk_stackedWidget">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>70</y>
+          <width>481</width>
+          <height>321</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="sokStart_pages">
+         <widget class="QWidget" name="verticalLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>60</y>
+            <width>131</width>
+            <height>211</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="spkStart_buttn">
+             <property name="text">
+              <string>开启新讲座</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="spkContinue_buttn">
+             <property name="text">
+              <string>继续当前讲座</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="spkEnd_buttn">
+             <property name="text">
+              <string>结束当前讲座</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="spkIdcard_page">
+         <widget class="QPushButton" name="spk_nocard_buttn">
+          <property name="geometry">
+           <rect>
+            <x>380</x>
+            <y>280</y>
+            <width>101</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>无学生卡登记</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="spk_palcard_label">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>30</y>
+            <width>81</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>请放置学生卡</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="spkcard_label">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>80</y>
+            <width>291</width>
+            <height>171</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>card</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="spkInput_page">
+         <widget class="QWidget" name="formLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>50</y>
+            <width>231</width>
+            <height>201</height>
+           </rect>
+          </property>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="3" column="0">
+            <widget class="QLabel" name="spkn_card_label">
+             <property name="text">
+              <string>姓名</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="spk_name_lineEdit"/>
+           </item>
+           <item row="4" column="1">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="spkn_id_label">
+             <property name="text">
+              <string>学号</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="spkn_id_lineEdit"/>
+           </item>
+           <item row="6" column="1">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="spkn_class_label">
+             <property name="text">
+              <string>班级</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLineEdit" name="spkn_class_lineEdit"/>
+           </item>
+           <item row="8" column="1">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="spkBackcard_buttn">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>270</y>
+            <width>91</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>返回刷卡页面</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="spkFinish_buttn">
+          <property name="geometry">
+           <rect>
+            <x>270</x>
+            <y>270</y>
+            <width>91</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>完成录入</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="spkFinish_pages">
+         <widget class="QWidget" name="formLayoutWidget_4">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>70</y>
+            <width>264</width>
+            <height>181</height>
+           </rect>
+          </property>
+          <layout class="QFormLayout" name="formLayout_4">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::ExpandingFieldsGrow</enum>
+           </property>
+           <property name="rowWrapPolicy">
+            <enum>QFormLayout::DontWrapRows</enum>
+           </property>
+           <property name="labelAlignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="formAlignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="horizontalSpacing">
+            <number>-1</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>-1</number>
+           </property>
+           <property name="leftMargin">
+            <number>1</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>10</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="spkName_label">
+             <property name="text">
+              <string>姓   名:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="spkshowName_label">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>19</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="spkId_label">
+             <property name="text">
+              <string>学   号:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="spkshowId_label">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>19</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="spkClass_label">
+             <property name="text">
+              <string>班   级:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="spkshowClass_label">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>19</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="continue_buttn">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>270</y>
+            <width>101</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>继续录入</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="spkSpeechname_pages">
+         <widget class="QWidget" name="horizontalLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>110</y>
+            <width>351</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="spkSpeechname_label">
+             <property name="text">
+              <string>请输入讲座名称</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="spkSubmit_lineEdit"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="horizontalLayoutWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>160</y>
+            <width>351</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="spkSpeechroom_label">
+             <property name="text">
+              <string>请输入进行讲座的教室</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="spkSubmitroom_lineEdit"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="spkSubmit_buttn">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>220</y>
+            <width>60</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>19</height>
+           </size>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="text">
+           <string>提交</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="spkHome_buttn">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>40</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="spkCurspeech_label">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>10</y>
+          <width>541</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="upload_tab_2">
+       <attribute name="title">
+        <string>上传数据</string>
+       </attribute>
+       <widget class="QPushButton" name="spkUpload_buttn">
+        <property name="geometry">
+         <rect>
+          <x>500</x>
+          <y>480</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>上传</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>160</y>
+          <width>291</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <property name="horizontalSpacing">
+          <number>5</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>10</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="spkspeechName_label">
+           <property name="text">
+            <string>讲座名称</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QLineEdit" name="spkspeech_lineEdit"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QPushButton" name="spkFind_buttn">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>340</y>
+          <width>93</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查找</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_9">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>10</y>
+          <width>291</width>
+          <height>461</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QTableView" name="spk_tableView"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="updata_page">
+     <widget class="QTabWidget" name="updata_tabWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>641</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="updata_exam">
+       <attribute name="title">
+        <string>下载考场信息</string>
+       </attribute>
+       <widget class="QCheckBox" name="upexamAll_checkBox">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>470</y>
+          <width>87</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>全选</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="upexam_buttn">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>470</y>
+          <width>131</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>下载到本地数据库</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_11">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>581</width>
+          <height>431</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_9">
+         <item>
+          <widget class="QTableView" name="upexam_tableView"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="updata_user">
+       <attribute name="title">
+        <string>下载用户信息</string>
+       </attribute>
+       <widget class="QPushButton" name="updata_user_2">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>20</y>
+          <width>151</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>更新本地所有用户数据</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_10">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>50</y>
+          <width>551</width>
+          <height>431</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <widget class="QTableView" name="updata_tableView"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="updata_delete">
+       <attribute name="title">
+        <string>清除本机数据</string>
+       </attribute>
+       <widget class="QPushButton" name="updatadelect_buttn">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>180</y>
+          <width>151</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>一键清除本机存储数据</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="updataDeiniti_buttn">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>250</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>恢复出厂设置</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="log_page6">
+     <widget class="QTextBrowser" name="textBrowser">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>601</width>
+        <height>501</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="newtea_page">
+     <widget class="QTabWidget" name="newtea_tabWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>631</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Adobe Heiti Std</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="inputinfo">
+       <attribute name="title">
+        <string>录入</string>
+       </attribute>
+       <widget class="QStackedWidget" name="newtea_stackedWidget">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>130</y>
+          <width>341</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="card">
+         <widget class="QLabel" name="nocard_buttn">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>20</y>
+            <width>291</width>
+            <height>171</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>card</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="newtea_card">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>210</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>无职工卡</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="input">
+         <widget class="QWidget" name="formLayoutWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>70</y>
+            <width>181</width>
+            <height>85</height>
+           </rect>
+          </property>
+          <layout class="QFormLayout" name="formLayout_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="name_label">
+             <property name="text">
+              <string>用  户  名</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="passwd_label">
+             <property name="text">
+              <string>密        码</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="secpasswd_label">
+             <property name="text">
+              <string>确认密码</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="name_lineEdit">
+             <property name="echoMode">
+              <enum>QLineEdit::Normal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="pass_lineEdit">
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="secpasswd_lineEdit">
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="ok_buttn">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>180</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>确定</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="newteaback_buttn">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>180</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>返回刷卡</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="success">
+         <widget class="QPushButton" name="newteaSuccess_buttn">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>70</y>
+            <width>101</width>
+            <height>101</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="uploadinfo">
+       <attribute name="title">
+        <string>上传</string>
+       </attribute>
+       <widget class="QPushButton" name="newteaupload_buttn">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>440</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>上传</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_8">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>591</width>
+          <height>401</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <widget class="QTableView" name="newtea_tableView"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="newoff_page">
+     <widget class="QTabWidget" name="newoff_TabWeiget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>631</width>
+        <height>561</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Adobe Heiti Std</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="inputinfo_2">
+       <attribute name="title">
+        <string>录入</string>
+       </attribute>
+       <widget class="QStackedWidget" name="newoff_stackedWidget">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>130</y>
+          <width>341</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="card_2">
+         <widget class="QLabel" name="nocard_buttn_2">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>20</y>
+            <width>291</width>
+            <height>171</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>card</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="newoff_card">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>210</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>无职工卡</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="input_2">
+         <widget class="QWidget" name="formLayoutWidget_3">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>70</y>
+            <width>181</width>
+            <height>85</height>
+           </rect>
+          </property>
+          <layout class="QFormLayout" name="formLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="name_label_2">
+             <property name="text">
+              <string>用  户  名</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="passwd_label_2">
+             <property name="text">
+              <string>密        码</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="secpasswd_label_2">
+             <property name="text">
+              <string>确认密码</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="name_lineEdit_2"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="pass_lineEdit_2">
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="secpasswd_lineEdit_2">
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="newoffok_buttn">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>180</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>确认</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="newoffback_buttn_2">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>180</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>返回刷卡</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="success_2">
+         <widget class="QPushButton" name="newoffSuccess_buttn">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>70</y>
+            <width>101</width>
+            <height>101</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="uploadinfo_2">
+       <attribute name="title">
+        <string>上传</string>
+       </attribute>
+       <widget class="QPushButton" name="newoffupload_buttn">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>440</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>上传</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget_12">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>591</width>
+          <height>401</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_10">
+         <item>
+          <widget class="QTableView" name="newoff_tableView"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="menu" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>141</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>11</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <spacer name="verticalSpacer_15">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Newstu_buttn">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>新生注册</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Updata_buttn">
+       <property name="text">
+        <string>数据更新</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Ident_buttn">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>监考模式</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Spk_buttn">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>讲座模式</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Teach_buttn">
+       <property name="text">
+        <string>认证教师</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Offic_buttn">
+       <property name="text">
+        <string>认证管理员</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Log_buttn">
+       <property name="text">
+        <string>查看日志文件</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_14">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="close_buttn">
+    <property name="geometry">
+     <rect>
+      <x>776</x>
+      <y>3</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="mini_buttn">
+    <property name="geometry">
+     <rect>
+      <x>755</x>
+      <y>3</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="text_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>460</y>
+      <width>141</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="text_label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>141</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel#text_label
+{
+background-color:rgb(49,54,61);
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

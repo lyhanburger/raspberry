@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="91e72a45-073c-4980-b4bd-2c2e16f46f52" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configDB.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configDB.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1433">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1505908600000" expanded="true" signature="1018:1045" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1065:1094" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1112:1149" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1167:1194" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1212:1246" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1264:1289" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1307:1339" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1357:1390" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1408:1440" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="1462:1543" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="1563:1682" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="1702:1846" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="1865:1965" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="1983:2094" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="2112:2375" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="2393:2490" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="2510:2628" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="2726:2834" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="2852:3052" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="3149:3176" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="3196:3224" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="3242:3269" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="3287:3321" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="3339:3364" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="3382:3414" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="3432:3464" ph="drop table i... " />
+                <marker date="1505908600000" expanded="true" signature="3493:3575" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="3628:3814" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="3840:3940" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="3958:4232" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="4250:4346" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="4375:4532" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="4632:4729" ph="create table... if" />
+                <marker date="1505908600000" expanded="true" signature="4830:4883" ph="insert into user" />
+                <marker date="1505908600000" expanded="true" signature="4912:4965" ph="insert into user" />
+                <marker date="1505908600000" expanded="true" signature="4992:5077" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5105:5190" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5218:5303" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5321:5406" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5424:5509" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5527:5612" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5630:5715" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5733:5818" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5836:5921" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="5939:6024" ph="insert into student... " />
+                <marker date="1505908600000" expanded="true" signature="6042:6109" ph="insert into exam... " />
+                <marker date="1505908600000" expanded="true" signature="6134:6201" ph="insert into exam... " />
+                <marker date="1505908600000" expanded="true" signature="6219:6286" ph="insert into exam... " />
+                <marker date="1505908600000" expanded="true" signature="6304:6348" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6400:6444" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6496:6540" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6558:6602" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6620:6664" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6682:6726" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6744:6788" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6806:6850" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6868:6912" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="6930:6974" ph="insert into exam_member... " />
+                <marker date="1505908600000" expanded="true" signature="7437:7487" ph="insert into &quot;user&quot;... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configFTP.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configFTP.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1138">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1505909330000" expanded="true" signature="804:858" ph="select finge... register_student" />
+                <marker date="1505909330000" expanded="true" signature="2316:2383" ph="select finge... exam_record" />
+                <marker date="1505909330000" expanded="true" signature="2776:2821" ph="select stu_i... exam_member" />
+                <marker date="1505909330000" expanded="true" signature="2935:2977" ph="select finge... student" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exam.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exam.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="526">
+              <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+              <folding>
+                <marker date="1505913053000" expanded="true" signature="300:328" ph="select * fro... exam" />
+                <marker date="1505913053000" expanded="true" signature="397:532" ph="insert into exam... " />
+                <marker date="1505913053000" expanded="true" signature="682:708" ph="delete from " />
+                <marker date="1505913053000" expanded="true" signature="932:972" ph="select * fro... exam_member" />
+                <marker date="1505913053000" expanded="true" signature="1064:1135" ph="insert into exam_member... " />
+                <marker date="1505913053000" expanded="true" signature="1136:1195" ph="update set e... " />
+                <marker date="1505913053000" expanded="true" signature="1228:1322" ph="insert into exam_record... " />
+                <marker date="1505913053000" expanded="true" signature="1475:1513" ph="delete from " />
+                <marker date="1505913053000" expanded="true" signature="1740:1850" ph="select id, n... student" />
+                <marker date="1505913053000" expanded="true" signature="1942:2002" ph="insert into exam_student... " />
+                <marker date="1505913053000" expanded="true" signature="2003:2110" ph="update set\ " />
+                <marker date="1505913053000" expanded="true" signature="2218:2283" ph="select is_ap... exam_record" />
+                <marker date="1505913053000" expanded="true" signature="2544:2629" ph="insert into exam_student... " />
+                <marker date="1505913053000" expanded="true" signature="2630:2701" ph="update set i... " />
+                <marker date="1505913053000" expanded="true" signature="2919:3136" ph="insert into exam_record... " />
+                <marker date="1505913053000" expanded="true" signature="3137:3388" ph="update set\ " />
+                <marker date="1505913053000" expanded="true" signature="3611:3663" ph="delete from " />
+                <marker date="1505913053000" expanded="true" signature="3887:4039" ph="select exam_... exam_record" />
+                <marker date="1505913053000" expanded="true" signature="4137:4337" ph="insert into exam_record... " />
+                <marker date="1505913053000" expanded="true" signature="4338:4589" ph="update set\ " />
+                <marker date="1505913053000" expanded="true" signature="4619:4693" ph="update exam_... " />
+                <marker date="1505913053000" expanded="true" signature="4737:4792" ph="select stu_i... exam_record" />
+                <marker date="1505913053000" expanded="true" signature="4878:4925" ph="select name,... exam_student" />
+                <marker date="1505913053000" expanded="true" signature="5007:5085" ph="insert into student... " />
+                <marker date="1505913053000" expanded="true" signature="5086:5136" ph="update set n... " />
+                <marker date="1505913053000" expanded="true" signature="5277:5296" ph="select id fr... exam" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <marker date="1505913053000" expanded="true" signature="222:242" ph="select * fro... user" />
+                <marker date="1505913053000" expanded="true" signature="372:400" ph="insert into &quot;user&quot;... " />
+                <marker date="1505913053000" expanded="true" signature="525:579" ph="select right... user" />
+                <marker date="1505913053000" expanded="true" signature="787:853" ph="insert into user_add... " />
+                <marker date="1505913053000" expanded="true" signature="858:949" ph="update set p... " />
+                <marker date="1505913053000" expanded="true" signature="1075:1105" ph="select id fr... user_add" />
+                <marker date="1505913053000" expanded="true" signature="1322:1356" ph="delete from " />
+                <marker date="1505913053000" expanded="true" signature="1622:1675" ph="select id, p... user_add" />
+                <marker date="1505913053000" expanded="true" signature="1759:1811" ph="insert into &quot;user&quot;... " />
+                <marker date="1505913053000" expanded="true" signature="1812:1869" ph="update set p... " />
+                <marker date="1505913053000" expanded="true" signature="1904:1950" ph="update user_... " />
+                <marker date="1505913053000" expanded="true" signature="2079:2099" ph="select * fro... user" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="457">
+              <caret line="94" column="50" lean-forward="true" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="50" />
+              <folding>
+                <marker date="1505913053000" expanded="true" signature="533:562" ph="select id, r... user" />
+                <marker date="1505913053000" expanded="true" signature="623:708" ph="select id, r... user_add" />
+                <marker date="1505913053000" expanded="true" signature="827:1044" ph="select id, n... register_student" />
+                <marker date="1505913053000" expanded="true" signature="1209:1378" ph="select id, n... exam" />
+                <marker date="1505913053000" expanded="true" signature="1470:1639" ph="select id, n... " />
+                <marker date="1505913053000" expanded="true" signature="1806:1825" ph="select id fr... exam" />
+                <marker date="1505913053000" expanded="true" signature="1993:2131" ph="select id, n... exam" />
+                <marker date="1505913053000" expanded="true" signature="2307:2761" ph="select exam_... exam_record" />
+                <marker date="1505913053000" expanded="true" signature="2873:2940" ph="select id,na... speech" />
+                <marker date="1505913053000" expanded="true" signature="3022:3223" ph="select spe_i... speech_record" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/exam.py" />
+        <option value="$PROJECT_DIR$/login.py" />
+        <option value="$PROJECT_DIR$/view.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="86" />
+    <option name="width" value="1276" />
+    <option name="height" value="773" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="communication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="communication" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="91e72a45-073c-4980-b4bd-2c2e16f46f52" name="Default" comment="" />
+      <created>1505912782396</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1505912782396</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="86" y="0" width="1276" height="773" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959481" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1433">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1505908600000" expanded="true" signature="1018:1045" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1065:1094" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1112:1149" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1167:1194" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1212:1246" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1264:1289" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1307:1339" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1357:1390" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1408:1440" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="1462:1543" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="1563:1682" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="1702:1846" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="1865:1965" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="1983:2094" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="2112:2375" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="2393:2490" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="2510:2628" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="2726:2834" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="2852:3052" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="3149:3176" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="3196:3224" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="3242:3269" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="3287:3321" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="3339:3364" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="3382:3414" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="3432:3464" ph="drop table i... " />
+            <marker date="1505908600000" expanded="true" signature="3493:3575" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="3628:3814" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="3840:3940" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="3958:4232" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="4250:4346" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="4375:4532" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="4632:4729" ph="create table... if" />
+            <marker date="1505908600000" expanded="true" signature="4830:4883" ph="insert into user" />
+            <marker date="1505908600000" expanded="true" signature="4912:4965" ph="insert into user" />
+            <marker date="1505908600000" expanded="true" signature="4992:5077" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5105:5190" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5218:5303" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5321:5406" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5424:5509" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5527:5612" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5630:5715" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5733:5818" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5836:5921" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="5939:6024" ph="insert into student... " />
+            <marker date="1505908600000" expanded="true" signature="6042:6109" ph="insert into exam... " />
+            <marker date="1505908600000" expanded="true" signature="6134:6201" ph="insert into exam... " />
+            <marker date="1505908600000" expanded="true" signature="6219:6286" ph="insert into exam... " />
+            <marker date="1505908600000" expanded="true" signature="6304:6348" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6400:6444" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6496:6540" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6558:6602" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6620:6664" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6682:6726" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6744:6788" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6806:6850" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6868:6912" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="6930:6974" ph="insert into exam_member... " />
+            <marker date="1505908600000" expanded="true" signature="7437:7487" ph="insert into &quot;user&quot;... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configFTP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1138">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1505909330000" expanded="true" signature="804:858" ph="select finge... register_student" />
+            <marker date="1505909330000" expanded="true" signature="2316:2383" ph="select finge... exam_record" />
+            <marker date="1505909330000" expanded="true" signature="2776:2821" ph="select stu_i... exam_member" />
+            <marker date="1505909330000" expanded="true" signature="2935:2977" ph="select finge... student" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding>
+            <marker date="1505913053000" expanded="true" signature="300:328" ph="select * fro... exam" />
+            <marker date="1505913053000" expanded="true" signature="397:532" ph="insert into exam... " />
+            <marker date="1505913053000" expanded="true" signature="682:708" ph="delete from " />
+            <marker date="1505913053000" expanded="true" signature="932:972" ph="select * fro... exam_member" />
+            <marker date="1505913053000" expanded="true" signature="1064:1135" ph="insert into exam_member... " />
+            <marker date="1505913053000" expanded="true" signature="1136:1195" ph="update set e... " />
+            <marker date="1505913053000" expanded="true" signature="1228:1322" ph="insert into exam_record... " />
+            <marker date="1505913053000" expanded="true" signature="1475:1513" ph="delete from " />
+            <marker date="1505913053000" expanded="true" signature="1740:1850" ph="select id, n... student" />
+            <marker date="1505913053000" expanded="true" signature="1942:2002" ph="insert into exam_student... " />
+            <marker date="1505913053000" expanded="true" signature="2003:2110" ph="update set\ " />
+            <marker date="1505913053000" expanded="true" signature="2218:2283" ph="select is_ap... exam_record" />
+            <marker date="1505913053000" expanded="true" signature="2544:2629" ph="insert into exam_student... " />
+            <marker date="1505913053000" expanded="true" signature="2630:2701" ph="update set i... " />
+            <marker date="1505913053000" expanded="true" signature="2919:3136" ph="insert into exam_record... " />
+            <marker date="1505913053000" expanded="true" signature="3137:3388" ph="update set\ " />
+            <marker date="1505913053000" expanded="true" signature="3611:3663" ph="delete from " />
+            <marker date="1505913053000" expanded="true" signature="3887:4039" ph="select exam_... exam_record" />
+            <marker date="1505913053000" expanded="true" signature="4137:4337" ph="insert into exam_record... " />
+            <marker date="1505913053000" expanded="true" signature="4338:4589" ph="update set\ " />
+            <marker date="1505913053000" expanded="true" signature="4619:4693" ph="update exam_... " />
+            <marker date="1505913053000" expanded="true" signature="4737:4792" ph="select stu_i... exam_record" />
+            <marker date="1505913053000" expanded="true" signature="4878:4925" ph="select name,... exam_student" />
+            <marker date="1505913053000" expanded="true" signature="5007:5085" ph="insert into student... " />
+            <marker date="1505913053000" expanded="true" signature="5086:5136" ph="update set n... " />
+            <marker date="1505913053000" expanded="true" signature="5277:5296" ph="select id fr... exam" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <marker date="1505913053000" expanded="true" signature="222:242" ph="select * fro... user" />
+            <marker date="1505913053000" expanded="true" signature="372:400" ph="insert into &quot;user&quot;... " />
+            <marker date="1505913053000" expanded="true" signature="525:579" ph="select right... user" />
+            <marker date="1505913053000" expanded="true" signature="787:853" ph="insert into user_add... " />
+            <marker date="1505913053000" expanded="true" signature="858:949" ph="update set p... " />
+            <marker date="1505913053000" expanded="true" signature="1075:1105" ph="select id fr... user_add" />
+            <marker date="1505913053000" expanded="true" signature="1322:1356" ph="delete from " />
+            <marker date="1505913053000" expanded="true" signature="1622:1675" ph="select id, p... user_add" />
+            <marker date="1505913053000" expanded="true" signature="1759:1811" ph="insert into &quot;user&quot;... " />
+            <marker date="1505913053000" expanded="true" signature="1812:1869" ph="update set p... " />
+            <marker date="1505913053000" expanded="true" signature="1904:1950" ph="update user_... " />
+            <marker date="1505913053000" expanded="true" signature="2079:2099" ph="select * fro... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="94" column="50" lean-forward="true" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="50" />
+          <folding>
+            <marker date="1505913053000" expanded="true" signature="533:562" ph="select id, r... user" />
+            <marker date="1505913053000" expanded="true" signature="623:708" ph="select id, r... user_add" />
+            <marker date="1505913053000" expanded="true" signature="827:1044" ph="select id, n... register_student" />
+            <marker date="1505913053000" expanded="true" signature="1209:1378" ph="select id, n... exam" />
+            <marker date="1505913053000" expanded="true" signature="1470:1639" ph="select id, n... " />
+            <marker date="1505913053000" expanded="true" signature="1806:1825" ph="select id fr... exam" />
+            <marker date="1505913053000" expanded="true" signature="1993:2131" ph="select id, n... exam" />
+            <marker date="1505913053000" expanded="true" signature="2307:2761" ph="select exam_... exam_record" />
+            <marker date="1505913053000" expanded="true" signature="2873:2940" ph="select id,na... speech" />
+            <marker date="1505913053000" expanded="true" signature="3022:3223" ph="select spe_i... speech_record" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
