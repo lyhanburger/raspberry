@@ -245,6 +245,7 @@ class Ui_login(QDialog):
 
     def input_loginshow(self):
         self.stackedWidget.setCurrentIndex(1)
+        print("ts et")
         login_gif=QMovie("./img/login.gif")
         self.title.setMovie(login_gif)
         login_gif.start()

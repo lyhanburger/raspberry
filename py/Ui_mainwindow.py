@@ -1215,6 +1215,14 @@ class Ui_sysmainwindow(object):
         self.updata_tabWidget.setCurrentIndex(0)
 
         ##################信号槽###################
+        self.Newstu_buttn.pressed.connect(sysmainwindow.stopcamera)
+        self.Ident_buttn.pressed.connect(sysmainwindow.stopcamera)
+        self.Log_buttn.pressed.connect(sysmainwindow.stopcamera)
+        self.Offic_buttn.pressed.connect(sysmainwindow.stopcamera)
+        self.Spk_buttn.pressed.connect(sysmainwindow.stopcamera)
+        self.Teach_buttn.pressed.connect(sysmainwindow.stopcamera)
+        self.Updata_buttn.pressed.connect(sysmainwindow.stopcamera)
+        
         self.mini_buttn.clicked.connect(sysmainwindow.minimize)
         self.close_buttn.clicked.connect(sysmainwindow.closewindow)
 
@@ -1296,7 +1304,7 @@ class Ui_sysmainwindow(object):
         self.stu_photoimg.setText(_translate("sysmainwindow", "photo"))
         self.stu_idimg.setText(_translate("sysmainwindow", "IDcard"))
         self.stu_fingerimg.setText(_translate("sysmainwindow", "finger"))
-        self.takphoto_buttn_2.setText(_translate("sysmainwindow", "拍照"))
+        self.takphoto_buttn_2.setText(_translate("sysmainwindow", "拍照2"))
         self.stu_fin_buttn.setText(_translate("sysmainwindow", "完成录入"))
         self.stu_clas.setText(_translate("sysmainwindow", "班     级"))
         self.stu_nocard_buttn.setText(_translate("sysmainwindow", "无学生卡"))
@@ -1325,7 +1333,7 @@ class Ui_sysmainwindow(object):
         self.ident_idimg.setText(_translate("sysmainwindow", "IDcard"))
         self.ident_id_2.setText(_translate("sysmainwindow", "学     号"))
         self.ident_fingerimg.setText(_translate("sysmainwindow", "finger"))
-        self.takphoto_buttn.setText(_translate("sysmainwindow", "拍照"))
+        self.takphoto_buttn.setText(_translate("sysmainwindow", "拍照1"))
         self.ident_idcard.setText(_translate("sysmainwindow", "idcard"))
         self.ident_name.setText(_translate("sysmainwindow", "姓     名"))
         self.ident_clas.setText(_translate("sysmainwindow", "班     级"))

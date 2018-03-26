@@ -245,28 +245,28 @@ class setdevice(QMainWindow):
 
     def spkshow(self):
         
-        if self.camera:
-            print(¨¨
-            sleep(0.2)
-            self.camera.stop()
-            sleep(0.2)
-            self.camera.unload()
-            sleep(0.2)
+        #if self.camera:
+           # print(¨¨
+         #   sleep(0.2)
+          #  self.camera.stop()
+        sleep(0.2)
+           # self.camera.unload()
+            #sleep(0.2)
 
         self.id.setvalue(3)
         self.ui.welcome_label.hide()
         self.ui.text_label.setPixmap(QPixmap(" "))
         self.ui.stackedWidget.setCurrentIndex(2)
         self.ui.spk_stackedWidget.setCurrentIndex(0)
-        self.ui.centralwidget.setStyleSheet(S
+        #self.ui.centralwidget.setStyleSheet(S
     def updatashow(self):
         
-        if self.camera:
-            sleep(0.2)
-            self.camera.stop()
-            sleep(0.2)
-            self.camera.unload()
-            sleep(0.2)
+        #if self.camera:
+         #   sleep(0.2)
+          #  self.camera.stop()
+        sleep(0.2)
+           # self.camera.unload()
+            #sleep(0.2)
 
         self.id.setvalue(0)
         self.ui.welcome_label.hide()
@@ -281,12 +281,12 @@ class setdevice(QMainWindow):
 
     def logshow(self):
         
-        if self.camera:
-            sleep(0.2)
-            self.camera.stop()
-            sleep(0.2)
-            self.camera.unload()
-            sleep(0.2)
+        #if self.camera:
+           # sleep(0.2)
+           # self.camera.stop()
+        sleep(0.2)
+           # self.camera.unload()
+           # sleep(0.2)
 
         self.id.setvalue(0)
         self.ui.welcome_label.hide()
@@ -298,13 +298,13 @@ class setdevice(QMainWindow):
 
     def teashow(self):
         
-        if self.camera:
+       # if self.camera:
     
-            sleep(0.2)
-            self.camera.stop()
-            sleep(0.2)
-            self.camera.unload()
-            sleep(0.2)
+           # sleep(0.2)
+            #self.camera.stop()
+            #sleep(0.2)
+           # self.camera.unload()
+        sleep(0.2)
 
         self.id.setvalue(4)
         self.ui.welcome_label.hide()
@@ -315,13 +315,13 @@ class setdevice(QMainWindow):
 
     def offshow(self):
         
-        if self.camera:
+       # if self.camera:
         
-            sleep(0.2)
-            self.camera.stop()
-            sleep(0.2)
-            self.camera.unload()
-            sleep(0.2)
+            #sleep(0.2)
+            #self.camera.stop()
+            #sleep(0.2)
+           # self.camera.unload()
+        sleep(0.2)
         
         self.id.setvalue(5)
         self.ui.welcome_label.hide()
@@ -331,13 +331,19 @@ class setdevice(QMainWindow):
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/new_bg.jpg);}")
 
 ########################是否架设相机################################
+    def checkCameraAvailability(self):
+        if len(QCameraInfo.availableCameras()) > 0:
+            return True
+        else:
+            return False
     def setCamera(self,i):
        
-       # if cameraDevice.isEmpty():
-      #      self.camera = QCamera()
-     #   else:
-    #        self.camera = QCamera(cameraDevice)
+        #if cameraDevice.isEmpty():
+        #    self.camera = QCamera()
+        #else:
+         #   self.camera = QCamera(cameraDevice)
     
+        print("ok")
         self.camera = QCamera()   
         if self.camera.state() == QCamera.ActiveState:
             sleep(0.2)
@@ -345,7 +351,7 @@ class setdevice(QMainWindow):
             sleep(0.2)
             self.camera.unload()
             sleep(0.2)
-            #self.camera.load()
+            self.camera.load()
     
         #self.camera.load()
         self.camera.error.connect(self.displayCameraError)
@@ -371,6 +377,7 @@ class setdevice(QMainWindow):
         self.camera.start()
 
 
+
     
             
 ##############################静态图像捕捉######################################
@@ -392,13 +399,21 @@ class setdevice(QMainWindow):
 
     def captureImage(self):
         self.isCapturingImage = True
+        #print(self.camera.lockStatus)
+        print("takephoto")
         self.imageCapture.capture()
+#        self.camera.stop()
+#        self.camera.unload()
 
     def displayCameraError(self):
         QMessageBox.warning(self, "Camera error", self.camera.errorString())
 
+    
+    def stopcamera(self):
+        pass
     ############相片存储：新生注册####################
     def imageSaved(self):
+        print("new register")
         pixmap = self.ui.stu_photoimg.pixmap()
         pwd = os.getcwd()  # 当前文件路径
         img_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
