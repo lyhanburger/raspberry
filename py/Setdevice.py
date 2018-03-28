@@ -1,12 +1,11 @@
 # -*- coding: UTF-8 -*-
 from importlib import reload
 
-from PyQt5.QtSql import QSqlTableModel
-
 from Ui_mainwindow import Ui_sysmainwindow
-
 from newform import Ui_Newform
 from logfile import *
+
+from PyQt5.QtSql import QSqlTableModel
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
