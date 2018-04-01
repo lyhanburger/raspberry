@@ -321,7 +321,7 @@ class setdevice(QMainWindow):
         self.viewfindersettings = QCameraViewfinderSettings()
         self.viewfindersettings.setResolution(352, 288)
         self.viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
-        self.camera.setViewfinderSettings(viewfindersettings)
+        self.camera.setViewfinderSettings(self.viewfindersettings)
         self.camera.start()
 
     def choseViewfinder(self,ci):
