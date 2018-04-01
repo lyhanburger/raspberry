@@ -65,7 +65,7 @@ class setdevice(QMainWindow):
            self.camera = QCamera()
         else:
            self.camera = QCamera(self.cameraDevice[0])
-           printINFO(str(self.camera.status))
+           printINFO(str(self.camera.status()))
 
         self.imageCapture = None
         self.mediaRecorder = None
@@ -225,7 +225,7 @@ class setdevice(QMainWindow):
         self.ui.text_label.setPixmap(QPixmap("./img/text.jpeg"))
         self.Fpoperate.setvalue(1,"")
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/new_bg.jpg);}")
-       self.setCamera(1)
+        self.setCamera(1)
     
      
 
@@ -337,7 +337,7 @@ class setdevice(QMainWindow):
 
 
     def setCamera(self,i):
-        printINFO("set camera --"+str(i)+"-- "+str(self.camera.status))
+        printINFO("set camera --"+str(i)+"-- "+str(self.camera.status()))
         self.camera.error.connect(self.displayCameraError)
         self.imageCapture = QCameraImageCapture(self.camera)
 
@@ -359,6 +359,7 @@ class setdevice(QMainWindow):
         self.camera.setViewfinderSettings(viewfindersettings)
         
         self.camera.start()
+        printINFO("set camera --"+str(i)+"-- "+str(self.camera.status()))
 
 
 
