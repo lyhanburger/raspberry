@@ -337,7 +337,10 @@ class setdevice(QMainWindow):
 
 
     def setCamera(self,i):
-        printINFO("set camera --"+str(i)+"-- "+str(self.camera.status()))
+        printINFO("set camera --"+str(i)+"-- "+str(self.camera.state()))
+        if self.camera.state() == QCamera.ActiveState:
+            self.camera.stateChanged(QCamera.UnloadedState)
+            sleep(0.2)
         self.camera.error.connect(self.displayCameraError)
         self.imageCapture = QCameraImageCapture(self.camera)
 
@@ -359,7 +362,7 @@ class setdevice(QMainWindow):
         self.camera.setViewfinderSettings(viewfindersettings)
         
         self.camera.start()
-        printINFO("set camera --"+str(i)+"-- "+str(self.camera.status()))
+        printINFO("set camera --"+str(i)+"-- "+str(self.camera.state()))
 
 
 
