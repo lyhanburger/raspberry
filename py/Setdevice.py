@@ -340,6 +340,7 @@ class setdevice(QMainWindow):
         printINFO("set camera --"+str(i)+"-- "+str(self.camera.state()))
         if self.camera.state() == QCamera.ActiveState:
             self.camera.stateChanged(QCamera.UnloadedState)
+            printINFO("set camera --"+str(i)+"-- "+str(self.camera.state())) 
             sleep(0.2)
         self.camera.error.connect(self.displayCameraError)
         self.imageCapture = QCameraImageCapture(self.camera)
