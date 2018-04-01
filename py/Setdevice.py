@@ -324,7 +324,7 @@ class setdevice(QMainWindow):
         self.camera.setViewfinderSettings(self.viewfindersettings)
         self.camera.start()
 
-    def choseViewfinder(self,ci):
+    def choseViewfinder(self,i):
         if i==1:
             self.camera.setViewfinder(self.ui.viewfinder2)
             self.imageCapture.imageCaptured.connect(self.processCapturedImage_1)
