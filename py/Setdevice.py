@@ -79,7 +79,6 @@ class setdevice(QMainWindow):
 
         self.getrights(rights)#给权限
         self.setimg()#贴图
-        self.setCamera()
         self.spe_id_local=0
 
 
@@ -225,9 +224,8 @@ class setdevice(QMainWindow):
         self.ui.newstu_tabWidget.setCurrentIndex(0)
         self.ui.text_label.setPixmap(QPixmap("./img/text.jpeg"))
         self.Fpoperate.setvalue(1,"")
-        
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/new_bg.jpg);}")
-        self.choseViewfinder(1)
+       self.setCamera(1)
     
      
 
@@ -246,7 +244,7 @@ class setdevice(QMainWindow):
         self.examIds()
         
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/exam_bg.jpg);}")
-        self.choseViewfinder(2)
+        self.setCamera(2)
         
 
     def spkshow(self):
