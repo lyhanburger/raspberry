@@ -61,10 +61,16 @@ class setdevice(QMainWindow):
 
         self.camera = None
         self.cameraDevice = QCameraInfo.availableCameras();
+        if len(self.cameraDevice) == 0:
+           self.camera = QCamera()
+        else:
+           self.camera = QCamera(self.cameraDevice[0])
+           printINFO(str(self.camera.status))
+
         self.imageCapture = None
         self.mediaRecorder = None
         self.isCapturingImage = False
-        self.viewfindersettings = None
+        # self.viewfindersettings = None
 
         self.ui.setupUi(self)
 
@@ -310,53 +316,17 @@ class setdevice(QMainWindow):
         else:
             return False
 
-    def setCamera(self):
-        if len(self.cameraDevice) == 0:
-           self.camera = QCamera()
-        else:
-           self.camera = QCamera(self.cameraDevice[0])
-           printINFO('set camera')
-        self.camera.error.connect(self.displayCameraError)
-        self.imageCapture = QCameraImageCapture(self.camera)
-        self.viewfindersettings = QCameraViewfinderSettings()
-        self.viewfindersettings.setResolution(352, 288)
-        self.viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
-        self.camera.setViewfinderSettings(self.viewfindersettings)
-        self.camera.start()
-
-    def choseViewfinder(self,i):
-        if i==1:
-            self.camera.setViewfinder(self.ui.viewfinder2)
-            self.imageCapture.imageCaptured.connect(self.processCapturedImage_1)
-            self.imageCapture.imageSaved.connect(self.imageSaved)
-
-        elif i==2:
-            self.camera.setViewfinder(self.ui.viewfinder)
-            self.imageCapture.imageCaptured.connect(self.processCapturedImage_2)
-            self.imageCapture.imageSaved.connect(self.imageSaved_2)
-
-
-    # def setCamera(self,i):
-       
-    #     #if cameraDevice.isEmpty():
-    #     #    self.camera = QCamera()
-    #     #else:
-    #      #   self.camera = QCamera(cameraDevice)
-    
-    #     print("ok")
-    #     self.camera = QCamera()   
-    #     if self.camera.state() == QCamera.ActiveState:
-    #         sleep(0.2)
-    #         self.camera.stop()
-    #         sleep(0.2)
-    #         self.camera.unload()
-    #         sleep(0.2)
-    #         self.camera.load()
-    
-    #     #self.camera.load()
+    # def setCamera(self):
+        
     #     self.camera.error.connect(self.displayCameraError)
     #     self.imageCapture = QCameraImageCapture(self.camera)
+    #     self.viewfindersettings = QCameraViewfinderSettings()
+    #     self.viewfindersettings.setResolution(352, 288)
+    #     self.viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
+    #     self.camera.setViewfinderSettings(self.viewfindersettings)
+    #     self.camera.start()
 
+    # def choseViewfinder(self,i):
     #     if i==1:
     #         self.camera.setViewfinder(self.ui.viewfinder2)
     #         self.imageCapture.imageCaptured.connect(self.processCapturedImage_1)
@@ -367,14 +337,30 @@ class setdevice(QMainWindow):
     #         self.imageCapture.imageCaptured.connect(self.processCapturedImage_2)
     #         self.imageCapture.imageSaved.connect(self.imageSaved_2)
 
-    #     #sizeList = self.camera.supportedViewfinderResolutions()
-    #     #print("支持的大小：", sizeList)
-    #     viewfindersettings = QCameraViewfinderSettings()
-    #     viewfindersettings.setResolution(352, 288)
-    #     viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
-    #     self.camera.setViewfinderSettings(viewfindersettings)
+
+    def setCamera(self,i):
+        printINFO("set camera --"+str(i)+"-- "+str(self.camera.status))
+        self.camera.error.connect(self.displayCameraError)
+        self.imageCapture = QCameraImageCapture(self.camera)
+
+        if i==1:
+            self.camera.setViewfinder(self.ui.viewfinder2)
+            self.imageCapture.imageCaptured.connect(self.processCapturedImage_1)
+            self.imageCapture.imageSaved.connect(self.imageSaved)
+
+        elif i==2:
+            self.camera.setViewfinder(self.ui.viewfinder)
+            self.imageCapture.imageCaptured.connect(self.processCapturedImage_2)
+            self.imageCapture.imageSaved.connect(self.imageSaved_2)
+
+        #sizeList = self.camera.supportedViewfinderResolutions()
+        #print("支持的大小：", sizeList)
+        viewfindersettings = QCameraViewfinderSettings()
+        viewfindersettings.setResolution(352, 288)
+        viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
+        self.camera.setViewfinderSettings(viewfindersettings)
         
-    #     self.camera.start()
+        self.camera.start()
 
 
 
