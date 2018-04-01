@@ -313,7 +313,7 @@ class setdevice(QMainWindow):
         if len(self.cameraDevice) == 0:
            self.camera = QCamera()
         else:
-           self.camera = QCamera(cameraDevice[0])
+           self.camera = QCamera(self.cameraDevice[0])
            printINFO('set camera')
         self.camera.error.connect(self.displayCameraError)
         self.imageCapture = QCameraImageCapture(self.camera)
