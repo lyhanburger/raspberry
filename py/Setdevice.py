@@ -64,6 +64,7 @@ class setdevice(QMainWindow):
         self.imageCapture = None
         self.mediaRecorder = None
         self.isCapturingImage = False
+        self.viewfindersettings = None
 
         self.ui.setupUi(self)
 
@@ -317,13 +318,13 @@ class setdevice(QMainWindow):
            printINFO('set camera')
         self.camera.error.connect(self.displayCameraError)
         self.imageCapture = QCameraImageCapture(self.camera)
-        viewfindersettings = QCameraViewfinderSettings()
-        viewfindersettings.setResolution(352, 288)
-        viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
+        self.viewfindersettings = QCameraViewfinderSettings()
+        self.viewfindersettings.setResolution(352, 288)
+        self.viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
         self.camera.setViewfinderSettings(viewfindersettings)
         self.camera.start()
 
-    def choseViewfinder(self,i):
+    def choseViewfinder(self,ci):
         if i==1:
             self.camera.setViewfinder(self.ui.viewfinder2)
             self.imageCapture.imageCaptured.connect(self.processCapturedImage_1)
