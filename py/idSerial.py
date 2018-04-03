@@ -11,6 +11,7 @@ def getPort():
     try:
         port_list = serial.tools.list_ports.comports()
     except:
+        pass
         # print("IDNONE")
     port = 0
     for ports in port_list:
