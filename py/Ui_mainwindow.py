@@ -1238,13 +1238,13 @@ class Ui_sysmainwindow(object):
         self.updata_tabWidget.setCurrentIndex(0)
 
         ##################信号槽###################
-        self.Newstu_buttn.pressed.connect(sysmainwindow.stopcamera)
-        self.Ident_buttn.pressed.connect(sysmainwindow.stopcamera)
-        self.Log_buttn.pressed.connect(sysmainwindow.stopcamera)
-        self.Offic_buttn.pressed.connect(sysmainwindow.stopcamera)
-        self.Spk_buttn.pressed.connect(sysmainwindow.stopcamera)
-        self.Teach_buttn.pressed.connect(sysmainwindow.stopcamera)
-        self.Updata_buttn.pressed.connect(sysmainwindow.stopcamera)
+        # self.Newstu_buttn.pressed.connect(sysmainwindow.stopcamera)
+        # self.Ident_buttn.pressed.connect(sysmainwindow.stopcamera)
+        # self.Log_buttn.pressed.connect(sysmainwindow.stopcamera)
+        # self.Offic_buttn.pressed.connect(sysmainwindow.stopcamera)
+        # self.Spk_buttn.pressed.connect(sysmainwindow.stopcamera)
+        # self.Teach_buttn.pressed.connect(sysmainwindow.stopcamera)
+        # self.Updata_buttn.pressed.connect(sysmainwindow.stopcamera)
         
         self.mini_buttn.clicked.connect(sysmainwindow.minimize)
         self.close_buttn.clicked.connect(sysmainwindow.closewindow)
@@ -1256,8 +1256,8 @@ class Ui_sysmainwindow(object):
         self.Log_buttn.clicked.connect(sysmainwindow.logshow)
         self.Teach_buttn.clicked.connect(sysmainwindow.teashow)
         self.Offic_buttn.clicked.connect(sysmainwindow.offshow)
-        self.takphoto_buttn.clicked.connect(sysmainwindow.captureImage)
-        self.takphoto_buttn_2.clicked.connect(sysmainwindow.captureImage)
+        # self.takphoto_buttn.clicked.connect(sysmainwindow.captureImage)
+        # self.takphoto_buttn_2.clicked.connect(sysmainwindow.captureImage)
 
         self.identNocard_buttn_2.clicked.connect(sysmainwindow.shownew_ident)
         self.stu_nocard_buttn.clicked.connect(sysmainwindow.shownew_newstu)
