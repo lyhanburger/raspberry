@@ -1362,7 +1362,7 @@ class setdevice(QMainWindow):
             else:
                 # self.ui.ident_samebar_pho.setFormat("未获取到照片信息")
                 self.ui.ident_samebar_pho.setValue(0)
-        else：
+        else:
             self.ui.stu_photoimg.setText("暂无该学生底片")
             
         os.chdir(pwd)
