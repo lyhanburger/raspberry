@@ -14,7 +14,7 @@ def getPort():
         print("IDNONE")
     port = 0
     for ports in port_list:
-        if (re.match('/dev/cu.wchusbserial1410', ports.device)):
+        if (re.match('/dev/ttyUSB0', ports.device)):
             port = ports.device
             return port
 

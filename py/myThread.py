@@ -35,12 +35,17 @@ class finoperation(QThread):
         while True:
             #print("choice:",self.choice)
             if self.choice==1:
-                self.sinport.emit(1,getFP())
+                time.sleep(3)
+                print("will triger lihaoRegister")
+                self.sinport.emit(1,lihaoGetFP())
+#                self.sinport.emit(1,lihaoMatchFP())
             elif self.choice==2:
-                self.sinport.emit(2,matchFP(self.stu_id))
+#                self.sinport.emit(2,lihaoMatchFP(self.stu_id))
+                print("will triger lihaoMatchFP")
+                self.sinport.emit(2,lihaoMatchFP())
             else:
                 print("do nothing")
-            time.sleep(3)
+        time.sleep(7)
 
     def setvalue(self,choice,stu_id):
         self.choice = choice
@@ -48,7 +53,7 @@ class finoperation(QThread):
         self.start()
 
 class idthread(QThread):
-    idport = pyqtSignal(tuple,int)
+    idport = pyqtSignal(str,int)
     def __init__(self, parent = None):
         super(idthread, self).__init__(parent)
         self.choice = -1
@@ -59,12 +64,12 @@ class idthread(QThread):
             if self.choice == 0:
                 break
             else:
-                Idcard = readID()
-                #Idcard = ''
+                #Idcard = readID()
+                Idcard = ''
                 print(Idcard)
                 if Idcard != '':
                    self.idport.emit(Idcard,self.choice)
-            time.sleep(2)
+            time.sleep(20)
 
     def setvalue(self, choice):
         self.choice = choice
@@ -74,4 +79,4 @@ class upuserthread(QThread):
     def __init__(self, parent = None):
         super(upuserthread, self).__init__(parent)
     def run(self):
-        login.loginUserDownload()
+        login.loginUserDownload() 

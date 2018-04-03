@@ -12,7 +12,34 @@ def getPort():
             port = ports.device
             return port
 
+def lihaoGetFP():
+    global FPtimes
+    port = "/dev/ttyUSB0"
+    print("getFPport：", port)
+    if (port):
+        try:
+            ser = serial.Serial(port , 9600)
+            print("registerXXX")
+            time.sleep(2)
+            ser.write(b'r')
+#            ser.write(b'v')
+            ser.write(b'1\n')
+            print("lihaoregister") 
+        except:
+            print("FPNone")
+   
 
+       # with open("lihaoFPDict.txt","w")as lihaoFile:
+       #     ser.write("\n")
+       #     ser.write(str(int(FP_id)+1)+",")
+       # with open("lihaoFPDict.txt","r")as lihaoFile:
+       #     FP_id,stu_id = lihaoFile.readlines()[-1].strip().split(",")
+       #     ser.write("\n")
+       #     ser.write(str(int(FP_id)+1)+",") return "returnlihaoregister"
+       return '1'
+       
+    else:
+        return '3'
 def getFP():
 
     global FPtimes
