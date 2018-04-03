@@ -22,12 +22,11 @@ def getPort():
 
 def readID():
     port = getPort()
-    print("port----[", port)
+    print("ID port----", port)
     try:
         ser = serial.Serial(port, 9600, timeout=1)
     except:
-        pass
-        # print("[1]id export error")
+        print("[1]id export error")
     idNum = ""
     while (len(idNum) == 0):
         try:
@@ -35,7 +34,7 @@ def readID():
             # 原始串口数据为bytes，需解码成str(utf-8)
             idNum = (ser.readline()).decode('utf-8')
         except:
-            pass
+           
             print("[2] id export error")
 
     print("idnum--[", str(idNum)[:-2], "]")

@@ -51,20 +51,20 @@ class finoperation(QThread):
         self.start()
 
 class idthread(QThread):
-    idport = pyqtSignal(str,int)
+    idport = pyqtSignal(int,tuple)
     def __init__(self, parent = None):
         super(idthread, self).__init__(parent)
         self.choice = -1
 
     def run(self):
         while True:
-            if self.choice == 0:
+            if self.choice == -1:
                 break
             else:
                 Idcard = readID()
                 printTEST("idcard:"+str(Idcard))
                 if Idcard != '':
-                   self.idport.emit(Idcard,self.choice)
+                   self.idport.emit(self.choice, Idcard)
             time.sleep(2)
 
     def setvalue(self, choice):

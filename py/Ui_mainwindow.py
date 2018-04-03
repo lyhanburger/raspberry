@@ -1467,18 +1467,20 @@ class Ui_sysmainwindow(object):
     def lihaoViewCam(self):
         if self.lihaoTabIndex == 2:
             ret,self.image0 = self.cap.read()#从摄像头读取图片
-            self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
+            if not ret:
+                return None
+            self.image = cv2.cvtColor(elf.image0,cv2.COLOR_BGR2RGB)#格式转换
             height,width,channel = self.image.shape#获取图片大小
             step = channel * width #更具图片大小获得step
             qImg = QImage(self.image.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-            self.lihaoLabel.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+            self.lihaoLabel.setPixmap(QPixmap.fromImage(qImg))
         elif self.lihaoTabIndex == 0:
             ret,self.image0 = self.cap.read()#从摄像头读取图片
             self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
             height,width,channel = self.image.shape#获取图片大小
             step = channel * width #更具图片大小获得step
             qImg = QImage(self.image.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-            self.lihaoLabel2.setPixmap(QPixmap.fromImage(qImg));print("2")#显示图片
+            self.lihaoLabel2.setPixmap(QPixmap.fromImage(qImg))
     def lihaoFunc(self):
         self.lihaoTabIndex = 0 
     def lihaoFunc2(self):
@@ -1489,11 +1491,11 @@ class Ui_sysmainwindow(object):
         height,width,channel = self.image1.shape#获取图片大小
         step = channel * width #更具图片大小获得step
         qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-        self.ident_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        self.ident_photoimg.setPixmap(QPixmap.fromImage(qImg))
     def lihaoTakePhoto2(self):
         cv2.imwrite("temp_2.jpg",self.image0)
         self.image1 = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
         height,width,channel = self.image1.shape#获取图片大小
         step = channel * width #更具图片大小获得step
         qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-        self.stu_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        self.stu_photoimg.setPixmap(QPixmap.fromImage(qImg))

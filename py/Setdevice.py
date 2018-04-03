@@ -121,6 +121,7 @@ class setdevice(QMainWindow):
     def matchId(self,stuid):
         global ident_takepho_times
         self.Fpoperate.setvalue(2, stuid)
+    
         #####人脸比对####
         if ident_takepho_times >0:
             pwd = os.getcwd()
@@ -153,19 +154,22 @@ class setdevice(QMainWindow):
                         face_distance < 0.6))
                     print("- With a very strict cutoff of 0.5, would the test image match the known image? {}".format(
                         face_distance < 0.5))
-                    print()
+                    
+                    
+                    
 
                 self.ui.ident_samebar_pho.setValue((1 - face_distances) * 100)
             else:
                 #self.ui.ident_samebar_pho.setFormat("未获取到照片信息")
                 self.ui.ident_samebar_pho.setValue(0)
 
-    def receiveIdslot(self,idnum,choice):
+    def receiveIdslot(self,choice,idnum):
         print("Attain IDcard:",idnum)
         if choice == 1:#new_stu
             self.ui.newstuShowname_label.setText(idnum[0])
             self.ui.newstuShowclass_label.setText(idnum[1])
             self.ui.newstuShowid_label.setText(idnum[2])
+            
         elif choice == 2: #ident
             self.ui.showname.setText(idnum[0])
             self.ui.showclass.setText(idnum[1])
@@ -182,7 +186,7 @@ class setdevice(QMainWindow):
             self.ui.newoff_stackedWidget.setCurrentIndex(1)
             self.ui.name_lineEdit_2.setText(idnum[2])
 
-
+        self.getStuid.setstuid(self.ui.showId.text())
 
 
     #############################无标签栏下的拖动窗口##################################
@@ -261,7 +265,7 @@ class setdevice(QMainWindow):
 
     def logshow(self):
 
-        self.id.setvalue(0)
+        self.id.setvalue(-1)
         self.ui.welcome_label.hide()
         self.ui.text_label.setPixmap(QPixmap(" "))
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/log_bg.jpg);}")
@@ -586,7 +590,6 @@ class setdevice(QMainWindow):
         fingercount = 2  # 指纹数量finger
         sfinger = 80  # 相似度sim_figer
         sface = self.ui.ident_samebar_pho.value() # 相似度sin_face
-        print(sface)
         imatched = True  # 是否匹配is_matched
 
         if exam_id:
@@ -601,7 +604,7 @@ class setdevice(QMainWindow):
                         # isCard 是否是有卡                                                               #
                         ##################################################################################
                         info = (exam_id,id)
-                        print(*info)
+                        #print(*info)
                         attribute = exam.examRecordGetAttribute(*info)
                         configFTP.examRecordCreateFiles(*info,1,0)
                         if attribute == 'Empty':
@@ -827,7 +830,7 @@ class setdevice(QMainWindow):
 #!!!DB:本地数据库上传到服务器!!!!!########监考模式：上传选中的信息###############################
     def identUpload(self):
         examstu = self.ui.tableView.getKeys()
-        print(*examstu)
+        #print(*examstu)
         if examstu:
             try:
                 exam.examRecordUpload(*examstu)
@@ -963,7 +966,7 @@ class setdevice(QMainWindow):
         #                                                                                #
         ##################################################################################
         spkRecord = self.ui.spk_tableView.getKeys()
-        print(spkRecord)
+        
         if spkRecord:
             try:
                 speech.speechSpeechUpload(*spkRecord)
@@ -1350,7 +1353,6 @@ class setdevice(QMainWindow):
 
     def lihaoTakePhoto2(self):
         # 学生注册照片
-
         pwd = os.getcwd()  # 当前文件路径
         img_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
         img_pwd = img_pwd + '/files/registerStudent'

@@ -19,15 +19,14 @@ def lihaoGetFP():
     if (port):
         try:
             ser = serial.Serial(port , 9600)
-            print("registerXXX")
-            time.sleep(2)
-            ser.write(b'r')
-#            ser.write(b'v')
-            ser.write(b'1\n')
-            print("lihaoregister") 
+            while True:
+                sleep(2)
+                print("registerXXX")
+                ser.write(b'r')
+                ser.write(b'1\n')
+                print("lihaoregister") 
         except:
             print("FPNone")
-   
 
        # with open("lihaoFPDict.txt","w")as lihaoFile:
        #     ser.write("\n")
@@ -36,7 +35,6 @@ def lihaoGetFP():
        #     FP_id,stu_id = lihaoFile.readlines()[-1].strip().split(",")
        #     ser.write("\n")
        #     ser.write(str(int(FP_id)+1)+",") return "returnlihaoregister"
-            return '1'
        
     else:
         return '3'
