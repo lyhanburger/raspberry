@@ -15,7 +15,7 @@ def getPort():
         # print("IDNONE")
     port = 0
     for ports in port_list:
-        if (re.match('/dev/ttyUSB0', ports.device)):
+        if (re.match('/dev/ttyUSB1', ports.device)):
             port = ports.device
             return port
 
@@ -36,7 +36,7 @@ def readID():
             idNum = (ser.readline()).decode('utf-8')
         except:
             pass
-            # print("[2] id export error")
+            print("[2] id export error")
 
     print("idnum--[", str(idNum)[:-2], "]")
     if str(idNum)[:-2] in info.keys():
