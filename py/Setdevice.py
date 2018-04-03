@@ -459,7 +459,7 @@ class setdevice(QMainWindow):
         new_window = Ui_Newform(parent=self)
 
         # 居中弹出
-        new_window.move((QApplication.desktop().width() )/2,(QApplication.desktop().height())/2)
+        new_window.move((QApplication.desktop().width()-self.ui.width())/2,(QApplication.desktop().height()-self.ui.height())/2)
 
         new_window.setWindowTitle("填写表格")
 
@@ -467,6 +467,9 @@ class setdevice(QMainWindow):
             self.ui.newstuShowname_label.setText(new_window.get_name())
             self.ui.newstuShowclass_label.setText(new_window.get_class())
             self.ui.newstuShowid_label.setText(new_window.get_id())
+            self.ui.stu_nocard_buttn.setEnabled(True)
+            new_window.destroy()
+        else:
             self.ui.stu_nocard_buttn.setEnabled(True)
             new_window.destroy()
 
@@ -480,7 +483,7 @@ class setdevice(QMainWindow):
         new_window = Ui_Newform(parent=self)
 
         # 居中弹出
-        new_window.move((QApplication.desktop().width()) / 2, (QApplication.desktop().height()) / 2)
+        ew_window.move((QApplication.desktop().width()-self.ui.width())/2,(QApplication.desktop().height()-self.ui.height())/2)
 
         new_window.setWindowTitle("填写表格")
 
@@ -489,6 +492,9 @@ class setdevice(QMainWindow):
             self.ui.showclass.setText(new_window.get_class())
             self.ui.showId.setText(new_window.get_id())
             self.getStuid.setstuid(self.ui.showId.text())
+            self.ui.identNocard_buttn_2.setEnabled(True)
+            new_window.destroy()
+        else:
             self.ui.identNocard_buttn_2.setEnabled(True)
             new_window.destroy()
 
