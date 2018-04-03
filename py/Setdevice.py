@@ -19,7 +19,6 @@ import cv2
 import shutil
 #人脸处理
 #import face_recognition
-from Devicetest import *
 from time import sleep
 
 import mainimg

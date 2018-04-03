@@ -36,7 +36,7 @@ def lihaoGetFP():
        #     FP_id,stu_id = lihaoFile.readlines()[-1].strip().split(",")
        #     ser.write("\n")
        #     ser.write(str(int(FP_id)+1)+",") return "returnlihaoregister"
-       return '1'
+            return '1'
        
     else:
         return '3'

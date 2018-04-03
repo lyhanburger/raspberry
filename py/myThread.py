@@ -1,7 +1,6 @@
 import time
 #from getFP import *
 #from matchFP import *
-from getFin import *
 from idSerial import *
 import login
 from PyQt5.QtCore import *
