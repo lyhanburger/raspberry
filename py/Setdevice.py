@@ -1288,31 +1288,7 @@ class setdevice(QMainWindow):
             QMessageBox.information(self, "成功", "恢复出厂值", QMessageBox.Ok)
 
     def lihaoTakePhoto(self):
-        print("new register")
-        pixmap = self.ui.stu_photoimg.pixmap()
-        pwd = os.getcwd()  # 当前文件路径
-        img_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
-        img_pwd = img_pwd + '/files/registerStudent'
-        os.chdir(img_pwd)
-        os.getcwd()
-        global stu_takepho_times
-        stu_takepho_times += 1
-
-        savename = 'stu_unuser_' + str(stu_takepho_times) + '.jpg'
-        # print(savename)
-        # if (pixmap):
-        #     pixmap.save(savename)
-        cv2.imwrite(savename,self.ui.image0)
-        self.ui.image1 = cv2.cvtColor(self.ui.image0,cv2.COLOR_BGR2RGB)#格式转换
-        height,width,channel = self.ui.image1.shape#获取图片大小
-        step = channel * width #更具图片大小获得step
-        qImg = QImage(self.ui.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-        self.ui.ident_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
-        self.ui.pissucc_label.setPixmap(QPixmap("./img/sure.png"))
-        os.chdir(pwd)
-        os.getcwd()
-    def lihaoTakePhoto2(self):
-        pixmap = self.ui.ident_photoimg.pixmap()
+        # 考试
         pwd = os.getcwd()  # 当前文件路径
         up_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
         img_pwd = up_pwd
@@ -1329,7 +1305,8 @@ class setdevice(QMainWindow):
         height,width,channel = self.ui.image1.shape#获取图片大小
         step = channel * width #更具图片大小获得step
         qImg = QImage(self.ui.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-        self.ui.stu_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        self.ui.ident_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        
         # pixmap.save(savename)
         stuid = self.ui.showId.text()
         if stuid != '':
@@ -1369,7 +1346,38 @@ class setdevice(QMainWindow):
                 # self.ui.ident_samebar_pho.setFormat("未获取到照片信息")
                 self.ui.ident_samebar_pho.setValue(0)
         else:
-            self.ui.stu_photoimg.setText("暂无该学生底片")
+            QMessageBox.warning(self, "请先录入学生学号")
+            # self.ui.stu_photoimg.setText("暂无该学生底片")
             
         os.chdir(pwd)
         os.getcwd()
+
+
+    def lihaoTakePhoto2(self):
+        # 学生注册照片 
+       
+        pwd = os.getcwd()  # 当前文件路径
+        img_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
+        img_pwd = img_pwd + '/files/registerStudent'
+        os.chdir(img_pwd)
+        os.getcwd()
+        global stu_takepho_times
+        stu_takepho_times += 1
+
+        savename = 'stu_unuser_' + str(stu_takepho_times) + '.jpg'
+        # print(savename)
+        # if (pixmap):
+        #     pixmap.save(savename)
+        
+        cv2.imwrite(savename,self.ui.image0)
+        self.ui.image1 = cv2.cvtColor(self.ui.image0,cv2.COLOR_BGR2RGB)#格式转换
+        height,width,channel = self.ui.image1.shape#获取图片大小
+        step = channel * width #更具图片大小获得step
+        qImg = QImage(self.ui.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+        self.ui.stu_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        self.ui.pissucc_label.setPixmap(QPixmap("./img/sure.png"))
+
+        os.chdir(pwd)
+        os.getcwd()   
+        
+        
