@@ -59,8 +59,8 @@ class idthread(QThread):
             if self.choice == 0:
                 break
             else:
-                #Idcard = readID()
-                Idcard = ''
+                Idcard = readID()
+                #Idcard = ''
                 print(Idcard)
                 if Idcard != '':
                    self.idport.emit(Idcard,self.choice)
