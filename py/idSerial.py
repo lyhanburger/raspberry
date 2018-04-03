@@ -11,7 +11,7 @@ def getPort():
     try:
         port_list = serial.tools.list_ports.comports()
     except:
-        print("IDNONE")
+        # print("IDNONE")
     port = 0
     for ports in port_list:
         if (re.match('/dev/ttyUSB0', ports.device)):
@@ -25,7 +25,8 @@ def readID():
     try:
         ser = serial.Serial(port, 9600, timeout=1)
     except:
-        print("[1]id export error")
+        pass
+        # print("[1]id export error")
     idNum = ""
     while (len(idNum) == 0):
         try:
@@ -33,7 +34,8 @@ def readID():
             # 原始串口数据为bytes，需解码成str(utf-8)
             idNum = (ser.readline()).decode('utf-8')
         except:
-            print("[2] id export error")
+            pass
+            # print("[2] id export error")
 
     print("idnum--[", str(idNum)[:-2], "]")
     if str(idNum)[:-2] in info.keys():
