@@ -1141,11 +1141,10 @@ class setdevice(QMainWindow):
             self.ui.updata_tableView.filter()
             self.ui.newtea_tableView.filter(24)
             self.ui.newoff_tableView.filter(35)
-            ###加入清空文件夹
+            ### 加入清空文件夹
             self.clearAllfiles()
             QMessageBox.information(self, "成功", "清空本地数据库成功", QMessageBox.Ok)
 
-           # print("哈哈哈哈")
         ##################################################################################
         #################################DB：清除本地数据库的信息############################
         ##################################################################################
@@ -1364,6 +1363,7 @@ class setdevice(QMainWindow):
                 # self.ui.ident_samebar_pho.setFormat("未获取到照片信息")
                 self.ui.ident_samebar_pho.setValue(0)
         else：
+            self.ui.stu_photoimg.setText("暂无该学生底片")
             
         os.chdir(pwd)
         os.getcwd()
