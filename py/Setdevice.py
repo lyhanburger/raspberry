@@ -455,11 +455,11 @@ class setdevice(QMainWindow):
         # 记录是否使用学生卡
         global isCard
         isCard = False
-
+        self.ui.stu_nocard_buttn.setEnabled(False)
         new_window = Ui_Newform(parent=self)
 
         # 居中弹出
-        new_window.move((QApplication.desktop().width() - new_window.width())/2,(QApplication.desktop().height() - new_window.height())/2)
+        new_window.move((QApplication.desktop().width() )/2,(QApplication.desktop().height())/2)
 
         new_window.setWindowTitle("填写表格")
 
@@ -467,19 +467,20 @@ class setdevice(QMainWindow):
             self.ui.newstuShowname_label.setText(new_window.get_name())
             self.ui.newstuShowclass_label.setText(new_window.get_class())
             self.ui.newstuShowid_label.setText(new_window.get_id())
-
+            self.ui.stu_nocard_buttn.setEnabled(True)
             new_window.destroy()
 
     #####################监考模式###################
     def shownew_ident(self):
         # 记录是否使用学生卡
+
         global isCard
         isCard = False
-
+        self.ui.identNocard_buttn_2.setEnabled(False)
         new_window = Ui_Newform(parent=self)
 
         # 居中弹出
-        new_window.move((QApplication.desktop().width() - new_window.width()) / 2, (QApplication.desktop().height() - new_window.height()) / 2)
+        new_window.move((QApplication.desktop().width()) / 2, (QApplication.desktop().height()) / 2)
 
         new_window.setWindowTitle("填写表格")
 
@@ -487,9 +488,8 @@ class setdevice(QMainWindow):
             self.ui.showname.setText(new_window.get_name())
             self.ui.showclass.setText(new_window.get_class())
             self.ui.showId.setText(new_window.get_id())
-
             self.getStuid.setstuid(self.ui.showId.text())
-
+            self.ui.identNocard_buttn_2.setEnabled(True)
             new_window.destroy()
 
 #!!!!DB->本地数据库!!!!!#############新生录入的"完成录入"按钮###############################################
