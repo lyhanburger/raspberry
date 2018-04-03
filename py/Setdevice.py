@@ -18,7 +18,7 @@ import cv2
 
 import shutil
 #人脸处理
-import face_recognition
+#import face_recognition
 from Devicetest import *
 from time import sleep
 
@@ -52,13 +52,13 @@ class setdevice(QMainWindow):
         ##########线程#########
         self.Fpoperate = finoperation()
         self.Fpoperate.sinport.connect(self.receiveSlot)
-        
+
         self.id = idthread()
         self.id.idport.connect(self.receiveIdslot)
-        
+
         self.getStuid = getstuid()
         self.getStuid.getid.connect(self.matchId)
-        
+
         self.ui = Ui_sysmainwindow()
 
         self.camera = None
@@ -168,24 +168,24 @@ class setdevice(QMainWindow):
     def receiveIdslot(self,idnum,choice):
         print("Attain IDcard:",idnum)
         if choice == 1:#new_stu
-            self.ui.newstuShowname_label.setText("TestStu")
-            self.ui.newstuShowclass_label.setText("000000")
-            self.ui.newstuShowid_label.setText("000000")
+            self.ui.newstuShowname_label.setText(idnum[0])
+            self.ui.newstuShowclass_label.setText(idnum[1])
+            self.ui.newstuShowid_label.setText(idnum[2])
         elif choice == 2: #ident
-            self.ui.showname.setText("TestStu")
-            self.ui.showclass.setText("000000")
-            self.ui.showId.setText("000000")
+            self.ui.showname.setText(idnum[0])
+            self.ui.showclass.setText(idnum[1])
+            self.ui.showId.setText(idnum[2])
         elif choice ==3:#spk
             self.ui.spk_stackedWidget.setCurrentIndex(3)
-            self.ui.spkshowName_label.setText("TestStu")
-            self.ui.spkshowClass_label.setText("000000")
-            self.ui.spkshowId_label.setText("000000")
+            self.ui.spkshowName_label.setText(idnum[0])
+            self.ui.spkshowClass_label.setText(idnum[1])
+            self.ui.spkshowId_label.setText(idnum[2])
         elif choice ==4:#tea
             self.ui.newtea_stackedWidget.setCurrentIndex(1)
-            self.ui.name_lineEdit.setText("000000")
+            self.ui.name_lineEdit.setText(idnum[2])
         elif choice ==5:#off
             self.ui.newoff_stackedWidget.setCurrentIndex(1)
-            self.ui.name_lineEdit_2.setText("000000")
+            self.ui.name_lineEdit_2.setText(idnum[2])
 
 
 
@@ -213,7 +213,7 @@ class setdevice(QMainWindow):
 
     ###############################点击侧边栏中的按钮#####################################
     def newstushow(self):
-        
+
         self.id.setvalue(1)
         self.ui.welcome_label.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
@@ -222,11 +222,11 @@ class setdevice(QMainWindow):
         self.Fpoperate.setvalue(1,"")
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/new_bg.jpg);}")
         # self.setCamera(1)
-    
-     
+
+
 
     def idenshow(self):
-        
+
         self.id.setvalue(2)
         self.ui.welcome_label.hide()
         self.ui.stackedWidget.setCurrentIndex(1)
@@ -238,13 +238,13 @@ class setdevice(QMainWindow):
         self.ui.text_label.setPixmap(QPixmap(" "))
         self.initiUpload()
         self.examIds()
-        
+
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/exam_bg.jpg);}")
         # self.setCamera(2)
-        
+
 
     def spkshow(self):
-        
+
         self.id.setvalue(3)
         self.ui.welcome_label.hide()
         self.ui.text_label.setPixmap(QPixmap(" "))
@@ -252,7 +252,7 @@ class setdevice(QMainWindow):
         self.ui.spk_stackedWidget.setCurrentIndex(0)
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/spk_bg.jpg);}")
     def updatashow(self):
-        
+
         self.id.setvalue(0)
         self.ui.welcome_label.hide()
         self.ui.ident_samebar_fin.setValue(0)
@@ -284,7 +284,7 @@ class setdevice(QMainWindow):
         self.ui.centralwidget.setStyleSheet("QWidget#centralwidget{border-image: url(./img/new_bg.jpg);}")
 
     def offshow(self):
-        
+
         self.id.setvalue(5)
         self.ui.welcome_label.hide()
         self.ui.text_label.setPixmap(QPixmap(" "))
@@ -299,14 +299,14 @@ class setdevice(QMainWindow):
 #         else:
 #             return False
 #     def setCamera(self,i):
-       
+
 #         #if cameraDevice.isEmpty():
 #         #    self.camera = QCamera()
 #         #else:
 #          #   self.camera = QCamera(cameraDevice)
-    
+
 #         print("ok")
-#         self.camera = QCamera()   
+#         self.camera = QCamera()
 #         if self.camera.state() == QCamera.ActiveState:
 #             sleep(0.2)
 #             self.camera.stop()
@@ -314,7 +314,7 @@ class setdevice(QMainWindow):
 #             self.camera.unload()
 #             sleep(0.2)
 #             self.camera.load()
-    
+
 #         #self.camera.load()
 #         self.camera.error.connect(self.displayCameraError)
 #         self.imageCapture = QCameraImageCapture(self.camera)
@@ -335,13 +335,13 @@ class setdevice(QMainWindow):
 #         viewfindersettings.setResolution(352, 288)
 #         viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
 #         self.camera.setViewfinderSettings(viewfindersettings)
-        
+
 # #        self.camera.start()
 
 
 
-    
-            
+
+
 # ##############################静态图像捕捉######################################
 
 #     ############新生注册#############
@@ -370,7 +370,7 @@ class setdevice(QMainWindow):
 #     def displayCameraError(self):
 #         QMessageBox.warning(self, "Camera error", self.camera.errorString())
 
-    
+
 #     def stopcamera(self):
 #         pass
 #     ############相片存储：新生注册####################
@@ -1306,7 +1306,7 @@ class setdevice(QMainWindow):
         step = channel * width #更具图片大小获得step
         qImg = QImage(self.ui.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
         self.ui.ident_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
-        
+
         # pixmap.save(savename)
         stuid = self.ui.showId.text()
         if stuid != '':
@@ -1348,14 +1348,14 @@ class setdevice(QMainWindow):
         else:
             QMessageBox.warning(self, "请先录入学生学号")
             # self.ui.stu_photoimg.setText("暂无该学生底片")
-            
+
         os.chdir(pwd)
         os.getcwd()
 
 
     def lihaoTakePhoto2(self):
-        # 学生注册照片 
-       
+        # 学生注册照片
+
         pwd = os.getcwd()  # 当前文件路径
         img_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
         img_pwd = img_pwd + '/files/registerStudent'
@@ -1368,7 +1368,7 @@ class setdevice(QMainWindow):
         # print(savename)
         # if (pixmap):
         #     pixmap.save(savename)
-        
+
         cv2.imwrite(savename,self.ui.image0)
         self.ui.image1 = cv2.cvtColor(self.ui.image0,cv2.COLOR_BGR2RGB)#格式转换
         height,width,channel = self.ui.image1.shape#获取图片大小
@@ -1378,6 +1378,6 @@ class setdevice(QMainWindow):
         self.ui.pissucc_label.setPixmap(QPixmap("./img/sure.png"))
 
         os.chdir(pwd)
-        os.getcwd()   
-        
-        
+        os.getcwd()
+
+

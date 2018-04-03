@@ -48,7 +48,7 @@ class finoperation(QThread):
         self.start()
 
 class idthread(QThread):
-    idport = pyqtSignal(str,int)
+    idport = pyqtSignal(tuple,int)
     def __init__(self, parent = None):
         super(idthread, self).__init__(parent)
         self.choice = -1
@@ -74,4 +74,4 @@ class upuserthread(QThread):
     def __init__(self, parent = None):
         super(upuserthread, self).__init__(parent)
     def run(self):
-        login.loginUserDownload() 
+        login.loginUserDownload()

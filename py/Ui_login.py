@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
-sys.path.append("/home/pi/lihao/raspberrylihao/communication")
+import os
+cur = os.getcwd()
+cur = os.path.dirname(cur)
+cur = os.path.join(cur, 'communication')
+sys.path.append(cur)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -10,102 +14,103 @@ import loginImg_rc
 import config
 import psycopg2
 
+
 class Ui_login(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)
-        self.idcardthread=idthread()
+        self.idcardthread = idthread()
         self.idcardthread.idport.connect(self.receiveid)
         self.idcardthread.setvalue(1)
         self.setObjectName("login")
         self.resize(400, 300)
         self.stackedWidget = QtWidgets.QStackedWidget(self)
         self.stackedWidget.setGeometry(QtCore.QRect(0, 0, 401, 301))
-        #qss样式
+        # qss样式
         self.stackedWidget.setStyleSheet("QWidget{\n"
-"background-color: rgb(236,240,245);\n"
+                                         "background-color: rgb(236,240,245);\n"
 
-"color:rgb(98, 99, 99);\n"
-"}\n"
-"\n"
-"QMessageBox{\n"
-"background-color: rgb(236,240,245);\n"
-"color:rgb(98, 99, 99);\n"
-"}\n"
-"QPushButton#login_buttn,\n"
-"QPushButton#back_buttn,\n"
-"QPushButton#NoCard_buttn\n"
-"{\n"
-"    color:white;\n"
-"    background-color:rgb(14 , 150 , 254);\n"
-"    border-radius:4px;\n"
-"    min-width: 90px;\n"
-"    max-width: 90px;\n"
-"    min-height: 25px;\n"
-"    max-height: 25px;\n"
-"}\n"
-"QPushButton#mini_buttn,\n"
-"QPushButton#close_buttn,\n"
-"QPushButton#close_buttn1,\n"
-"QPushButton#mini_buttn1\n"
-"{\n"
-"    background-color:rgb(200, 200, 200,40);\n"
-"    border:none;\n"
-"    min-width: 21px;\n"
-"    max-width: 21px;\n"
-"    min-height: 21px;\n"
-"    max-height: 21px;\n"
-"}\n"
-"QPushButton#mini_buttn,\n"
-"QPushButton#mini_buttn1\n"
-"{\n"
-"    background-image:url(./img/mini.png);\n"
-"}\n"
-"QPushButton#close_buttn,\n"
-"QPushButton#close_buttn1\n"
-"{\n"
-"    background-image:url(./img/close.png);\n"
-"}\n"
-"QPushButton#mini_buttn:hover,\n"
-"QPushButton#mini_buttn1:hover\n"
-"{\n"
-"    background-color:rgb(236,240,245);\n"
-"}\n"
-"QPushButton#close_buttn:hover,\n"
-"QPushButton#close_buttn1:hover\n"
-"{\n"
-"    background-color:rgb(255,0,0,70);\n"
-"}\n"
-"QPushButton#login_buttn:hover,\n"
-"QPushButton#back_buttn:hover,\n"
-"QPushButton#NoCard_buttn:hover\n"
-"{\n"
-"    color:white;\n"
-"    background-color:rgb(44 , 137 , 255);\n"
-"    border:0px;\n"
-"}\n"
-"\n"
-"QPushButton:selected\n"
-"{\n"
-"    color:white;\n"
-"    background-color:rgb(14 , 135 , 228);\n"
-"    padding-left:3px;\n"
-"    padding-top:3px;\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"    background:white;\n"
-"    padding-left:5px ;\n"
-"    padding-top:1px ;\n"
-"    border-radius:3px;\n"
-"    border: 1px solid rgb(209 , 209 , 209);\n"
-"}\n"
-"QLineEdit:hover\n"
-"{\n"
-"    padding-top:0px ;\n"
-"    border: 1px solid rgb(21 , 131 , 221);\n"
-"}"
+                                         "color:rgb(98, 99, 99);\n"
+                                         "}\n"
+                                         "\n"
+                                         "QMessageBox{\n"
+                                         "background-color: rgb(236,240,245);\n"
+                                         "color:rgb(98, 99, 99);\n"
+                                         "}\n"
+                                         "QPushButton#login_buttn,\n"
+                                         "QPushButton#back_buttn,\n"
+                                         "QPushButton#NoCard_buttn\n"
+                                         "{\n"
+                                         "    color:white;\n"
+                                         "    background-color:rgb(14 , 150 , 254);\n"
+                                         "    border-radius:4px;\n"
+                                         "    min-width: 90px;\n"
+                                         "    max-width: 90px;\n"
+                                         "    min-height: 25px;\n"
+                                         "    max-height: 25px;\n"
+                                         "}\n"
+                                         "QPushButton#mini_buttn,\n"
+                                         "QPushButton#close_buttn,\n"
+                                         "QPushButton#close_buttn1,\n"
+                                         "QPushButton#mini_buttn1\n"
+                                         "{\n"
+                                         "    background-color:rgb(200, 200, 200,40);\n"
+                                         "    border:none;\n"
+                                         "    min-width: 21px;\n"
+                                         "    max-width: 21px;\n"
+                                         "    min-height: 21px;\n"
+                                         "    max-height: 21px;\n"
+                                         "}\n"
+                                         "QPushButton#mini_buttn,\n"
+                                         "QPushButton#mini_buttn1\n"
+                                         "{\n"
+                                         "    background-image:url(./img/mini.png);\n"
+                                         "}\n"
+                                         "QPushButton#close_buttn,\n"
+                                         "QPushButton#close_buttn1\n"
+                                         "{\n"
+                                         "    background-image:url(./img/close.png);\n"
+                                         "}\n"
+                                         "QPushButton#mini_buttn:hover,\n"
+                                         "QPushButton#mini_buttn1:hover\n"
+                                         "{\n"
+                                         "    background-color:rgb(236,240,245);\n"
+                                         "}\n"
+                                         "QPushButton#close_buttn:hover,\n"
+                                         "QPushButton#close_buttn1:hover\n"
+                                         "{\n"
+                                         "    background-color:rgb(255,0,0,70);\n"
+                                         "}\n"
+                                         "QPushButton#login_buttn:hover,\n"
+                                         "QPushButton#back_buttn:hover,\n"
+                                         "QPushButton#NoCard_buttn:hover\n"
+                                         "{\n"
+                                         "    color:white;\n"
+                                         "    background-color:rgb(44 , 137 , 255);\n"
+                                         "    border:0px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:selected\n"
+                                         "{\n"
+                                         "    color:white;\n"
+                                         "    background-color:rgb(14 , 135 , 228);\n"
+                                         "    padding-left:3px;\n"
+                                         "    padding-top:3px;\n"
+                                         "}\n"
+                                         "QLineEdit\n"
+                                         "{\n"
+                                         "    background:white;\n"
+                                         "    padding-left:5px ;\n"
+                                         "    padding-top:1px ;\n"
+                                         "    border-radius:3px;\n"
+                                         "    border: 1px solid rgb(209 , 209 , 209);\n"
+                                         "}\n"
+                                         "QLineEdit:hover\n"
+                                         "{\n"
+                                         "    padding-top:0px ;\n"
+                                         "    border: 1px solid rgb(21 , 131 , 221);\n"
+                                         "}"
 
-)
+                                         )
         self.stackedWidget.setObjectName("stackedWidget")
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
@@ -133,7 +138,8 @@ class Ui_login(QDialog):
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setVerticalSpacing(11)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem, 2, 0, 1, 1)
         self.user_name = QtWidgets.QLabel(self.gridLayoutWidget)
         font = QtGui.QFont()
@@ -142,7 +148,8 @@ class Ui_login(QDialog):
         self.user_name.setAlignment(QtCore.Qt.AlignCenter)
         self.user_name.setObjectName("user_name")
         self.gridLayout.addWidget(self.user_name, 2, 1, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem1, 3, 0, 1, 1)
         self.uname_edit = QtWidgets.QLineEdit(self.gridLayoutWidget)
         self.uname_edit.setObjectName("uname_edit")
@@ -153,9 +160,11 @@ class Ui_login(QDialog):
         self.user_passwd.setFont(font)
         self.user_passwd.setObjectName("user_passwd")
         self.gridLayout.addWidget(self.user_passwd, 3, 1, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem2, 2, 3, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem3, 3, 3, 1, 1)
         self.upasswd_edit = QtWidgets.QLineEdit(self.gridLayoutWidget)
         self.upasswd_edit.setInputMethodHints(
@@ -183,14 +192,16 @@ class Ui_login(QDialog):
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.page)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(60, 260, 301, 40))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout = QtWidgets.QHBoxLayout(
+            self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.back_buttn = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.back_buttn.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.back_buttn.setObjectName("back_buttn")
         self.horizontalLayout.addWidget(self.back_buttn)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem4 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem4)
         self.login_buttn = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         font = QtGui.QFont()
@@ -202,7 +213,7 @@ class Ui_login(QDialog):
         self.stackedWidget.addWidget(self.page)
 
         ####################################################
-        self.setWindowFlags(Qt.FramelessWindowHint)#消除边框#
+        self.setWindowFlags(Qt.FramelessWindowHint)  # 消除边框#
         ####################################################
 
         self.retranslateUi(self)
@@ -215,7 +226,7 @@ class Ui_login(QDialog):
         self.mini_buttn1.clicked.connect(self.minimize)
         self.close_buttn.clicked.connect(self.close)
         self.close_buttn1.clicked.connect(self.close)
-        self.login_buttn.setShortcut(Qt.Key_Return)# 将字母区回车键与登录按钮绑定在一起
+        self.login_buttn.setShortcut(Qt.Key_Return)  # 将字母区回车键与登录按钮绑定在一起
 
         self.uname_edit.setPlaceholderText("请输入您的教职工号")
         self.upasswd_edit.setPlaceholderText("请输入您的密码")
@@ -246,7 +257,7 @@ class Ui_login(QDialog):
     def input_loginshow(self):
         self.stackedWidget.setCurrentIndex(1)
         print("ts et")
-        login_gif=QMovie("./img/login.gif")
+        login_gif = QMovie("./img/login.gif")
         self.title.setMovie(login_gif)
         login_gif.start()
 
@@ -260,12 +271,10 @@ class Ui_login(QDialog):
             QApplication.postEvent(self, QEvent(174))
             event.accept()
 
-
     def mouseMoveEvent(self, event):
         if event.buttons() == Qt.LeftButton:
             self.move(event.globalPos() - self.dragPosition)
             event.accept()
-
 
     def startlogin(self):
         self.mode = setdevice(127)
@@ -316,6 +325,7 @@ class Ui_login(QDialog):
 
 '''
 #self.cursor.execute('''select rights from "user" where id=%s and passwd='%s' ''' % (id, passwd))
+
 
 if __name__ == '__main__':
     import sys
