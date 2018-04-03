@@ -1363,6 +1363,7 @@ class setdevice(QMainWindow):
             else:
                 # self.ui.ident_samebar_pho.setFormat("未获取到照片信息")
                 self.ui.ident_samebar_pho.setValue(0)
- 
+        else：
+            
         os.chdir(pwd)
         os.getcwd()
