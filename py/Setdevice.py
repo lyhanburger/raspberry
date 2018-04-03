@@ -120,7 +120,7 @@ class setdevice(QMainWindow):
 
     def matchId(self,stuid):
         global ident_takepho_times
-
+        self.Fpoperate.setvalue(2, stuid)
         #####人脸比对####
         if ident_takepho_times >0:
             pwd = os.getcwd()
@@ -221,7 +221,7 @@ class setdevice(QMainWindow):
 
 
     def idenshow(self):
-        self.Fpoperate.setvalue(2, stuid)
+        
         self.id.setvalue(2)
         self.ui.welcome_label.hide()
         self.ui.stackedWidget.setCurrentIndex(1)
@@ -761,7 +761,7 @@ class setdevice(QMainWindow):
         #                                                                                #
         ##################################################################################
         newstu = self.ui.newstu_tableview.getKeys()
-        print(*newstu)
+
         if newstu:
             try:
                 register.registerStudentUpload(*newstu)
@@ -787,7 +787,7 @@ class setdevice(QMainWindow):
             self.ui.identExamnum_comboBox.clear()
             for row in exam.examExamShow():
                 self.ui.identExamnum_comboBox.addItem(str(*row))
-                print(str(row))
+                
         else:
             self.ui.identExamnum_comboBox.clear()
 
@@ -799,7 +799,7 @@ class setdevice(QMainWindow):
             self.ui.identchoiceexam_comboBox.clear()
             for row in exam.examExamShow():
                 self.ui.identchoiceexam_comboBox.addItem(str(*row))
-                print(str(row))
+                
         else:
             self.ui.identchoiceexam_comboBox.clear()
 
@@ -1161,7 +1161,7 @@ class setdevice(QMainWindow):
         #
         ##################################################################################
         self.ui.newstu_tableview.selectAll()
-        print(self.ui.newstu_tableview.getKeys())
+        
 
     def identChoicall(self):
         ##################################################################################
@@ -1170,7 +1170,7 @@ class setdevice(QMainWindow):
         #
         ##################################################################################
         self.ui.tableView.selectAll()
-        print(self.ui.tableView.getKeys())
+        
 
     def upexamAll(self):
         ##################################################################################
@@ -1300,7 +1300,7 @@ class setdevice(QMainWindow):
         height,width,channel = self.ui.image1.shape#获取图片大小
         step = channel * width #更具图片大小获得step
         qImg = QImage(self.ui.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-        self.ui.ident_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        self.ui.ident_photoimg.setPixmap(QPixmap.fromImage(qImg))
 
         # pixmap.save(savename)
         stuid = self.ui.showId.text()
@@ -1369,7 +1369,7 @@ class setdevice(QMainWindow):
         height,width,channel = self.ui.image1.shape#获取图片大小
         step = channel * width #更具图片大小获得step
         qImg = QImage(self.ui.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-        self.ui.stu_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        self.ui.stu_photoimg.setPixmap(QPixmap.fromImage(qImg));#显示图片
         self.ui.pissucc_label.setPixmap(QPixmap("./img/sure.png"))
 
         os.chdir(pwd)

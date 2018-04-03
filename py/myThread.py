@@ -3,8 +3,9 @@ import time
 #from matchFP import *
 from idSerial import *
 import login
+
 from PyQt5.QtCore import *
-from logc import printINFO
+from logc import printINFO, printTEST
 ###########载入指纹模块#########
 from recordFP import *
 from matchFin import *
@@ -61,7 +62,7 @@ class idthread(QThread):
                 break
             else:
                 Idcard = readID()
-                print(Idcard)
+                printTEST("idcard:"+str(Idcard))
                 if Idcard != '':
                    self.idport.emit(Idcard,self.choice)
             time.sleep(2)
