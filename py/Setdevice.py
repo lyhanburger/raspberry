@@ -110,21 +110,17 @@ class setdevice(QMainWindow):
         self.ui.nocard_buttn.setPixmap(QPixmap("./img/card.png"))
         self.ui.nocard_buttn_2.setPixmap(QPixmap("./img/card.png"))
 
-    def receiveSlot(self,choice,str):
+    def receiveSlot(self,choice,string):
         if choice==1:
-            if str == '1':
+            if string == '1':
                 self.ui.fissucc_label.setPixmap(QPixmap("./img/sure.png"))
-            else:
-                print(str)
         elif choice==2:
-            if str != '3':
-                self.ui.ident_samebar_fin.setValue(int(str))
-                print(str)
+            if string != '3':
+                self.ui.ident_samebar_fin.setValue(int(string))
+            
 
     def matchId(self,stuid):
         global ident_takepho_times
-
-        self.Fpoperate.setvalue(2, stuid)
 
         #####人脸比对####
         if ident_takepho_times >0:
@@ -226,7 +222,7 @@ class setdevice(QMainWindow):
 
 
     def idenshow(self):
-
+        self.Fpoperate.setvalue(2, stuid)
         self.id.setvalue(2)
         self.ui.welcome_label.hide()
         self.ui.stackedWidget.setCurrentIndex(1)

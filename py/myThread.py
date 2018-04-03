@@ -5,7 +5,7 @@ from getFin import *
 from idSerial import *
 import login
 from PyQt5.QtCore import *
-
+from logc import printINFO
 ###########载入指纹模块#########
 from recordFP import *
 from matchFin import *
@@ -28,20 +28,18 @@ class finoperation(QThread):
     sinport = pyqtSignal(int,str)
     def __init__(self, parent = None):
         super(finoperation, self).__init__(parent)
-        self.choice=0
-        self.stu_id=''
+        self.choice = -1
+        self.stu_id = ''
 
     def run(self):
         while True:
             #print("choice:",self.choice)
             if self.choice==1:
                 time.sleep(3)
-                print("will triger lihaoRegister")
+                printINFO("Register")
                 self.sinport.emit(1,lihaoGetFP())
-#                self.sinport.emit(1,lihaoMatchFP())
             elif self.choice==2:
-#                self.sinport.emit(2,lihaoMatchFP(self.stu_id))
-                print("will triger lihaoMatchFP")
+                printINFO("MatchFP")
                 self.sinport.emit(2,lihaoMatchFP())
             else:
                 print("do nothing")
@@ -49,7 +47,7 @@ class finoperation(QThread):
 
     def setvalue(self,choice,stu_id):
         self.choice = choice
-        self.stu_id=stu_id
+        self.stu_id = stu_id
         self.start()
 
 class idthread(QThread):
@@ -60,7 +58,6 @@ class idthread(QThread):
 
     def run(self):
         while True:
-
             if self.choice == 0:
                 break
             else:
