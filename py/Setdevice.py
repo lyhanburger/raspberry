@@ -459,7 +459,7 @@ class setdevice(QMainWindow):
         new_window = Ui_Newform(parent=self)
 
         # 居中弹出
-        new_window.move((QApplication.desktop().width()-self.ui.width())/2,(QApplication.desktop().height()-self.ui.height())/2)
+        new_window.move((QApplication.desktop().width()-800)/2,(QApplication.desktop().height()-600)/2)
 
         new_window.setWindowTitle("填写表格")
 
@@ -483,7 +483,7 @@ class setdevice(QMainWindow):
         new_window = Ui_Newform(parent=self)
 
         # 居中弹出
-        ew_window.move((QApplication.desktop().width()-self.ui.width())/2,(QApplication.desktop().height()-self.ui.height())/2)
+        new_window.move((QApplication.desktop().width()-800)/2,(QApplication.desktop().height()-600)/2)
 
         new_window.setWindowTitle("填写表格")
 
