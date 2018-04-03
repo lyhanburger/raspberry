@@ -5,6 +5,15 @@
 # Created by: PyQt5 UI code generator 5.8.1
 #
 # WARNING! All changes made in this file will be lost!
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QWidget,QVBoxLayout,QTabWidget,QPushButton,QMessageBox
+from PyQt5.QtGui import QImage
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import QTimer
+
+# import Opencv module
+import cv2 
+
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtMultimediaWidgets import *
@@ -254,6 +263,14 @@ class Ui_sysmainwindow(object):
 )
         self.stackedWidget.setObjectName("stackedWidget")
         self.newstu_page = QtWidgets.QWidget()
+###lihao
+        self.lihaoTimer = QTimer()
+        self.cap = cv2.VideoCapture(0)
+        self.lihaoTabIndex = -1
+        self.lihaoTimer.timeout.connect(self.lihaoViewCam)
+        self.lihaoTimer.start(20)
+ 
+###lihao end
 
         self.newstu_page.setObjectName("newstu_page")
         self.newstu_tabWidget = QtWidgets.QTabWidget(self.newstu_page)
@@ -313,7 +330,8 @@ class Ui_sysmainwindow(object):
 
         self.viewfinder2 = QCameraViewfinder(self.verticalLayoutWidget_3)
         self.viewfinder2.setObjectName("viewfinder2")
-        self.camera_Vlayout_2.addWidget(self.viewfinder2)
+        self.lihaoLabel2 = QLabel("XXX2")
+        self.camera_Vlayout_2.addWidget(self.lihaoLabel2)
 
         self.stu_fingers = QtWidgets.QLabel(self.register_tab)
         self.stu_fingers.setGeometry(QtCore.QRect(10, 10, 131, 221))
@@ -339,6 +357,7 @@ class Ui_sysmainwindow(object):
         self.takphoto_buttn_2 = QtWidgets.QPushButton(self.register_tab)
         self.takphoto_buttn_2.setGeometry(QtCore.QRect(220, 440, 61, 41))
         self.takphoto_buttn_2.setObjectName("takphoto_buttn_2")
+        self.takphoto_buttn_2.clicked.connect(sysmainwindow.lihaoTakePhoto2)
         self.stu_fin_buttn = QtWidgets.QPushButton(self.register_tab)
         self.stu_fin_buttn.setGeometry(QtCore.QRect(532, 460, 91, 31))
         self.stu_fin_buttn.setObjectName("stu_fin_buttn")
@@ -476,6 +495,7 @@ class Ui_sysmainwindow(object):
         self.takphoto_buttn = QtWidgets.QPushButton(self.input_tab)
         self.takphoto_buttn.setGeometry(QtCore.QRect(230, 440, 71, 41))
         self.takphoto_buttn.setObjectName("takphoto_buttn")
+        self.takphoto_buttn.clicked.connect(sysmainwindow.lihaoTakePhoto)
         self.line_2 = QtWidgets.QFrame(self.input_tab)
         self.line_2.setGeometry(QtCore.QRect(320, 10, 16, 501))
         self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
@@ -511,7 +531,8 @@ class Ui_sysmainwindow(object):
 
         self.viewfinder = QCameraViewfinder(self.verticalLayoutWidget_2)
         self.viewfinder.setObjectName("viewfinder")
-        self.camera_Vlayout.addWidget(self.viewfinder)
+        self.lihaoLabel = QLabel("XXX1")
+        self.camera_Vlayout.addWidget(self.lihaoLabel)
 
         self.ident_fingers = QtWidgets.QLabel(self.input_tab)
         self.ident_fingers.setGeometry(QtCore.QRect(20, 20, 131, 211))
@@ -1147,6 +1168,7 @@ class Ui_sysmainwindow(object):
         self.verticalLayout.addItem(spacerItem4)
         self.Newstu_buttn = QtWidgets.QPushButton(self.menu)
         self.Newstu_buttn.setStyleSheet("")
+        self.Newstu_buttn.clicked.connect(self.lihaoFunc)
         self.Newstu_buttn.setObjectName("Newstu_buttn")
         self.verticalLayout.addWidget(self.Newstu_buttn)
         self.Updata_buttn = QtWidgets.QPushButton(self.menu)
@@ -1154,6 +1176,7 @@ class Ui_sysmainwindow(object):
         self.verticalLayout.addWidget(self.Updata_buttn)
         self.Ident_buttn = QtWidgets.QPushButton(self.menu)
         self.Ident_buttn.setStyleSheet("")
+        self.Ident_buttn.clicked.connect(self.lihaoFunc2)
         self.Ident_buttn.setObjectName("Ident_buttn")
         self.verticalLayout.addWidget(self.Ident_buttn)
         self.Spk_buttn = QtWidgets.QPushButton(self.menu)
@@ -1441,3 +1464,36 @@ class Ui_sysmainwindow(object):
         self.Offic_buttn.setText(_translate("sysmainwindow", "认证管理员"))
         self.Log_buttn.setText(_translate("sysmainwindow", "查看日志文件"))
 
+    def lihaoViewCam(self):
+        if self.lihaoTabIndex == 2:
+            ret,self.image0 = self.cap.read()#从摄像头读取图片
+            self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
+            height,width,channel = self.image.shape#获取图片大小
+            step = channel * width #更具图片大小获得step
+            qImg = QImage(self.image.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+            self.lihaoLabel.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        elif self.lihaoTabIndex == 0:
+            ret,self.image0 = self.cap.read()#从摄像头读取图片
+            self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
+            height,width,channel = self.image.shape#获取图片大小
+            step = channel * width #更具图片大小获得step
+            qImg = QImage(self.image.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+            self.lihaoLabel2.setPixmap(QPixmap.fromImage(qImg));print("2")#显示图片
+    def lihaoFunc(self):
+        self.lihaoTabIndex = 0 
+    def lihaoFunc2(self):
+        self.lihaoTabIndex = 2 
+    def lihaoTakePhoto(self):
+        cv2.imwrite("temp.jpg",self.image0)
+        self.image1 = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
+        height,width,channel = self.image1.shape#获取图片大小
+        step = channel * width #更具图片大小获得step
+        qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+        self.ident_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+    def lihaoTakePhoto2(self):
+        cv2.imwrite("temp_2.jpg",self.image0)
+        self.image1 = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
+        height,width,channel = self.image1.shape#获取图片大小
+        step = channel * width #更具图片大小获得step
+        qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+        self.stu_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片

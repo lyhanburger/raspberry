@@ -14,6 +14,7 @@ from PyQt5.QtMultimedia import *
 from PyQt5.QtMultimedia import QCameraImageCapture
 from time import sleep
 from myThread import *
+import cv2
 
 import shutil
 #人脸处理
@@ -374,7 +375,7 @@ class setdevice(QMainWindow):
         viewfindersettings.setPixelFormat(4)#set format like jpeg/h.264 etc.
         self.camera.setViewfinderSettings(viewfindersettings)
         
-        self.camera.start()
+#        self.camera.start()
 
 
 
@@ -1319,3 +1320,88 @@ class setdevice(QMainWindow):
             self.ui.newtea_tableView.filter(24)
             self.ui.newoff_tableView.filter(35)
             QMessageBox.information(self, "成功", "恢复出厂值", QMessageBox.Ok)
+
+    def lihaoTakePhoto(self):
+        print("new register")
+        pixmap = self.ui.stu_photoimg.pixmap()
+        pwd = os.getcwd()  # 当前文件路径
+        img_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
+        img_pwd = img_pwd + '/files/registerStudent'
+        os.chdir(img_pwd)
+        os.getcwd()
+        global stu_takepho_times
+        stu_takepho_times += 1
+
+        savename = 'stu_unuser_' + str(stu_takepho_times) + '.jpg'
+        print(savename)
+        #if (pixmap):
+        #    pixmap.save(savename)
+        cv2.imwrite(savename,self.ui.image0)
+        self.ui.image1 = cv2.cvtColor(self.ui.image0,cv2.COLOR_BGR2RGB)#格式转换
+        height,width,channel = self.ui.image1.shape#获取图片大小
+        step = channel * width #更具图片大小获得step
+        qImg = QImage(self.ui.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+        self.ui.ident_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        os.chdir(pwd)
+        os.getcwd()
+    def lihaoTakePhoto2(self):
+        pixmap = self.ui.ident_photoimg.pixmap()
+        pwd = os.getcwd()  # 当前文件路径
+        up_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
+        img_pwd = up_pwd
+        img_pwd = img_pwd + '/match_file'
+        os.chdir(img_pwd)
+        os.getcwd()
+        global ident_takepho_times
+        ident_takepho_times += 1
+
+        savename = 'ident_unuser_' + str(ident_takepho_times) + '.jpg'
+        print(savename)
+        if (1):
+            cv2.imwrite(savename,self.ui.image0)
+            self.ui.image1 = cv2.cvtColor(self.ui.image0,cv2.COLOR_BGR2RGB)#格式转换
+            height,width,channel = self.ui.image1.shape#获取图片大小
+            step = channel * width #更具图片大小获得step
+            qImg = QImage(self.ui.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+            self.ui.stu_photoimg.setPixmap(QPixmap.fromImage(qImg));print("0")#显示图片
+        #    pixmap.save(savename)
+            stuid = self.ui.showId.text()
+            if stuid != '':
+                #人脸比对
+                resource_dir = up_pwd + '/files/examStudent/' + stuid + '_0.jpg'
+                ident_dir = up_pwd + '/match_file/ident_unuser_' + str(ident_takepho_times) + '.jpg'
+                if os.path.exists(ident_dir) and os.path.exists(resource_dir):
+                    # Load some images to compare against
+                    resource_image = face_recognition.load_image_file(resource_dir)
+                    ident_image = face_recognition.load_image_file(ident_dir)
+
+                    # Get the face encodings for the known images
+                    resource_face_encoding = face_recognition.face_encodings(resource_image)[0]
+                    ident_face_encoding = face_recognition.face_encodings(ident_image)[0]
+
+                    known_encodings = [
+                        resource_face_encoding
+                    ]
+
+                    # Load a test image and get encondings for it
+                    # image_to_test = face_recognition.load_image_file("obama2.jpg")
+                    # image_to_test_encoding = face_recognition.face_encodings(image_to_test)[0]
+
+                    # See how far apart the test image is from the known faces
+                    face_distances = face_recognition.face_distance(known_encodings, ident_face_encoding)
+                    for i, face_distance in enumerate(face_distances):
+                        print("The test image has a distance of {:.2} from known image #{}".format(face_distance, i))
+                        print("- With a normal cutoff of 0.6, would the test image match the known image? {}".format(
+                            face_distance < 0.6))
+                        print(
+                            "- With a very strict cutoff of 0.5, would the test image match the known image? {}".format(
+                                face_distance < 0.5))
+                        print()
+
+                    self.ui.ident_samebar_pho.setValue((1 - face_distances) * 100)
+                else:
+                    # self.ui.ident_samebar_pho.setFormat("未获取到照片信息")
+                    self.ui.ident_samebar_pho.setValue(0)
+
+        os.chdir(pwd)
+        os.getcwd()
