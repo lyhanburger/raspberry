@@ -34,14 +34,13 @@ def readID():
             # 原始串口数据为bytes，需解码成str(utf-8)
             idNum = (ser.readline()).decode('utf-8')
         except:
-           
             print("[2] id export error")
 
     print("idnum--[", str(idNum)[:-2], "]")
     if str(idNum)[:-2] in info.keys():
         return info[str(idNum)[:-2]]
     else:
-        return ('NUll', '0', '0')
+        return ('UNKNOW', '000', '000')
 
 
 def main():

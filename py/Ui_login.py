@@ -13,14 +13,17 @@ from Setdevice import *
 import loginImg_rc
 import config
 import psycopg2
+from idSerial import readID
 
 
 class Ui_login(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)
-        self.idcardthread = idthread()
-        self.idcardthread.idport.connect(self.receiveid)
-        self.idcardthread.setvalue(1)
+        # self.idcardthread = idthread()
+        # self.idcardthread.idport.connect(self.receiveid)
+        # self.idcardthread.setvalue(1)
+        self.card_scan_timer = QTimer()
+        self.card_scan_timer.timeout.connect(self.scan_card)
         self.setObjectName("login")
         self.resize(400, 300)
         self.stackedWidget = QtWidgets.QStackedWidget(self)
@@ -243,13 +246,21 @@ class Ui_login(QDialog):
         self.back_buttn.setText(_translate("login", "返回刷卡"))
         self.login_buttn.setText(_translate("login", "确认登陆"))
 
-    def receiveid(self):
-        self.idcardthread.setvalue(0)
-        self.mode = setdevice(127)
-        self.mode.setVisible(1)
-        self.mode.setWindowTitle("欢迎使用")
+    def scan_card(self):
+        if readID() != None:
+            self.idcardthread.setvalue(0)
+            self.mode = setdevice(127)
+            self.mode.setVisible(1)
+            self.mode.setWindowTitle("欢迎使用")
+            self.card_scan_timer.stop()
+            self.close()
 
-        self.close()
+    # def receiveid(self):
+    #     self.idcardthread.setvalue(0)
+    #     self.mode = setdevice(127)
+    #     self.mode.setVisible(1)
+    #     self.mode.setWindowTitle("欢迎使用")
+    #     self.close()
 
     def card_loginshow(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -279,6 +290,7 @@ class Ui_login(QDialog):
         self.mode = setdevice(127)
         self.mode.setVisible(1)
         self.mode.setWindowTitle("欢迎使用")
+        self.card_scan_timer.stop()
         self.close()
         '''
         if not self.uname_edit.text():

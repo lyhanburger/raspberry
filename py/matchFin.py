@@ -18,7 +18,6 @@ def getPort():
 
 def matchFP(stu_id):
     port = getPort()
-
     if (port):
         ser = serial.Serial(port , 9600, timeout=5)
         while (ser.readline().decode('utf-8') != '0\r\n'):     #与下位机握手(串行通信均需双方握手)

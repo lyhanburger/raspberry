@@ -40,7 +40,7 @@ class finoperation(QThread):
                 self.sinport.emit(1,lihaoGetFP())
             elif self.choice==2:
                 printINFO("MatchFP")
-                self.sinport.emit(2,lihaoMatchFP())
+                self.sinport.emit(2,matchFP())
             else:
                 print("do nothing")
         time.sleep(7)
