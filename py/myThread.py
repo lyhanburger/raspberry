@@ -1,15 +1,11 @@
 import time
-#from getFP import *
-#from matchFP import *
-from idSerial import *
 import login
-
 from PyQt5.QtCore import *
 from logc import printINFO, printTEST
-###########载入指纹模块#########
-from recordFP import *
-from matchFin import *
-##############################
+# 载入指纹模块 
+from finger_modle import enroll, match
+# 载入磁卡
+from idSerial import *
 
 class getstuid(QThread):
     getid = pyqtSignal(str)
@@ -20,56 +16,65 @@ class getstuid(QThread):
     def run(self):
         self.getid.emit(self.stuid)
 
-    def setstuid(self,stuid):
+    def set_stuid(self, stuid):
         self.stuid=stuid
-        self.start()
 
 class finoperation(QThread):
-    sinport = pyqtSignal(int,str)
+    fp_recoder_signal = pyqtSignal(str,bool)
+    fp_match_signal = pyqtSignal(tuple)
+
     def __init__(self, parent = None):
         super(finoperation, self).__init__(parent)
-        self.choice = -1
-        self.stu_id = ''
+        self.mod = 1
+        self.num = '1'
 
     def run(self):
         while True:
-            #print("choice:",self.choice)
-            if self.choice==1:
-                time.sleep(3)
-                printINFO("Register")
-                self.sinport.emit(1,lihaoGetFP())
-            elif self.choice==2:
-                printINFO("MatchFP")
-                self.sinport.emit(2,matchFP())
-            else:
-                print("do nothing")
-        time.sleep(7)
+            if self.mod == 1:
+                '''record'''
+                num = bytes(self.num+'\n', encoding = "utf8")
+                print('cur_fp_num:', num)
+                result = enroll(num)
+                self.fp_recoder_signal.emit(self.num, result)
+            else: 
+                result = match()
+                if result:
+                    self.fp_match_signal.emit(result)
+                else:
+                    self.fp_match_signal.emit((None, None))
+            time.sleep(6)
 
-    def setvalue(self,choice,stu_id):
-        self.choice = choice
-        self.stu_id = stu_id
-        self.start()
+    def setvalue(self, mod = 1, num = '1'):
+        self.mod = mod
+        self.num = num
 
 class idthread(QThread):
     idport = pyqtSignal(int,tuple)
     def __init__(self, parent = None):
         super(idthread, self).__init__(parent)
         self.choice = -1
+        self.is_stop = True
 
     def run(self):
         while True:
-            if self.choice == -1:
+            if self.is_stop:
+                print('stop ID thread')
                 break
             else:
                 Idcard = readID()
-                printTEST("idcard:"+str(Idcard))
-                if Idcard != '':
+                print(Idcard)
+                if Idcard != None:
                    self.idport.emit(self.choice, Idcard)
             time.sleep(2)
 
-    def setvalue(self, choice):
-        self.choice = choice
+    def stop(self):
+        self.is_stop = True
+    def begin(self):
+        self.is_stop = False
         self.start()
+    def setvalue(self, val):
+        self.choice = val
+
 
 class upuserthread(QThread):
     def __init__(self, parent = None):

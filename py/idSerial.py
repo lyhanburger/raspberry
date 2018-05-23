@@ -13,16 +13,20 @@ def getPort():
     except:
         pass
         # print("IDNONE")
-    port = 0
+    port = None
     for ports in port_list:
-        if (re.match('/dev/ttyUSB1', ports.device)):
+        print(ports.device)
+        if (re.match('/dev/ttyUSB0', ports.device)):
             port = ports.device
-            return port
+            break
+    return port
 
 
 def readID():
     port = getPort()
-    print("ID port----", port)
+    print("id port:", port)
+    if port == None:
+        return None
     try:
         ser = serial.Serial(port, 9600, timeout=1)
     except:
@@ -42,10 +46,8 @@ def readID():
     else:
         return ('UNKNOW', '000', '000')
 
-
 def main():
     print(readID())
-
 
 if __name__ == '__main__':
     main()

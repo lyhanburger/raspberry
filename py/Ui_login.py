@@ -19,11 +19,6 @@ from idSerial import readID
 class Ui_login(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)
-        # self.idcardthread = idthread()
-        # self.idcardthread.idport.connect(self.receiveid)
-        # self.idcardthread.setvalue(1)
-        self.card_scan_timer = QTimer()
-        self.card_scan_timer.timeout.connect(self.scan_card)
         self.setObjectName("login")
         self.resize(400, 300)
         self.stackedWidget = QtWidgets.QStackedWidget(self)
@@ -229,11 +224,14 @@ class Ui_login(QDialog):
         self.mini_buttn1.clicked.connect(self.minimize)
         self.close_buttn.clicked.connect(self.close)
         self.close_buttn1.clicked.connect(self.close)
-        self.login_buttn.setShortcut(Qt.Key_Return)  # 将字母区回车键与登录按钮绑定在一起
-
+        self.login_buttn.setShortcut(Qt.Key_Return)  # 将字母区回车键与登录按钮绑定在一
         self.uname_edit.setPlaceholderText("请输入您的教职工号")
         self.upasswd_edit.setPlaceholderText("请输入您的密码")
         QtCore.QMetaObject.connectSlotsByName(self)
+
+        self.idcardthread = idthread()
+        self.idcardthread.idport.connect(self.receiveid)
+        self.idcardthread.begin()
 
     def retranslateUi(self, login):
         _translate = QtCore.QCoreApplication.translate
@@ -246,21 +244,13 @@ class Ui_login(QDialog):
         self.back_buttn.setText(_translate("login", "返回刷卡"))
         self.login_buttn.setText(_translate("login", "确认登陆"))
 
-    def scan_card(self):
-        if readID() != None:
-            self.idcardthread.setvalue(0)
-            self.mode = setdevice(127)
-            self.mode.setVisible(1)
-            self.mode.setWindowTitle("欢迎使用")
-            self.card_scan_timer.stop()
-            self.close()
-
-    # def receiveid(self):
-    #     self.idcardthread.setvalue(0)
-    #     self.mode = setdevice(127)
-    #     self.mode.setVisible(1)
-    #     self.mode.setWindowTitle("欢迎使用")
-    #     self.close()
+    def receiveid(self):
+        self.idcardthread.stop()
+        self.idcardthread.terminate()
+        self.mode = setdevice(127)
+        self.mode.setVisible(1)
+        self.mode.setWindowTitle("欢迎使用")
+        self.close()
 
     def card_loginshow(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -287,10 +277,11 @@ class Ui_login(QDialog):
             event.accept()
 
     def startlogin(self):
+        self.idcardthread.stop()
+        self.idcardthread.terminate()
         self.mode = setdevice(127)
         self.mode.setVisible(1)
         self.mode.setWindowTitle("欢迎使用")
-        self.card_scan_timer.stop()
         self.close()
         '''
         if not self.uname_edit.text():
@@ -333,7 +324,6 @@ class Ui_login(QDialog):
 
                         else:
                             QMessageBox.critical(self.login_buttn, "错误", '用户名或密码错误')
-
 '''
 #self.cursor.execute('''select rights from "user" where id=%s and passwd='%s' ''' % (id, passwd))
 
