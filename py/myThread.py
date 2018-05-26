@@ -28,47 +28,48 @@ class finoperation(QThread):
 
     def __init__(self, parent=None):
         super(finoperation, self).__init__(parent)
-        self.mod = 2
+        self.mod = 1
         self.num = '1'
         self.is_stop = 0
         self.FP = FP()
 
-    def close_ser(self):
-        if self.FP.ser:
-            self.FP.ser.close()
-        else:
-            pass
+    # def close_ser(self):
+    #     if self.FP.ser:
+    #         self.FP.ser.close()
+    #     else:
+    #         pass
 
     def run(self):
         while True:
             if self.mod == 1:
                 print("RECORD")
                 '''record'''
-                try:
-                    self.FP.ser.close()
-                except:
-                    pass
+                # try:
+                #     self.FP.ser.close()
+                # except:
+                #     pass
                 num = bytes(self.num + '\n', encoding="utf8")
                 result = self.FP.enroll(num)
-                self.FP.ser.close()
+                # self.FP.ser.close()
                 if result:
                     self.fp_recoder_signal.emit(self.num, result)
             else:
                 print("MATCH")
-                try:
-                    self.FP.ser.close()
-                except:
-                    pass
+                # try:
+                #     self.FP.ser.close()
+                # except:
+                #     pass
                 result = self.FP.match()
-                self.FP.ser.close()
+                # self.FP.ser.close()
                 if result:
                     self.fp_match_signal.emit(result)
                 else:
                     self.fp_match_signal.emit((None, None))
             time.sleep(1)
-            # self.close_ser()
+      
 
     def setvalue(self, mod=1, num='1'):
+        print('change mod', mod)
         self.mod = mod
         self.num = num
 

@@ -26,14 +26,14 @@ class FP:
 
     def enroll(self, type):
 
-        self.port = getPort()
-        print("fingerpoint", self.port)
+        # self.port = getPort()
+        # print("fingerpoint", self.port)
+        # try:
+        #     self.ser = serial.Serial(self.port, 9600, timeout=1)
+        # except:
+        #     print('ERROR PORT')
         try:
-            self.ser = serial.Serial(self.port, 9600, timeout=1)
-        except:
-            print('ERROR PORT')
-        try:
-            time.sleep(2)
+            time.sleep(1)
             self.ser.write(b'1\n')
             time.sleep(1)
             self.ser.write(type)
@@ -49,20 +49,22 @@ class FP:
             if res.find("Stored!") != -1:
                 # self.ser.close()
                 return True
+            elif res.find("[py]") != -1:
+                return False
             # elif res.find("Fingerprints did not match") != -1:
             #     self.ser.write(b'1\n')
             #     self.ser.write(type)
         return False
 
     def match(self):
-        self.port = getPort()
-        print("fingerpoint", self.port)
-        # if self.ser.isOpen():
-        #     self.ser.close()
-        try:
-            self.ser = serial.Serial(self.port, 9600, timeout=1)
-        except:
-            print('ERROR PORT') 
+        # self.port = getPort()
+        # print("fingerpoint", self.port)
+        # # if self.ser.isOpen():
+        # #     self.ser.close()
+        # try:
+        #     self.ser = serial.Serial(self.port, 9600, timeout=1)
+        # except:
+        #     print('ERROR PORT') 
         time.sleep(1)
         self.ser.write(b'2\n')
         res = ""
@@ -84,7 +86,8 @@ class FP:
                 print(result)
                 # self.ser.close()
                 return result
-        
+            elif res.find("Not match") != -1:
+                return  None, None
         return None, None
 
 

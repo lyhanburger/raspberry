@@ -15,17 +15,21 @@ import cv2
 import shutil
 # 人脸处理
 import face_recognition
-import time 
+import time
 import mainimg
 import register
 import exam
 import login
 import speech
 import view
+import pickle
 import configFTP
 import configDB
+from ui_wait import Ui_WAIT
 from PIL import Image
 from PIL.ImageQt import ImageQt
+# 照片存档
+
 
 stu_takepho_times = 0  # 全局变量：保存的照片命名
 ident_takepho_times = 0
@@ -34,7 +38,6 @@ isCard = True
 spkIs_end = False
 Is_fin = 0
 fin_same = 0
-import pickle
 
 try:
     with open('fp_person.pkl', 'rb') as f:
@@ -121,23 +124,29 @@ class setdevice(QMainWindow):
 
     def receive_fp_match(self, result):
         num = result[0]
+        if num == None:
+            return
         try:
+
             sid = self.ui.showId.text()
             if sid:
                 try:
+                    self.is_recorder_fp = True
                     index = PKL_FP.index(sid) + 1
                     if index == int(num):
                         confidence = result[-1]
                         self.ui.ident_samebar_fin.setValue(int(confidence))
                 except:
-                    QMessageBox.information(self, "错误", '请先录入学生学号', QMessageBox.Ok)
+                    QMessageBox.information(
+                        self, "错误", '未录入该学生', QMessageBox.Ok)
+            else:
+                QMessageBox.information(self, "错误", '请先录入学生学号', QMessageBox.Ok)
 
         except Exception as e:
             print(e)
 
     def matchId(self, stuid):
         global ident_takepho_times
-
         #####人脸比对####
         if ident_takepho_times > 0:
             pwd = os.getcwd()
@@ -229,19 +238,39 @@ class setdevice(QMainWindow):
     ###############################点击侧边栏中的按钮################################
     def newstushow(self):
         # self.fp_modle.close_ser()
-        self.fp_modle.setvalue(mod=1)
+        if self.fp_modle.mod != 1:
+            self.fp_modle.setvalue(mod=1, num=str(self.fp_num))
+            wait_win = Ui_WAIT(parent=self)
+            # 居中弹出
+            wait_win.move((QApplication.desktop().width() - 800) / 2,
+                          (QApplication.desktop().height() - 600) / 2)
+            wait_win.setWindowTitle("等等我")
+
+            if wait_win.exec_():
+                wait_win.destroy()
+            wait_win.destroy()
+
         self.id_modle.setvalue(1)
         self.ui.welcome_label.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.newstu_tabWidget.setCurrentIndex(0)
         self.ui.text_label.setPixmap(QPixmap("./img/text.jpeg"))
-        self.fp_modle.setvalue(mod=1, num=str(self.fp_num))
         self.ui.centralwidget.setStyleSheet(
             "QWidget#centralwidget{border-image: url(./img/new_bg.jpg);}")
 
     def idenshow(self):
         # self.fp_modle.close_ser()
-        self.fp_modle.setvalue(mod=2)
+        if self.fp_modle.mod != 2:
+            self.fp_modle.setvalue(mod=2)
+            wait_win = Ui_WAIT(parent=self)
+            # 居中弹出
+            wait_win.move((QApplication.desktop().width() - 800) / 2,
+                          (QApplication.desktop().height() - 600) / 2)
+            wait_win.setWindowTitle("等等我")
+            if wait_win.exec_():
+                wait_win.destroy()
+            wait_win.destroy()
+
         self.id_modle.setvalue(2)
         self.ui.welcome_label.hide()
         self.ui.stackedWidget.setCurrentIndex(1)
@@ -280,6 +309,7 @@ class setdevice(QMainWindow):
     def logshow(self):
         self.id_modle.setvalue(-1)
         self.ui.welcome_label.hide()
+        self.ui.stackedWidget.setCurrentIndex(4)
         self.ui.text_label.setPixmap(QPixmap(" "))
         self.ui.centralwidget.setStyleSheet(
             "QWidget#centralwidget{border-image: url(./img/log_bg.jpg);}")
@@ -407,7 +437,7 @@ class setdevice(QMainWindow):
             self.ui.newstu_tableview.filter('', '', '', 'All', 'All')
 
             # 重置，等待下一位录入者
-            PKL_FP.insert((self.fp_num-1)%127, sid)
+            PKL_FP.insert((self.fp_num-1) % 127, sid)
             self.fp_num += 1
             with open('fp_person.pkl', 'wb') as f:
                 pickle.dump([], f)
@@ -1032,8 +1062,14 @@ class setdevice(QMainWindow):
                     if filename == resume:
                         print("找到了这个学生的照片(｡･ω･｡)：", filename)
                         img_pwd1 = img_pwd + '/' + resume
+                        newpix = QPixmap(QPixmap(img_pwd1).scaled(
+                            self.ui.newstuPhotoimg_label.width(),
+                            self.ui.newstuPhotoimg_label.height(),
+                            Qt.KeepAspectRatio
+                            )
+                        )
                         self.ui.newstuPhotoimg_label.setPixmap(
-                            QPixmap(img_pwd1))
+                            QPixmap(newpix))
 
     # 单击监考模式table表单,在photo_label上显示照片
     def ident_showphoto(self):
@@ -1131,16 +1167,16 @@ class setdevice(QMainWindow):
         ident_takepho_times += 1
 
         savename = 'ident_unuser_' + str(ident_takepho_times) + '.jpg'
-        
+
         cv2.imwrite(savename, self.ui.image0)
         self.ui.image = cv2.cvtColor(
             self.ui.image0, cv2.COLOR_BGR2RGB)  # 格式转换
-        
+
         face_image = self.ui.image
         face_locations = face_recognition.face_locations(self.ui.image)
         if len(face_locations) != 0:
             top, right, bottom, left = face_locations[0]
-            face_image = self.ui.image[top-10:bottom+10, left-10:right+10]
+            face_image = self.ui.image[top-30:bottom+30, left-10:right+10]
             face_image = Image.fromarray(face_image)
             qImg = ImageQt(face_image)
         else:
@@ -1150,8 +1186,8 @@ class setdevice(QMainWindow):
                           QImage.Format_RGB888)  # 根据图片大小产生QImage
         qpix = QPixmap.fromImage(qImg)
         newpix = QPixmap(qpix.scaled(self.ui.stu_photoimg.width(),
-                    self.ui.stu_photoimg.height(), 
-                    Qt.KeepAspectRatio))
+                                     self.ui.stu_photoimg.height(),
+                                     Qt.KeepAspectRatio))
         # step=channel * width  # 更具图片大小获得step
         # qImg=QImage(self.ui.image.data, width, height, step,
         #               QImage.Format_RGB888)  # 根据图片大小产生QImage
@@ -1160,7 +1196,7 @@ class setdevice(QMainWindow):
 
         # pixmap.save(savename)
         stuid = self.ui.showId.text()
-        if stuid != '':
+        if stuid:
             # 人脸比对
             resource_dir = up_pwd + '/files/examStudent/' + stuid + '_0.jpg'
             ident_dir = up_pwd + '/match_file/ident_unuser_' + \
@@ -1171,39 +1207,41 @@ class setdevice(QMainWindow):
                 ident_image = face_recognition.load_image_file(ident_dir)
 
                 # Get the face encodings for the known images
-                resource_face_encoding = face_recognition.face_encodings(resource_image)[
-                    0]
-                ident_face_encoding = face_recognition.face_encodings(ident_image)[
-                    0]
+                try:
+                    resource_face_encoding = face_recognition.face_encodings(resource_image)[
+                        0]
+                    ident_face_encoding = face_recognition.face_encodings(ident_image)[
+                        0]
 
-                known_encodings = [
-                    resource_face_encoding
-                ]
+                    known_encodings = [
+                        resource_face_encoding
+                    ]
 
-                # Load a test image and get encondings for it
-                # image_to_test = face_recognition.load_image_file("obama2.jpg")
-                # image_to_test_encoding =
-                # face_recognition.face_encodings(image_to_test)[0]
+                    # Load a test image and get encondings for it
+                    # image_to_test = face_recognition.load_image_file("obama2.jpg")
+                    # image_to_test_encoding =
+                    # face_recognition.face_encodings(image_to_test)[0]
 
-                # See how far apart the test image is from the known faces
-                face_distances = face_recognition.face_distance(
-                    known_encodings, ident_face_encoding)
-                for i, face_distance in enumerate(face_distances):
-                    print("The test image has a distance of {:.2} from known image #{}".format(
-                        face_distance, i))
-                    print("- With a normal cutoff of 0.6, would the test image match the known image? {}".format(
-                        face_distance < 0.6))
-                    print(
-                        "- With a very strict cutoff of 0.5, would the test image match the known image? {}".format(
-                            face_distance < 0.5))
-                    print()
-
+                    # See how far apart the test image is from the known faces
+                    face_distances = face_recognition.face_distance(
+                        known_encodings, ident_face_encoding)
+                    for i, face_distance in enumerate(face_distances):
+                        print("The test image has a distance of {:.2} from known image #{}".format(
+                            face_distance, i))
+                        print("- With a normal cutoff of 0.6, would the test image match the known image? {}".format(
+                            face_distance < 0.6))
+                        print(
+                            "- With a very strict cutoff of 0.5, would the test image match the known image? {}".format(
+                                face_distance < 0.5))
+                except:
+                    QMessageBox.information(
+                        self, 'error', '可能拍照姿势不对，没有找到人脸', QMessageBox.OK)
                 self.ui.ident_samebar_pho.setValue((1 - face_distances) * 100)
             else:
                 # self.ui.ident_samebar_pho.setFormat("未获取到照片信息")
                 self.ui.ident_samebar_pho.setValue(0)
         else:
-            QMessageBox.warning(self, "请先录入学生学号")
+            QMessageBox.warning(self, 'warn', "请先录入学生学号", QMessageBox.OK)
             # self.ui.stu_photoimg.setText("暂无该学生底片")
 
         os.chdir(pwd)
@@ -1220,30 +1258,29 @@ class setdevice(QMainWindow):
         stu_takepho_times += 1
 
         savename = 'stu_unuser_' + str(stu_takepho_times) + '.jpg'
-        cv2.imwrite(savename, self.ui.image0)
+
         self.ui.image = cv2.cvtColor(
             self.ui.image0, cv2.COLOR_BGR2RGB)  # 格式转换
-        
+
         face_image = self.ui.image
         face_locations = face_recognition.face_locations(self.ui.image)
         if len(face_locations) != 0:
             top, right, bottom, left = face_locations[0]
-            face_image = self.ui.image[top-10:bottom+10, left-10:right+10]
+            face_image = self.ui.image[top-30:bottom+30, left-10:right+10]
             face_image = Image.fromarray(face_image)
+            face_image.save(savename)
             qImg = ImageQt(face_image)
         else:
+            cv2.imwrite(savename, self.ui.image0)
             height, width, channel = face_image.shape  # 获取图片大小
             step = channel * width  # 更具图片大小获得step
             qImg = QImage(face_image, width, height, step,
                           QImage.Format_RGB888)  # 根据图片大小产生QImage
         qpix = QPixmap.fromImage(qImg)
         newpix = QPixmap(qpix.scaled(self.ui.stu_photoimg.width(),
-                    self.ui.stu_photoimg.height(), 
-                     Qt.IgnoreAspectRatio))
-        # step=channel * width  # 更具图片大小获得step
-        # qImg=QImage(self.ui.image.data, width, height, step,
-        #               QImage.Format_RGB888)  # 根据图片大小产生QImage
-        # QPixmap.fromImage(qImg)
+                                     self.ui.stu_photoimg.height(),
+                                     Qt.KeepAspectRatio))
+
         self.ui.stu_photoimg.setPixmap(newpix)  # 显示图片
         self.ui.pissucc_label.setPixmap(QPixmap("./img/sure.png"))
         os.chdir(pwd)

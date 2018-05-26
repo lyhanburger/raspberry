@@ -12,11 +12,11 @@ from PyQt5.QtCore import *
 class Ui_Newform(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)
-        self.resize(241, 328)
+        self.resize(312, 326)
         self.setStyleSheet("QWidget{\n"
-"background-color:rgb(210,210,210);\n"
-"}\n"
-"\n"
+                            "background-color:rgb(210,210,210);\n"
+                            "}\n"
+                            "\n"
                            "QLineEdit\n"
                            "{\n"
                            "    background:white;\n"
@@ -117,7 +117,6 @@ class Ui_Newform(QDialog):
         return self.class_lineEdit.text()
     def get_id(self):
         return self.id_lineEdit.text()
-
     def finish(self):
         if self.checkempty():
             return self.accept()
@@ -125,7 +124,6 @@ class Ui_Newform(QDialog):
             return
     def cancel(self):
         return self.reject()
-
     def checkempty(self):
         is_empty=True
         count_id = len(self.id_lineEdit.text())

@@ -3,27 +3,16 @@
 # Form implementation generated from reading ui file 'sysmainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.8.1
-#
-# WARNING! All changes made in this file will be lost!
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QTabWidget, QPushButton, QMessageBox
-from PyQt5.QtGui import QImage
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtCore import QTimer
-
 # import Opencv module
 import cv2
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtMultimediaWidgets import *
-
 from PyQt5.QtSql import QSqlTableModel
 from PyQt5.QtWidgets import QTableView, QAbstractItemView
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import QImage
 import view
-
 
 class Ui_sysmainwindow(object):
 
@@ -31,9 +20,20 @@ class Ui_sysmainwindow(object):
 
         sysmainwindow.setObjectName("sysmainwindow")
         sysmainwindow.resize(800, 600)
-        sysmainwindow.setStyleSheet("QWidget{\n"
+        sysmainwindow.setStyleSheet(
+                                    "QWidget#QMessageBox{\n"
+                                    #"background-color:rgb(238,241,245);\n"
+                                    "background-color: rgb(100,100,100);\n"
+                                    "color:white;\n"
+                                    "}\n"
+                                    "QWidget{\n"
                                     #"background-color:rgb(238,241,245);\n"
                                     "background-color: rgb(255,255,255,5);\n"
+                                    "color:white;\n"
+                                    "}\n"
+                                    "QLineEdit{\n"
+                                    #"background-color:rgb(238,241,245);\n"
+                                    "background-color: rgb(255,255,255,50);\n"
                                     "color:white;\n"
                                     "}\n"
                                     "\n"
@@ -140,7 +140,7 @@ class Ui_sysmainwindow(object):
                                          "        height: 20px;\n"
                                          "        border-radius: 4px;\n"
                                          "        border: 1px solid rgb(209 , 209 , 209);\n"
-                                         "        background: white;\n"
+                                         "        background: (255,255,255,30);\n"
                                          "}\n"
                                          "QComboBox:enabled {\n"
                                          "        color: rgb(255,255,255);\n"
@@ -171,7 +171,7 @@ class Ui_sysmainwindow(object):
                                          "}\n"
                                          "QLineEdit\n"
                                          "{\n"
-                                         "    background:white;\n"
+                                         "    background:rgb(255,255,255,30);\n"
                                          "    padding-left:5px ;\n"
                                          "    padding-top:1px ;\n"
                                          "    border-radius:3px;\n"
@@ -183,7 +183,7 @@ class Ui_sysmainwindow(object):
                                          "    border: 1px solid rgb(21 , 131 , 221);\n"
                                          "}\n"
                                          "\n"
-                                         "QWidget{\n"
+                                         "QWidget#stackedWidget{\n"
                                          "background:transparent;\n"
                                          "}\n"
                                          "QPushButton{\n"
@@ -1389,14 +1389,9 @@ class Ui_sysmainwindow(object):
         self.updataDeiniti_buttn.clicked.connect(sysmainwindow.resertAll)
 
         ######自定义信号槽#########
-        # self.showId.setText.connect(sysmainwindow.changestuid)
-
-        # self.upload_tab.ifshow.connect(sysmainwindow.newstutableview)
-
         self.spkHome_buttn.setToolTip("返回至'开始新讲座'、'继续当前讲座'、'结束当前讲座'界面")
         self.newstu_tableview.clicked.connect(sysmainwindow.new_showphoto)
         self.tableView.clicked.connect(sysmainwindow.ident_showphoto)
-
         QtCore.QMetaObject.connectSlotsByName(sysmainwindow)
 
     def retranslateUi(self, sysmainwindow):
@@ -1606,17 +1601,3 @@ class Ui_sysmainwindow(object):
 
     def lihaoFunc2(self):
         self.lihaoTabIndex = 2
-    # def lihaoTakePhoto(self):
-    #     # cv2.imwrite("temp.jpg",self.image0)
-    #     self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
-    #     height,width,channel = self.image1.shape#获取图片大小
-    #     step = channel * width #更具图片大小获得step
-    #     qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-    #     self.ident_photoimg.setPixmap(QPixmap.fromImage(qImg))
-    # def lihaoTakePhoto2(self):
-    #     # cv2.imwrite("temp_2.jpg",self.image0)
-    #     self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
-    #     height,width,channel = self.image1.shape#获取图片大小
-    #     step = channel * width #更具图片大小获得step
-    #     qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-    #     self.stu_photoimg.setPixmap(QPixmap.fromImage(qImg))
