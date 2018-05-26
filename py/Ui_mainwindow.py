@@ -11,7 +11,7 @@ from PyQt5.QtSql import QSqlTableModel
 from PyQt5.QtWidgets import QTableView, QAbstractItemView
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QImage
+from PyQt5.QtGui import QImage, QPixmap
 import view
 
 class Ui_sysmainwindow(object):
