@@ -2,8 +2,8 @@ import serial
 import serial.tools.list_ports
 import re
 info = {}
-info['D5 25 03 46'] = ('Robert', '201521112', '2015212310')  # admin
-info['B3 6F 56 3E'] = ('Lily', '2015211102', '2015210012')  # student
+info['D5 25 03 46'] = ('haicao', '100001', '100007')  # admin
+info['B3 6F 56 3E'] = ('haima', '20161122', '201621113')  # student
 info['B3 1A FB FE'] = ('Bob', '2015211123', '2015312201')  # register
 
 

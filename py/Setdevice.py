@@ -136,6 +136,8 @@ class setdevice(QMainWindow):
                     if index == int(num):
                         confidence = result[-1]
                         self.ui.ident_samebar_fin.setValue(int(confidence))
+                    else:
+                        self.ui.ident_samebar_fin.setValue(0)
                 except:
                     QMessageBox.information(
                         self, "错误", '未录入该学生', QMessageBox.Ok)
@@ -270,7 +272,7 @@ class setdevice(QMainWindow):
             if wait_win.exec_():
                 wait_win.destroy()
             wait_win.destroy()
-
+        self.clear_ident()
         self.id_modle.setvalue(2)
         self.ui.welcome_label.hide()
         self.ui.stackedWidget.setCurrentIndex(1)
@@ -440,7 +442,8 @@ class setdevice(QMainWindow):
             PKL_FP.insert((self.fp_num-1) % 127, sid)
             self.fp_num += 1
             with open('fp_person.pkl', 'wb') as f:
-                pickle.dump([], f)
+                pickle.dump(PKL_FP, f)
+
             isCard = True
             self.is_recorder_fp = False
             self.ui.stu_photoimg.setPixmap(QPixmap("./img/noface.png"))
@@ -453,7 +456,12 @@ class setdevice(QMainWindow):
             self.ui.newstuShowid_label.clear()
             stu_takepho_times = 0
             return
-
+    def clear_ident(self):
+        self.ui.showname.clear()
+        self.ui.showclass.clear()
+        self.ui.showId.clear()
+        self.ui.ident_samebar_fin.setValue(0)
+        self.ui.ident_photoimg.clear()
     def finish_ident(self):
         global isCard
         global ident_takepho_times
@@ -504,10 +512,12 @@ class setdevice(QMainWindow):
                         self.ui.ident_photoimg.setPixmap(
                             QPixmap("./img/noface.png"))
                         # ！待做：进度条重制
+
                         isCard = True
                         self.ui.showname.clear()
                         self.ui.showclass.clear()
                         self.ui.showId.clear()
+                        self.ui.ident_samebar_fin.setValue(0)
                         ident_takepho_times = 0
                         QMessageBox.information(
                             self, "成功", "已完成当前录入", QMessageBox.Ok)
@@ -540,6 +550,7 @@ class setdevice(QMainWindow):
 
         if choice == 1:
             global stu_takepho_times
+            sub_img_pwd = os.path.join(img_pwd,'files', 'examStudent')
             img_pwd = os.path.join(img_pwd, 'files', 'registerStudent')
             oldpex = "stu_unuser_" + str(stu_takepho_times)
             newpex = self.ui.newstuShowid_label.text() + "_0"
@@ -557,6 +568,8 @@ class setdevice(QMainWindow):
                             print(filename, "---->", newName)  # test
                             os.rename(os.path.join(parent, filename),
                                       os.path.join(parent, newName))
+                            os.system('cp {} {}'.format(os.path.join(img_pwd, newName), os.path.join(sub_img_pwd, newName)))
+                            print(os.path.join(img_pwd, newName), '---->',os.path.join(sub_img_pwd, newName))
 
         elif choice == 2:
             global ident_takepho_times
@@ -1161,6 +1174,8 @@ class setdevice(QMainWindow):
         up_pwd = os.path.abspath(os.path.dirname(pwd) + os.path.sep + ".")
         img_pwd = up_pwd
         img_pwd = img_pwd + '/match_file'
+        if not os.path.exists( img_pwd ):
+            os.mkdir(img_pwd)
         os.chdir(img_pwd)
         os.getcwd()
         global ident_takepho_times
@@ -1241,7 +1256,7 @@ class setdevice(QMainWindow):
                 # self.ui.ident_samebar_pho.setFormat("未获取到照片信息")
                 self.ui.ident_samebar_pho.setValue(0)
         else:
-            QMessageBox.warning(self, 'warn', "请先录入学生学号", QMessageBox.OK)
+            QMessageBox.warning(self, 'warn', "请先录入学生学号", QMessageBox.Ok)
             # self.ui.stu_photoimg.setText("暂无该学生底片")
 
         os.chdir(pwd)

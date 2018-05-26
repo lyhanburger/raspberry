@@ -212,6 +212,9 @@ class Ui_login(QDialog):
 
         ####################################################
         self.setWindowFlags(Qt.FramelessWindowHint)  # 消除边框#
+        # self.timer = QTimer()
+        # self.timer.timeout.connect(self.ignore_network)
+        # self.timer.start(15000)
         ####################################################
 
         self.retranslateUi(self)
