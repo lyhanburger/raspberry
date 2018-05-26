@@ -6,13 +6,13 @@
 #
 # WARNING! All changes made in this file will be lost!
 from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QWidget,QVBoxLayout,QTabWidget,QPushButton,QMessageBox
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QTabWidget, QPushButton, QMessageBox
 from PyQt5.QtGui import QImage
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QTimer
 
 # import Opencv module
-import cv2 
+import cv2
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -24,112 +24,112 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 import view
 
-class Ui_sysmainwindow(object):
 
+class Ui_sysmainwindow(object):
 
     def setupUi(self, sysmainwindow):
 
         sysmainwindow.setObjectName("sysmainwindow")
         sysmainwindow.resize(800, 600)
         sysmainwindow.setStyleSheet("QWidget{\n"
-#"background-color:rgb(238,241,245);\n"
-        "background-color: rgb(255,255,255,5);\n"
-        "color:white;\n"
-"}\n"
-"\n"
-"QWidget#menu{\n"
-"margin: 0px;\n"
-"padding: 0px;\n"
-"background-color:rgb(49,54,61);\n"
-"}\n"
-"QPushButton#Newstu_buttn, QPushButton#Updata_buttn, QPushButton#Ident_buttn, QPushButton#Spk_buttn, QPushButton#Log_buttn, QPushButton#Offic_buttn, \n"
-"QPushButton#Teach_buttn{\n"
-"color:rgb(175,170,170);\n"
-"height: 45px;\n"
-"background-color:rgb(49,54,61);\n"
-"border-width: 0px;\n"
-"border-color: #e36a75;\n"
-"border-style: solid;\n"
-"padding: 3px;\n"
-"font-size: 13px;\n"
-"}\n"
-"\n"
-"QPushButton#mini_buttn,\n"
-"QPushButton#close_buttn\n"
-"{\n"
-"    background-color:rgb(200, 200, 200,90);\n"
-"    border:none;\n"
-"    min-width: 21px;\n"
-"    max-width: 21px;\n"
-"    min-height: 21px;\n"
-"    max-height: 21px;\n"
-"}\n"
-"QPushButton#mini_buttn\n"
-"{\n"
-"    background-image:url(./img/mini.png);\n"
-"}\n"
-"QPushButton#close_buttn\n"
-"{\n"
-"    background-image:url(./img/close.png);\n"
-"}\n"
-"QPushButton#mini_buttn:hover\n"
-"{\n"
-"    background-color:rgb(236,240,245,90);\n"
-"}\n"
-"QPushButton#close_buttn:hover\n"
-"{\n"
-"    background-color:rgb(255,0,0,90);\n"
-"}\n"
-"QPushButton#Newstu_buttn:hover, QPushButton#Updata_buttn:hover, QPushButton#Ident_buttn:hover, QPushButton#Spk_buttn:hover, QPushButton#Log_buttn:hover, QPushButton#Offic_buttn:hover, \n"
-"QPushButton#Teach_buttn:hover{\n"
-"background-color: rgb(110,110,110);\n"
-"color: white;\n"
-"}\n"
-"\n"
-"QPushButton#Newstu_buttn:selected, QPushButton#Updata_buttn:selected, QPushButton#ident_buttn:selected,\n"
-"QPushButton#info_buttn:selected\n"
-" QPushButton#log_buttn:selected\n"
-" QPushButton#offic_buttn:selected, \n"
-"QPushButton#teach_buttn:selected{\n"
-"background-color: rgb(110,110,110);\n"
-"color: white;\n"
-"}\n"
-"\n"
-"\n"
-"QTabWidget::pane {\n"
-"        border: none;\n"
-"        border-top: 3px solid rgb(225, 225, 225,80);\n"
-"        background: Transparent;\n"
-        "color:white;"
-"}\n"
-"QTabWidget::tab-bar {\n"
-"        border: none;\n"
-"}\n"
+                                    #"background-color:rgb(238,241,245);\n"
+                                    "background-color: rgb(255,255,255,5);\n"
+                                    "color:white;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QWidget#menu{\n"
+                                    "margin: 0px;\n"
+                                    "padding: 0px;\n"
+                                    "background-color:rgb(49,54,61);\n"
+                                    "}\n"
+                                    "QPushButton#Newstu_buttn, QPushButton#Updata_buttn, QPushButton#Ident_buttn, QPushButton#Spk_buttn, QPushButton#Log_buttn, QPushButton#Offic_buttn, \n"
+                                    "QPushButton#Teach_buttn{\n"
+                                    "color:rgb(175,170,170);\n"
+                                    "height: 45px;\n"
+                                    "background-color:rgb(49,54,61);\n"
+                                    "border-width: 0px;\n"
+                                    "border-color: #e36a75;\n"
+                                    "border-style: solid;\n"
+                                    "padding: 3px;\n"
+                                    "font-size: 13px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton#mini_buttn,\n"
+                                    "QPushButton#close_buttn\n"
+                                    "{\n"
+                                    "    background-color:rgb(200, 200, 200,90);\n"
+                                    "    border:none;\n"
+                                    "    min-width: 21px;\n"
+                                    "    max-width: 21px;\n"
+                                    "    min-height: 21px;\n"
+                                    "    max-height: 21px;\n"
+                                    "}\n"
+                                    "QPushButton#mini_buttn\n"
+                                    "{\n"
+                                    "    background-image:url(./img/mini.png);\n"
+                                    "}\n"
+                                    "QPushButton#close_buttn\n"
+                                    "{\n"
+                                    "    background-image:url(./img/close.png);\n"
+                                    "}\n"
+                                    "QPushButton#mini_buttn:hover\n"
+                                    "{\n"
+                                    "    background-color:rgb(236,240,245,90);\n"
+                                    "}\n"
+                                    "QPushButton#close_buttn:hover\n"
+                                    "{\n"
+                                    "    background-color:rgb(255,0,0,90);\n"
+                                    "}\n"
+                                    "QPushButton#Newstu_buttn:hover, QPushButton#Updata_buttn:hover, QPushButton#Ident_buttn:hover, QPushButton#Spk_buttn:hover, QPushButton#Log_buttn:hover, QPushButton#Offic_buttn:hover, \n"
+                                    "QPushButton#Teach_buttn:hover{\n"
+                                    "background-color: rgb(110,110,110);\n"
+                                    "color: white;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton#Newstu_buttn:selected, QPushButton#Updata_buttn:selected, QPushButton#ident_buttn:selected,\n"
+                                    "QPushButton#info_buttn:selected\n"
+                                    " QPushButton#log_buttn:selected\n"
+                                    " QPushButton#offic_buttn:selected, \n"
+                                    "QPushButton#teach_buttn:selected{\n"
+                                    "background-color: rgb(110,110,110);\n"
+                                    "color: white;\n"
+                                    "}\n"
+                                    "\n"
+                                    "\n"
+                                    "QTabWidget::pane {\n"
+                                    "        border: none;\n"
+                                    "        border-top: 3px solid rgb(225, 225, 225,80);\n"
+                                    "        background: Transparent;\n"
+                                    "color:white;"
+                                    "}\n"
+                                    "QTabWidget::tab-bar {\n"
+                                    "        border: none;\n"
+                                    "}\n"
 
-"QTabBar::tab {\n"
-"        border: none;\n"
-"        border-top-left-radius: 4px;\n"
-"        border-top-right-radius: 4px;\n"
-"        color: white;\n"
-"        background: rgb(225, 225, 225,80);\n"
-"        height: 28px;\n"
-"        min-width: 85px;\n"
-"        padding-left: 5px;\n"
-"        padding-right: 5px;\n"
-"}\n"
-"QTabBar::tab:hover {\n"
-"        color: white;\n"
- "background-color: rgb(21, 131 ,221,20);\n"
-"}\n"
-"QTabBar::tab:selected {\n"
-"        color: white;\n"
- "background-color: rgb(21, 131 ,221,20);\n"
-"}\n"
-"QPushButton#spkHome_buttn\n"
-"{\n"
-"    background-image:url(./img/spkbackhome.png);\n"
-"}\n"
-"")
+                                    "QTabBar::tab {\n"
+                                    "        border: none;\n"
+                                    "        border-top-left-radius: 4px;\n"
+                                    "        border-top-right-radius: 4px;\n"
+                                    "        color: white;\n"
+                                    "        background: rgb(225, 225, 225,80);\n"
+                                    "        height: 28px;\n"
+                                    "        min-width: 85px;\n"
+                                    "        padding-left: 5px;\n"
+                                    "        padding-right: 5px;\n"
+                                    "}\n"
+                                    "QTabBar::tab:hover {\n"
+                                    "        color: white;\n"
+                                    "background-color: rgb(21, 131 ,221,20);\n"
+                                    "}\n"
+                                    "QTabBar::tab:selected {\n"
+                                    "        color: white;\n"
+                                    "background-color: rgb(21, 131 ,221,20);\n"
+                                    "}\n"
+                                    "QPushButton#spkHome_buttn\n"
+                                    "{\n"
+                                    "    background-image:url(./img/spkbackhome.png);\n"
+                                    "}\n"
+                                    "")
         self.centralwidget = QtWidgets.QWidget(sysmainwindow)
         self.centralwidget.setStyleSheet("")
         self.centralwidget.setObjectName("centralwidget")
@@ -137,140 +137,140 @@ class Ui_sysmainwindow(object):
         self.stackedWidget.setGeometry(QtCore.QRect(140, 30, 661, 551))
         self.stackedWidget.setAutoFillBackground(True)
         self.stackedWidget.setStyleSheet("QComboBox {\n"
-"        height: 20px;\n"
-"        border-radius: 4px;\n"
-"        border: 1px solid rgb(209 , 209 , 209);\n"
-"        background: white;\n"
-"}\n"
-"QComboBox:enabled {\n"
-"        color: rgb(255,255,255);\n"
-"}\n"
-"QComboBox:!enabled {\n"
-"        color: rgb(80, 80, 80);\n"
-"}\n"
-"QComboBox:enabled:hover, QComboBox:enabled:focus {\n"
-"        border: 1px solid rgb(21 , 131 , 221);\n"
-"}\n"
-"QComboBox::drop-down {\n"
-"        width: 20px;\n"
-"        border: none;\n"
-"        background: transparent;\n"
-"}\n"
-"QComboBox::drop-down:hover {\n"
-"        background: rgb(255, 255, 255, 30);\n"
-"}\n"
-"QComboBox::down-arrow {\n"
-"        image: url(:/White/arrowBottom);\n"
-"}\n"
-"QComboBox::down-arrow:on {\n"
-"        /**top: 1px;**/\n"
-"}\n"
-"QComboBox QAbstractItemView {\n"
-"        background: rgb(110,120,120,70);\n"
-"        outline: none;\n"
-"}\n"   
-"QLineEdit\n"
-"{\n"
-"    background:white;\n"
-"    padding-left:5px ;\n"
-"    padding-top:1px ;\n"
-"    border-radius:3px;\n"
-"    border: 1px solid rgb(209 , 209 , 209);\n"
-"}\n"
-"QLineEdit:hover\n"
-"{\n"
-"    padding-top:0px ;\n"
-"    border: 1px solid rgb(21 , 131 , 221);\n"
-"}\n"
-"\n"
-"QWidget{\n"
-"background:transparent;\n"
-"}\n"
-"QPushButton{\n"
-"color:white;\n"
-"background-color:rgb(110,120,120,97);\n"
-"border:0px;\n"
-"border-radius:4px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"color:white;\n"
- "background-color: rgb(21, 131 ,221,20);\n"
-"border:0px;\n"
-"border-radius:4px;\n"
-"}\n"
+                                         "        height: 20px;\n"
+                                         "        border-radius: 4px;\n"
+                                         "        border: 1px solid rgb(209 , 209 , 209);\n"
+                                         "        background: white;\n"
+                                         "}\n"
+                                         "QComboBox:enabled {\n"
+                                         "        color: rgb(255,255,255);\n"
+                                         "}\n"
+                                         "QComboBox:!enabled {\n"
+                                         "        color: rgb(80, 80, 80);\n"
+                                         "}\n"
+                                         "QComboBox:enabled:hover, QComboBox:enabled:focus {\n"
+                                         "        border: 1px solid rgb(21 , 131 , 221);\n"
+                                         "}\n"
+                                         "QComboBox::drop-down {\n"
+                                         "        width: 20px;\n"
+                                         "        border: none;\n"
+                                         "        background: transparent;\n"
+                                         "}\n"
+                                         "QComboBox::drop-down:hover {\n"
+                                         "        background: rgb(255, 255, 255, 30);\n"
+                                         "}\n"
+                                         "QComboBox::down-arrow {\n"
+                                         "        image: url(:/White/arrowBottom);\n"
+                                         "}\n"
+                                         "QComboBox::down-arrow:on {\n"
+                                         "        /**top: 1px;**/\n"
+                                         "}\n"
+                                         "QComboBox QAbstractItemView {\n"
+                                         "        background: rgb(110,120,120,70);\n"
+                                         "        outline: none;\n"
+                                         "}\n"
+                                         "QLineEdit\n"
+                                         "{\n"
+                                         "    background:white;\n"
+                                         "    padding-left:5px ;\n"
+                                         "    padding-top:1px ;\n"
+                                         "    border-radius:3px;\n"
+                                         "    border: 1px solid rgb(209 , 209 , 209);\n"
+                                         "}\n"
+                                         "QLineEdit:hover\n"
+                                         "{\n"
+                                         "    padding-top:0px ;\n"
+                                         "    border: 1px solid rgb(21 , 131 , 221);\n"
+                                         "}\n"
+                                         "\n"
+                                         "QWidget{\n"
+                                         "background:transparent;\n"
+                                         "}\n"
+                                         "QPushButton{\n"
+                                         "color:white;\n"
+                                         "background-color:rgb(110,120,120,97);\n"
+                                         "border:0px;\n"
+                                         "border-radius:4px;\n"
+                                         "}\n"
+                                         "QPushButton:hover{\n"
+                                         "color:white;\n"
+                                         "background-color: rgb(21, 131 ,221,20);\n"
+                                         "border:0px;\n"
+                                         "border-radius:4px;\n"
+                                         "}\n"
 
-"\n"
-"QMessageBox\n"
-"{\n"
-"border-color:#32435E; border-width:1px; border-radius: 3px;\n"
-"min-width:30px; min-height:23px;\n"
-"height: 300px;\n"
-"width: 200px;\n"
-"border: none;\n"
-"}\n"
-"QWidget#newstu_page,QWidget#ident_page,QWidget#spk_page,QWidget#updata_page,QWidget#log_page6,QWidget#newtea_page,QWidget#newoff_page{\n"
-"background:rgb(255,255,255,50);\n"
-"}\n"
-"QPushButton#newteaSuccess_buttn,\n"
-"QPushButton#newoffSuccess_buttn\n"
-"{\n"
-"    background-image:url(./img/click.png);\n"
-"}\n"
-"QPushButton#newteaSuccess_buttn:hover,\n"
-"QPushButton#newoffSuccess_buttn:hover\n"
-"{\n"
-     "background-color: rgb(21, 131 ,221,20);\n"
-"    background-image:url(./img/click.png);\n"
-"}\n"
-"QPushButton#spkHome_buttn\n"
-"{\n"
-"    background-image:url(./img/spkbackhome.png);\n"
-"}\n"
-"QPushButton#spkHome_buttn:hover\n"
-"{\n"
- "background-color: rgb(21,131,221,20);\n"
-"    background-image:url(./img/spkbackhome.png);\n"
-"}\n"
+                                         "\n"
+                                         "QMessageBox\n"
+                                         "{\n"
+                                         "border-color:#32435E; border-width:1px; border-radius: 3px;\n"
+                                         "min-width:30px; min-height:23px;\n"
+                                         "height: 300px;\n"
+                                         "width: 200px;\n"
+                                         "border: none;\n"
+                                         "}\n"
+                                         "QWidget#newstu_page,QWidget#ident_page,QWidget#spk_page,QWidget#updata_page,QWidget#log_page6,QWidget#newtea_page,QWidget#newoff_page{\n"
+                                         "background:rgb(255,255,255,50);\n"
+                                         "}\n"
+                                         "QPushButton#newteaSuccess_buttn,\n"
+                                         "QPushButton#newoffSuccess_buttn\n"
+                                         "{\n"
+                                         "    background-image:url(./img/click.png);\n"
+                                         "}\n"
+                                         "QPushButton#newteaSuccess_buttn:hover,\n"
+                                         "QPushButton#newoffSuccess_buttn:hover\n"
+                                         "{\n"
+                                         "background-color: rgb(21, 131 ,221,20);\n"
+                                         "    background-image:url(./img/click.png);\n"
+                                         "}\n"
+                                         "QPushButton#spkHome_buttn\n"
+                                         "{\n"
+                                         "    background-image:url(./img/spkbackhome.png);\n"
+                                         "}\n"
+                                         "QPushButton#spkHome_buttn:hover\n"
+                                         "{\n"
+                                         "background-color: rgb(21,131,221,20);\n"
+                                         "    background-image:url(./img/spkbackhome.png);\n"
+                                         "}\n"
 
-"QHeaderView::section\n"
- "{\n"
-"background-color: rgb(110,110,110,30);\n"
- " border:1px solid rgb(255,255,255,50);\n"
-"height:20px;\n"      
-  "}\n"
-        
-"QTableView{ \n" 
-"background-color: rgb(110,110,110,30)\n;  "
-"alternate-background-color: rgb(200, 200, 200,50);\n"
-"selection-background-color: rgb(130, 190, 100,50); \n" 
-"}\n "
-"﻿QProgressBar {"
-"   border: 2px solid rgb(255,255,255);"
-"   border-radius: 5px;"
-"   background-color: #FFFFFF;"
-"}"
- 
-"QProgressBar::chunk {"
-"   background-color: rgb(20 , 131 , 211,80);"
-"   width: 20px;"
-"}"
- 
-"QProgressBar {"
-"   border: 2px solid grey;"
-"   border-radius: 5px;"
-"   text-align: center;"
-"}"
-)
+                                         "QHeaderView::section\n"
+                                         "{\n"
+                                         "background-color: rgb(110,110,110,30);\n"
+                                         " border:1px solid rgb(255,255,255,50);\n"
+                                         "height:20px;\n"
+                                         "}\n"
+
+                                         "QTableView{ \n"
+                                         "background-color: rgb(110,110,110,30)\n;  "
+                                         "alternate-background-color: rgb(200, 200, 200,50);\n"
+                                         "selection-background-color: rgb(130, 190, 100,50); \n"
+                                         "}\n "
+                                         "﻿QProgressBar {"
+                                         "   border: 2px solid rgb(255,255,255);"
+                                         "   border-radius: 5px;"
+                                         "   background-color: #FFFFFF;"
+                                         "}"
+
+                                         "QProgressBar::chunk {"
+                                         "   background-color: rgb(20 , 131 , 211,80);"
+                                         "   width: 20px;"
+                                         "}"
+
+                                         "QProgressBar {"
+                                         "   border: 2px solid grey;"
+                                         "   border-radius: 5px;"
+                                         "   text-align: center;"
+                                         "}"
+                                         )
         self.stackedWidget.setObjectName("stackedWidget")
         self.newstu_page = QtWidgets.QWidget()
-###lihao
+# lihao
         self.lihaoTimer = QTimer()
         self.cap = cv2.VideoCapture(0)
         self.lihaoTabIndex = -1
         self.lihaoTimer.timeout.connect(self.lihaoViewCam)
         self.lihaoTimer.start(20)
- 
-###lihao end
+
+# lihao end
 
         self.newstu_page.setObjectName("newstu_page")
         self.newstu_tabWidget = QtWidgets.QTabWidget(self.newstu_page)
@@ -322,9 +322,11 @@ class Ui_sysmainwindow(object):
         self.stu_name.setGeometry(QtCore.QRect(330, 370, 51, 16))
         self.stu_name.setObjectName("stu_name")
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.register_tab)
-        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(30, 260, 251, 171))
+        self.verticalLayoutWidget_3.setGeometry(
+            QtCore.QRect(30, 260, 251, 171))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
-        self.camera_Vlayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
+        self.camera_Vlayout_2 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_3)
         self.camera_Vlayout_2.setContentsMargins(0, 0, 0, 0)
         self.camera_Vlayout_2.setObjectName("camera_Vlayout_2")
 
@@ -375,7 +377,7 @@ class Ui_sysmainwindow(object):
         self.fissucc_label.setObjectName("fissucc_label")
         self.newstu_tabWidget.addTab(self.register_tab, "")
 
-        #newstu upload
+        # newstu upload
         self.newstu_tabWidget.addTab(self.register_tab, "")
         self.upload_tab = QtWidgets.QWidget()
         self.upload_tab.setObjectName("upload_tab")
@@ -413,7 +415,8 @@ class Ui_sysmainwindow(object):
         self.newstuFace_label = QtWidgets.QLabel(self.gridLayoutWidget_2)
         self.newstuFace_label.setObjectName("newstuFace_label")
         self.gridLayout_2.addWidget(self.newstuFace_label, 5, 0, 1, 1)
-        self.newstuClass_lineEdit = QtWidgets.QLineEdit(self.gridLayoutWidget_2)
+        self.newstuClass_lineEdit = QtWidgets.QLineEdit(
+            self.gridLayoutWidget_2)
         self.newstuClass_lineEdit.setObjectName("newstuClass_lineEdit")
         self.gridLayout_2.addWidget(self.newstuClass_lineEdit, 3, 1, 1, 1)
         self.newstuFinger_label = QtWidgets.QLabel(self.gridLayoutWidget_2)
@@ -431,34 +434,39 @@ class Ui_sysmainwindow(object):
         self.newstuClass_label = QtWidgets.QLabel(self.gridLayoutWidget_2)
         self.newstuClass_label.setObjectName("newstuClass_label")
         self.gridLayout_2.addWidget(self.newstuClass_label, 3, 0, 1, 1)
-        self.newstuFinger_combox_2 = QtWidgets.QComboBox(self.gridLayoutWidget_2)
+        self.newstuFinger_combox_2 = QtWidgets.QComboBox(
+            self.gridLayoutWidget_2)
         self.newstuFinger_combox_2.setObjectName("newstuFinger_combox_2")
         self.newstuFinger_combox_2.addItem("")
         self.newstuFinger_combox_2.addItem("")
         self.newstuFinger_combox_2.addItem("")
         self.gridLayout_2.addWidget(self.newstuFinger_combox_2, 5, 1, 1, 1)
         self.newstuChoicall_checkbox = QtWidgets.QCheckBox(self.upload_tab)
-        self.newstuChoicall_checkbox.setGeometry(QtCore.QRect(340, 460, 87, 20))
+        self.newstuChoicall_checkbox.setGeometry(
+            QtCore.QRect(340, 460, 87, 20))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.newstuChoicall_checkbox.setFont(font)
         self.newstuChoicall_checkbox.setObjectName("newstuChoicall_checkbox")
         self.verticalLayoutWidget_6 = QtWidgets.QWidget(self.upload_tab)
-        self.verticalLayoutWidget_6.setGeometry(QtCore.QRect(340, 10, 291, 441))
+        self.verticalLayoutWidget_6.setGeometry(
+            QtCore.QRect(340, 10, 291, 441))
         self.verticalLayoutWidget_6.setObjectName("verticalLayoutWidget_6")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_6)
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_6)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
 
 #~newstu_table######
-        self.newstu_tableview = view.View("registerStudent", self.verticalLayoutWidget_6)
+        self.newstu_tableview = view.View(
+            "registerStudent", self.verticalLayoutWidget_6)
         self.newstu_tableview.filter('', '', '', 'All', 'All')
         self.newstu_tableview.setObjectName("newstu_tableview")
         self.verticalLayout_3.addWidget(self.newstu_tableview)
         self.newstu_tabWidget.addTab(self.upload_tab, "")
         self.stackedWidget.addWidget(self.newstu_page)
 
-#ident_page
+# ident_page
         self.ident_page = QtWidgets.QWidget()
         self.ident_page.setObjectName("ident_page")
         self.ident_tab = QtWidgets.QTabWidget(self.ident_page)
@@ -523,9 +531,11 @@ class Ui_sysmainwindow(object):
         self.showclass.setText("")
         self.showclass.setObjectName("showclass")
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.input_tab)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(40, 270, 251, 161))
+        self.verticalLayoutWidget_2.setGeometry(
+            QtCore.QRect(40, 270, 251, 161))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
-        self.camera_Vlayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
+        self.camera_Vlayout = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_2)
         self.camera_Vlayout.setContentsMargins(0, 0, 0, 0)
         self.camera_Vlayout.setObjectName("camera_Vlayout")
 
@@ -549,20 +559,24 @@ class Ui_sysmainwindow(object):
         self.ident_sametext_ph0 = QtWidgets.QLabel(self.verticalLayoutWidget_4)
         self.ident_sametext_ph0.setObjectName("ident_sametext_ph0")
         self.same_Vlayout.addWidget(self.ident_sametext_ph0)
-        self.ident_samebar_pho = QtWidgets.QProgressBar(self.verticalLayoutWidget_4)
+        self.ident_samebar_pho = QtWidgets.QProgressBar(
+            self.verticalLayoutWidget_4)
         self.ident_samebar_pho.setProperty("value", 24)
         self.ident_samebar_pho.setObjectName("ident_samebar_pho")
         self.same_Vlayout.addWidget(self.ident_samebar_pho)
         self.verticalLayoutWidget_5 = QtWidgets.QWidget(self.input_tab)
-        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(460, 200, 160, 80))
+        self.verticalLayoutWidget_5.setGeometry(
+            QtCore.QRect(460, 200, 160, 80))
         self.verticalLayoutWidget_5.setObjectName("verticalLayoutWidget_5")
-        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_5)
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_5)
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.ident_sametext_fin = QtWidgets.QLabel(self.verticalLayoutWidget_5)
         self.ident_sametext_fin.setObjectName("ident_sametext_fin")
         self.verticalLayout_5.addWidget(self.ident_sametext_fin)
-        self.ident_samebar_fin = QtWidgets.QProgressBar(self.verticalLayoutWidget_5)
+        self.ident_samebar_fin = QtWidgets.QProgressBar(
+            self.verticalLayoutWidget_5)
         self.ident_samebar_fin.setProperty("value", 24)
         self.ident_samebar_fin.setObjectName("ident_samebar_fin")
         self.verticalLayout_5.addWidget(self.ident_samebar_fin)
@@ -570,20 +584,24 @@ class Ui_sysmainwindow(object):
         self.identNocard_buttn_2.setGeometry(QtCore.QRect(230, 220, 81, 21))
         self.identNocard_buttn_2.setObjectName("identNocard_buttn_2")
         self.horizontalLayoutWidget_3 = QtWidgets.QWidget(self.input_tab)
-        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(10, 10, 291, 31))
+        self.horizontalLayoutWidget_3.setGeometry(
+            QtCore.QRect(10, 10, 291, 31))
         self.horizontalLayoutWidget_3.setObjectName("horizontalLayoutWidget_3")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_3)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(
+            self.horizontalLayoutWidget_3)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.identchoiceexam_label = QtWidgets.QLabel(self.horizontalLayoutWidget_3)
+        self.identchoiceexam_label = QtWidgets.QLabel(
+            self.horizontalLayoutWidget_3)
         self.identchoiceexam_label.setObjectName("identchoiceexam_label")
         self.horizontalLayout_3.addWidget(self.identchoiceexam_label)
-        self.identchoiceexam_comboBox = QtWidgets.QComboBox(self.horizontalLayoutWidget_3)
+        self.identchoiceexam_comboBox = QtWidgets.QComboBox(
+            self.horizontalLayoutWidget_3)
         self.identchoiceexam_comboBox.setObjectName("identchoiceexam_comboBox")
         self.horizontalLayout_3.addWidget(self.identchoiceexam_comboBox)
         self.ident_tab.addTab(self.input_tab, "")
 
-        #ident-upload
+        # ident-upload
         self.Upload_tab = QtWidgets.QWidget()
         self.Upload_tab.setObjectName("Upload_tab")
         self.search_buttn = QtWidgets.QPushButton(self.Upload_tab)
@@ -700,19 +718,22 @@ class Ui_sysmainwindow(object):
         self.identChoicall_checkbox.setGeometry(QtCore.QRect(340, 470, 87, 20))
         self.identChoicall_checkbox.setObjectName("identChoicall_checkbox")
         self.verticalLayoutWidget_7 = QtWidgets.QWidget(self.Upload_tab)
-        self.verticalLayoutWidget_7.setGeometry(QtCore.QRect(340, 140, 281, 321))
+        self.verticalLayoutWidget_7.setGeometry(
+            QtCore.QRect(340, 140, 281, 321))
         self.verticalLayoutWidget_7.setObjectName("verticalLayoutWidget_7")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_7)
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_7)
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.tableView = view.View("examRecord", self.verticalLayoutWidget_7)
-        self.tableView.filter('', '', '', '', 'All', 'All', 'All', 'All', 'All')
+        self.tableView.filter('', '', '', '', 'All',
+                              'All', 'All', 'All', 'All')
         self.tableView.setObjectName("tableView")
         self.verticalLayout_4.addWidget(self.tableView)
         self.ident_tab.addTab(self.Upload_tab, "")
         self.stackedWidget.addWidget(self.ident_page)
 
-        #spk
+        # spk
         self.spk_page = QtWidgets.QWidget()
         self.spk_page.setObjectName("spk_page")
         self.spk_tabWidget = QtWidgets.QTabWidget(self.spk_page)
@@ -728,15 +749,18 @@ class Ui_sysmainwindow(object):
         self.verticalLayoutWidget = QtWidgets.QWidget(self.sokStart_pages)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(180, 60, 131, 211))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget)
+        self.verticalLayout_2.setSizeConstraint(
+            QtWidgets.QLayout.SetDefaultConstraint)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.spkStart_buttn = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.spkStart_buttn.setObjectName("spkStart_buttn")
         self.verticalLayout_2.addWidget(self.spkStart_buttn)
-        self.spkContinue_buttn = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.spkContinue_buttn = QtWidgets.QPushButton(
+            self.verticalLayoutWidget)
         self.spkContinue_buttn.setObjectName("spkContinue_buttn")
         self.verticalLayout_2.addWidget(self.spkContinue_buttn)
         self.spkEnd_buttn = QtWidgets.QPushButton(self.verticalLayoutWidget)
@@ -765,30 +789,43 @@ class Ui_sysmainwindow(object):
         self.formLayout.setObjectName("formLayout")
         self.spkn_card_label = QtWidgets.QLabel(self.formLayoutWidget)
         self.spkn_card_label.setObjectName("spkn_card_label")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.spkn_card_label)
+        self.formLayout.setWidget(
+            3, QtWidgets.QFormLayout.LabelRole, self.spkn_card_label)
         self.spk_name_lineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.spk_name_lineEdit.setObjectName("spk_name_lineEdit")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.spk_name_lineEdit)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.formLayout.setWidget(
+            3, QtWidgets.QFormLayout.FieldRole, self.spk_name_lineEdit)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.formLayout.setItem(4, QtWidgets.QFormLayout.FieldRole, spacerItem)
         self.spkn_id_label = QtWidgets.QLabel(self.formLayoutWidget)
         self.spkn_id_label.setObjectName("spkn_id_label")
-        self.formLayout.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.spkn_id_label)
+        self.formLayout.setWidget(
+            5, QtWidgets.QFormLayout.LabelRole, self.spkn_id_label)
         self.spkn_id_lineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.spkn_id_lineEdit.setObjectName("spkn_id_lineEdit")
-        self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.spkn_id_lineEdit)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.formLayout.setItem(6, QtWidgets.QFormLayout.FieldRole, spacerItem1)
+        self.formLayout.setWidget(
+            5, QtWidgets.QFormLayout.FieldRole, self.spkn_id_lineEdit)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.formLayout.setItem(
+            6, QtWidgets.QFormLayout.FieldRole, spacerItem1)
         self.spkn_class_label = QtWidgets.QLabel(self.formLayoutWidget)
         self.spkn_class_label.setObjectName("spkn_class_label")
-        self.formLayout.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.spkn_class_label)
+        self.formLayout.setWidget(
+            7, QtWidgets.QFormLayout.LabelRole, self.spkn_class_label)
         self.spkn_class_lineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.spkn_class_lineEdit.setObjectName("spkn_class_lineEdit")
-        self.formLayout.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.spkn_class_lineEdit)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.formLayout.setItem(8, QtWidgets.QFormLayout.FieldRole, spacerItem2)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.formLayout.setItem(2, QtWidgets.QFormLayout.FieldRole, spacerItem3)
+        self.formLayout.setWidget(
+            7, QtWidgets.QFormLayout.FieldRole, self.spkn_class_lineEdit)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.formLayout.setItem(
+            8, QtWidgets.QFormLayout.FieldRole, spacerItem2)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.formLayout.setItem(
+            2, QtWidgets.QFormLayout.FieldRole, spacerItem3)
         self.spkBackcard_buttn = QtWidgets.QPushButton(self.spkInput_page)
         self.spkBackcard_buttn.setGeometry(QtCore.QRect(130, 270, 91, 31))
         self.spkBackcard_buttn.setObjectName("spkBackcard_buttn")
@@ -802,64 +839,81 @@ class Ui_sysmainwindow(object):
         self.formLayoutWidget_4.setGeometry(QtCore.QRect(120, 70, 264, 181))
         self.formLayoutWidget_4.setObjectName("formLayoutWidget_4")
         self.formLayout_4 = QtWidgets.QFormLayout(self.formLayoutWidget_4)
-        self.formLayout_4.setFieldGrowthPolicy(QtWidgets.QFormLayout.ExpandingFieldsGrow)
+        self.formLayout_4.setFieldGrowthPolicy(
+            QtWidgets.QFormLayout.ExpandingFieldsGrow)
         self.formLayout_4.setRowWrapPolicy(QtWidgets.QFormLayout.DontWrapRows)
-        self.formLayout_4.setLabelAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.formLayout_4.setLabelAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.formLayout_4.setFormAlignment(QtCore.Qt.AlignCenter)
         self.formLayout_4.setContentsMargins(1, 0, 10, 0)
         self.formLayout_4.setObjectName("formLayout_4")
         self.spkName_label = QtWidgets.QLabel(self.formLayoutWidget_4)
         self.spkName_label.setObjectName("spkName_label")
-        self.formLayout_4.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.spkName_label)
+        self.formLayout_4.setWidget(
+            0, QtWidgets.QFormLayout.LabelRole, self.spkName_label)
         self.spkshowName_label = QtWidgets.QLabel(self.formLayoutWidget_4)
         self.spkshowName_label.setMinimumSize(QtCore.QSize(200, 19))
         self.spkshowName_label.setText("")
         self.spkshowName_label.setObjectName("spkshowName_label")
-        self.formLayout_4.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.spkshowName_label)
+        self.formLayout_4.setWidget(
+            0, QtWidgets.QFormLayout.FieldRole, self.spkshowName_label)
         self.spkId_label = QtWidgets.QLabel(self.formLayoutWidget_4)
         self.spkId_label.setObjectName("spkId_label")
-        self.formLayout_4.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.spkId_label)
+        self.formLayout_4.setWidget(
+            1, QtWidgets.QFormLayout.LabelRole, self.spkId_label)
         self.spkshowId_label = QtWidgets.QLabel(self.formLayoutWidget_4)
         self.spkshowId_label.setMinimumSize(QtCore.QSize(200, 19))
         self.spkshowId_label.setText("")
         self.spkshowId_label.setObjectName("spkshowId_label")
-        self.formLayout_4.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.spkshowId_label)
+        self.formLayout_4.setWidget(
+            1, QtWidgets.QFormLayout.FieldRole, self.spkshowId_label)
         self.spkClass_label = QtWidgets.QLabel(self.formLayoutWidget_4)
         self.spkClass_label.setObjectName("spkClass_label")
-        self.formLayout_4.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.spkClass_label)
+        self.formLayout_4.setWidget(
+            2, QtWidgets.QFormLayout.LabelRole, self.spkClass_label)
         self.spkshowClass_label = QtWidgets.QLabel(self.formLayoutWidget_4)
         self.spkshowClass_label.setMinimumSize(QtCore.QSize(200, 19))
         self.spkshowClass_label.setText("")
         self.spkshowClass_label.setObjectName("spkshowClass_label")
-        self.formLayout_4.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.spkshowClass_label)
+        self.formLayout_4.setWidget(
+            2, QtWidgets.QFormLayout.FieldRole, self.spkshowClass_label)
         self.continue_buttn = QtWidgets.QPushButton(self.spkFinish_pages)
         self.continue_buttn.setGeometry(QtCore.QRect(290, 270, 101, 32))
         self.continue_buttn.setObjectName("continue_buttn")
         self.spk_stackedWidget.addWidget(self.spkFinish_pages)
         self.spkSpeechname_pages = QtWidgets.QWidget()
         self.spkSpeechname_pages.setObjectName("spkSpeechname_pages")
-        self.horizontalLayoutWidget = QtWidgets.QWidget(self.spkSpeechname_pages)
+        self.horizontalLayoutWidget = QtWidgets.QWidget(
+            self.spkSpeechname_pages)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(70, 110, 351, 51))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout = QtWidgets.QHBoxLayout(
+            self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.spkSpeechname_label = QtWidgets.QLabel(self.horizontalLayoutWidget)
+        self.spkSpeechname_label = QtWidgets.QLabel(
+            self.horizontalLayoutWidget)
         self.spkSpeechname_label.setObjectName("spkSpeechname_label")
         self.horizontalLayout.addWidget(self.spkSpeechname_label)
-        self.spkSubmit_lineEdit = QtWidgets.QLineEdit(self.horizontalLayoutWidget)
+        self.spkSubmit_lineEdit = QtWidgets.QLineEdit(
+            self.horizontalLayoutWidget)
         self.spkSubmit_lineEdit.setObjectName("spkSubmit_lineEdit")
         self.horizontalLayout.addWidget(self.spkSubmit_lineEdit)
-        self.horizontalLayoutWidget_2 = QtWidgets.QWidget(self.spkSpeechname_pages)
-        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(70, 160, 351, 51))
+        self.horizontalLayoutWidget_2 = QtWidgets.QWidget(
+            self.spkSpeechname_pages)
+        self.horizontalLayoutWidget_2.setGeometry(
+            QtCore.QRect(70, 160, 351, 51))
         self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(
+            self.horizontalLayoutWidget_2)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.spkSpeechroom_label = QtWidgets.QLabel(self.horizontalLayoutWidget_2)
+        self.spkSpeechroom_label = QtWidgets.QLabel(
+            self.horizontalLayoutWidget_2)
         self.spkSpeechroom_label.setObjectName("spkSpeechroom_label")
         self.horizontalLayout_2.addWidget(self.spkSpeechroom_label)
-        self.spkSubmitroom_lineEdit = QtWidgets.QLineEdit(self.horizontalLayoutWidget_2)
+        self.spkSubmitroom_lineEdit = QtWidgets.QLineEdit(
+            self.horizontalLayoutWidget_2)
         self.spkSubmitroom_lineEdit.setObjectName("spkSubmitroom_lineEdit")
         self.horizontalLayout_2.addWidget(self.spkSubmitroom_lineEdit)
         self.spkSubmit_buttn = QtWidgets.QPushButton(self.spkSpeechname_pages)
@@ -877,8 +931,7 @@ class Ui_sysmainwindow(object):
         self.spkCurspeech_label.setObjectName("spkCurspeech_label")
         self.spk_tabWidget.addTab(self.input_tab_2, "")
 
-
-        #spk-uoload
+        # spk-uoload
 
         self.upload_tab_2 = QtWidgets.QWidget()
         self.upload_tab_2.setObjectName("upload_tab_2")
@@ -903,20 +956,22 @@ class Ui_sysmainwindow(object):
         self.spkFind_buttn.setGeometry(QtCore.QRect(210, 340, 93, 19))
         self.spkFind_buttn.setObjectName("spkFind_buttn")
         self.verticalLayoutWidget_9 = QtWidgets.QWidget(self.upload_tab_2)
-        self.verticalLayoutWidget_9.setGeometry(QtCore.QRect(330, 10, 291, 461))
+        self.verticalLayoutWidget_9.setGeometry(
+            QtCore.QRect(330, 10, 291, 461))
         self.verticalLayoutWidget_9.setObjectName("verticalLayoutWidget_9")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_9)
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_9)
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.spk_tableView = view.View("speechSpeech", self.verticalLayoutWidget_9)
+        self.spk_tableView = view.View(
+            "speechSpeech", self.verticalLayoutWidget_9)
         self.spk_tableView.filter('')
         self.spk_tableView.setObjectName("spk_tableView")
         self.verticalLayout_7.addWidget(self.spk_tableView)
         self.spk_tabWidget.addTab(self.upload_tab_2, "")
         self.stackedWidget.addWidget(self.spk_page)
 
-
-        #updata
+        # updata
         self.updata_page = QtWidgets.QWidget()
         self.updata_page.setObjectName("updata_page")
         self.updata_tabWidget = QtWidgets.QTabWidget(self.updata_page)
@@ -931,13 +986,17 @@ class Ui_sysmainwindow(object):
         self.upexam_buttn.setGeometry(QtCore.QRect(480, 470, 131, 21))
         self.upexam_buttn.setObjectName("upexam_buttn")
         self.verticalLayoutWidget_11 = QtWidgets.QWidget(self.updata_exam)
-        self.verticalLayoutWidget_11.setGeometry(QtCore.QRect(30, 20, 581, 431))
+        self.verticalLayoutWidget_11.setGeometry(
+            QtCore.QRect(30, 20, 581, 431))
         self.verticalLayoutWidget_11.setObjectName("verticalLayoutWidget_11")
-        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_11)
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_11)
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
-        self.upexam_tableView = QtWidgets.QTableView(self.verticalLayoutWidget_11)
-        self.upexam_tableView = view.View("examExamServer", self.verticalLayoutWidget_11)
+        self.upexam_tableView = QtWidgets.QTableView(
+            self.verticalLayoutWidget_11)
+        self.upexam_tableView = view.View(
+            "examExamServer", self.verticalLayoutWidget_11)
         self.upexam_tableView.filter('', '', '', '')
         self.upexam_tableView.setObjectName("upexam_tableView")
         self.verticalLayout_9.addWidget(self.upexam_tableView)
@@ -948,12 +1007,15 @@ class Ui_sysmainwindow(object):
         self.updata_user_2.setGeometry(QtCore.QRect(60, 20, 151, 21))
         self.updata_user_2.setObjectName("updata_user_2")
         self.verticalLayoutWidget_10 = QtWidgets.QWidget(self.updata_user)
-        self.verticalLayoutWidget_10.setGeometry(QtCore.QRect(60, 50, 551, 431))
+        self.verticalLayoutWidget_10.setGeometry(
+            QtCore.QRect(60, 50, 551, 431))
         self.verticalLayoutWidget_10.setObjectName("verticalLayoutWidget_10")
-        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_10)
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_10)
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.updata_tableView = view.View("loginUser", self.verticalLayoutWidget_10)
+        self.updata_tableView = view.View(
+            "loginUser", self.verticalLayoutWidget_10)
         self.updata_tableView.filter()
         self.updata_tableView.setObjectName("updata_tableView")
         self.verticalLayout_8.addWidget(self.updata_tableView)
@@ -968,7 +1030,7 @@ class Ui_sysmainwindow(object):
         self.updataDeiniti_buttn.setObjectName("updataDeiniti_buttn")
         self.updata_tabWidget.addTab(self.updata_delete, "")
         self.stackedWidget.addWidget(self.updata_page)
-    #log
+    # log
         self.log_page6 = QtWidgets.QWidget()
         self.log_page6.setObjectName("log_page6")
         self.textBrowser = QtWidgets.QTextBrowser(self.log_page6)
@@ -976,7 +1038,7 @@ class Ui_sysmainwindow(object):
         self.textBrowser.setObjectName("textBrowser")
         self.stackedWidget.addWidget(self.log_page6)
 
-        #newtea
+        # newtea
         self.newtea_page = QtWidgets.QWidget()
         self.newtea_page.setObjectName("newtea_page")
         self.newtea_tabWidget = QtWidgets.QTabWidget(self.newtea_page)
@@ -1010,24 +1072,30 @@ class Ui_sysmainwindow(object):
         self.formLayout_2.setObjectName("formLayout_2")
         self.name_label = QtWidgets.QLabel(self.formLayoutWidget_2)
         self.name_label.setObjectName("name_label")
-        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.name_label)
+        self.formLayout_2.setWidget(
+            0, QtWidgets.QFormLayout.LabelRole, self.name_label)
         self.passwd_label = QtWidgets.QLabel(self.formLayoutWidget_2)
         self.passwd_label.setObjectName("passwd_label")
-        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.passwd_label)
+        self.formLayout_2.setWidget(
+            1, QtWidgets.QFormLayout.LabelRole, self.passwd_label)
         self.secpasswd_label = QtWidgets.QLabel(self.formLayoutWidget_2)
         self.secpasswd_label.setObjectName("secpasswd_label")
-        self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.secpasswd_label)
+        self.formLayout_2.setWidget(
+            2, QtWidgets.QFormLayout.LabelRole, self.secpasswd_label)
         self.name_lineEdit = QtWidgets.QLineEdit(self.formLayoutWidget_2)
         self.name_lineEdit.setObjectName("name_lineEdit")
-        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.name_lineEdit)
+        self.formLayout_2.setWidget(
+            0, QtWidgets.QFormLayout.FieldRole, self.name_lineEdit)
         self.pass_lineEdit = QtWidgets.QLineEdit(self.formLayoutWidget_2)
         self.pass_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.pass_lineEdit.setObjectName("pass_lineEdit")
-        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.pass_lineEdit)
+        self.formLayout_2.setWidget(
+            1, QtWidgets.QFormLayout.FieldRole, self.pass_lineEdit)
         self.secpasswd_lineEdit = QtWidgets.QLineEdit(self.formLayoutWidget_2)
         self.secpasswd_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.secpasswd_lineEdit.setObjectName("secpasswd_lineEdit")
-        self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.secpasswd_lineEdit)
+        self.formLayout_2.setWidget(
+            2, QtWidgets.QFormLayout.FieldRole, self.secpasswd_lineEdit)
         self.ok_buttn = QtWidgets.QPushButton(self.input)
         self.ok_buttn.setGeometry(QtCore.QRect(210, 180, 81, 21))
         self.ok_buttn.setObjectName("ok_buttn")
@@ -1044,7 +1112,7 @@ class Ui_sysmainwindow(object):
         self.newtea_stackedWidget.addWidget(self.success)
         self.newtea_tabWidget.addTab(self.inputinfo, "")
 
-        #newtea-upload
+        # newtea-upload
         self.uploadinfo = QtWidgets.QWidget()
         self.uploadinfo.setObjectName("uploadinfo")
         self.newteaupload_buttn = QtWidgets.QPushButton(self.uploadinfo)
@@ -1053,10 +1121,12 @@ class Ui_sysmainwindow(object):
         self.verticalLayoutWidget_8 = QtWidgets.QWidget(self.uploadinfo)
         self.verticalLayoutWidget_8.setGeometry(QtCore.QRect(30, 30, 591, 401))
         self.verticalLayoutWidget_8.setObjectName("verticalLayoutWidget_8")
-        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_8)
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_8)
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.newtea_tableView = view.View("loginUserAdd", self.verticalLayoutWidget_8)
+        self.newtea_tableView = view.View(
+            "loginUserAdd", self.verticalLayoutWidget_8)
         self.newtea_tableView.filter(24)
         self.newtea_tableView.selectAll()
         self.newtea_tableView.setObjectName("newtea_tableView")
@@ -1064,7 +1134,7 @@ class Ui_sysmainwindow(object):
         self.newtea_tabWidget.addTab(self.uploadinfo, "")
         self.stackedWidget.addWidget(self.newtea_page)
 
-        #newoff
+        # newoff
         self.newoff_page = QtWidgets.QWidget()
         self.newoff_page.setObjectName("newoff_page")
         self.newoff_TabWeiget = QtWidgets.QTabWidget(self.newoff_page)
@@ -1098,24 +1168,31 @@ class Ui_sysmainwindow(object):
         self.formLayout_3.setObjectName("formLayout_3")
         self.name_label_2 = QtWidgets.QLabel(self.formLayoutWidget_3)
         self.name_label_2.setObjectName("name_label_2")
-        self.formLayout_3.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.name_label_2)
+        self.formLayout_3.setWidget(
+            0, QtWidgets.QFormLayout.LabelRole, self.name_label_2)
         self.passwd_label_2 = QtWidgets.QLabel(self.formLayoutWidget_3)
         self.passwd_label_2.setObjectName("passwd_label_2")
-        self.formLayout_3.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.passwd_label_2)
+        self.formLayout_3.setWidget(
+            1, QtWidgets.QFormLayout.LabelRole, self.passwd_label_2)
         self.secpasswd_label_2 = QtWidgets.QLabel(self.formLayoutWidget_3)
         self.secpasswd_label_2.setObjectName("secpasswd_label_2")
-        self.formLayout_3.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.secpasswd_label_2)
+        self.formLayout_3.setWidget(
+            2, QtWidgets.QFormLayout.LabelRole, self.secpasswd_label_2)
         self.name_lineEdit_2 = QtWidgets.QLineEdit(self.formLayoutWidget_3)
         self.name_lineEdit_2.setObjectName("name_lineEdit_2")
-        self.formLayout_3.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.name_lineEdit_2)
+        self.formLayout_3.setWidget(
+            0, QtWidgets.QFormLayout.FieldRole, self.name_lineEdit_2)
         self.pass_lineEdit_2 = QtWidgets.QLineEdit(self.formLayoutWidget_3)
         self.pass_lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.pass_lineEdit_2.setObjectName("pass_lineEdit_2")
-        self.formLayout_3.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.pass_lineEdit_2)
-        self.secpasswd_lineEdit_2 = QtWidgets.QLineEdit(self.formLayoutWidget_3)
+        self.formLayout_3.setWidget(
+            1, QtWidgets.QFormLayout.FieldRole, self.pass_lineEdit_2)
+        self.secpasswd_lineEdit_2 = QtWidgets.QLineEdit(
+            self.formLayoutWidget_3)
         self.secpasswd_lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.secpasswd_lineEdit_2.setObjectName("secpasswd_lineEdit_2")
-        self.formLayout_3.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.secpasswd_lineEdit_2)
+        self.formLayout_3.setWidget(
+            2, QtWidgets.QFormLayout.FieldRole, self.secpasswd_lineEdit_2)
         self.newoffok_buttn = QtWidgets.QPushButton(self.input_2)
         self.newoffok_buttn.setGeometry(QtCore.QRect(210, 180, 81, 21))
         self.newoffok_buttn.setObjectName("newoffok_buttn")
@@ -1135,19 +1212,22 @@ class Ui_sysmainwindow(object):
         self.newoff_stackedWidget.addWidget(self.success_2)
         self.newoff_TabWeiget.addTab(self.inputinfo_2, "")
 
-        #newoff-upload
+        # newoff-upload
         self.uploadinfo_2 = QtWidgets.QWidget()
         self.uploadinfo_2.setObjectName("uploadinfo_2")
         self.newoffupload_buttn = QtWidgets.QPushButton(self.uploadinfo_2)
         self.newoffupload_buttn.setGeometry(QtCore.QRect(520, 440, 101, 31))
         self.newoffupload_buttn.setObjectName("newoffupload_buttn")
         self.verticalLayoutWidget_12 = QtWidgets.QWidget(self.uploadinfo_2)
-        self.verticalLayoutWidget_12.setGeometry(QtCore.QRect(30, 30, 591, 401))
+        self.verticalLayoutWidget_12.setGeometry(
+            QtCore.QRect(30, 30, 591, 401))
         self.verticalLayoutWidget_12.setObjectName("verticalLayoutWidget_12")
-        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_12)
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(
+            self.verticalLayoutWidget_12)
         self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_10.setObjectName("verticalLayout_10")
-        self.newoff_tableView = view.View("loginUserAdd", self.verticalLayoutWidget_12)
+        self.newoff_tableView = view.View(
+            "loginUserAdd", self.verticalLayoutWidget_12)
         self.newoff_tableView.filter(35)
         self.newoff_tableView.selectAll()
         self.newoff_tableView.setObjectName("newoff_tableView")
@@ -1155,7 +1235,7 @@ class Ui_sysmainwindow(object):
         self.newoff_TabWeiget.addTab(self.uploadinfo_2, "")
         self.stackedWidget.addWidget(self.newoff_page)
 
-        #menu
+        # menu
         self.menu = QtWidgets.QWidget(self.centralwidget)
         self.menu.setGeometry(QtCore.QRect(0, 0, 141, 461))
         self.menu.setStyleSheet("")
@@ -1164,7 +1244,8 @@ class Ui_sysmainwindow(object):
         self.verticalLayout.setContentsMargins(0, 11, 0, 0)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
-        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem4 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem4)
         self.Newstu_buttn = QtWidgets.QPushButton(self.menu)
         self.Newstu_buttn.setStyleSheet("")
@@ -1192,7 +1273,8 @@ class Ui_sysmainwindow(object):
         self.Log_buttn = QtWidgets.QPushButton(self.menu)
         self.Log_buttn.setObjectName("Log_buttn")
         self.verticalLayout.addWidget(self.Log_buttn)
-        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem5 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem5)
         self.close_buttn = QtWidgets.QPushButton(self.centralwidget)
         self.close_buttn.setGeometry(QtCore.QRect(776, 3, 21, 21))
@@ -1245,7 +1327,7 @@ class Ui_sysmainwindow(object):
         # self.Spk_buttn.pressed.connect(sysmainwindow.stopcamera)
         # self.Teach_buttn.pressed.connect(sysmainwindow.stopcamera)
         # self.Updata_buttn.pressed.connect(sysmainwindow.stopcamera)
-        
+
         self.mini_buttn.clicked.connect(sysmainwindow.minimize)
         self.close_buttn.clicked.connect(sysmainwindow.closewindow)
 
@@ -1264,11 +1346,13 @@ class Ui_sysmainwindow(object):
 
         self.newstuLook_buttn.clicked.connect(sysmainwindow.newstuFind)
         self.newstuUpload_buttn.clicked.connect(sysmainwindow.newstuUpload)
-        self.newstuChoicall_checkbox.clicked.connect(sysmainwindow.newstuChoicall)
+        self.newstuChoicall_checkbox.clicked.connect(
+            sysmainwindow.newstuChoicall)
 
         self.search_buttn.clicked.connect(sysmainwindow.identFind)
         self.identUpload_buttn.clicked.connect(sysmainwindow.identUpload)
-        self.identChoicall_checkbox.clicked.connect(sysmainwindow.identChoicall)
+        self.identChoicall_checkbox.clicked.connect(
+            sysmainwindow.identChoicall)
 
         self.newtea_card.clicked.connect(sysmainwindow.newtea_nocard)
         self.newoff_card.clicked.connect(sysmainwindow.newoff_nocard)
@@ -1305,17 +1389,15 @@ class Ui_sysmainwindow(object):
         self.updataDeiniti_buttn.clicked.connect(sysmainwindow.resertAll)
 
         ######自定义信号槽#########
-        #self.showId.setText.connect(sysmainwindow.changestuid)
+        # self.showId.setText.connect(sysmainwindow.changestuid)
 
-        #self.upload_tab.ifshow.connect(sysmainwindow.newstutableview)
+        # self.upload_tab.ifshow.connect(sysmainwindow.newstutableview)
 
         self.spkHome_buttn.setToolTip("返回至'开始新讲座'、'继续当前讲座'、'结束当前讲座'界面")
         self.newstu_tableview.clicked.connect(sysmainwindow.new_showphoto)
         self.tableView.clicked.connect(sysmainwindow.ident_showphoto)
 
         QtCore.QMetaObject.connectSlotsByName(sysmainwindow)
-
-
 
     def retranslateUi(self, sysmainwindow):
         _translate = QtCore.QCoreApplication.translate
@@ -1342,13 +1424,19 @@ class Ui_sysmainwindow(object):
         self.newstuName_label.setText(_translate("sysmainwindow", "姓名"))
         self.newstuFace_label.setText(_translate("sysmainwindow", "是否录入照片"))
         self.newstuFinger_label.setText(_translate("sysmainwindow", "是否录入指纹"))
-        self.newstuFinger_combox.setItemText(0, _translate("sysmainwindow", "All"))
-        self.newstuFinger_combox.setItemText(1, _translate("sysmainwindow", "False"))
-        self.newstuFinger_combox.setItemText(2, _translate("sysmainwindow", "True"))
+        self.newstuFinger_combox.setItemText(
+            0, _translate("sysmainwindow", "All"))
+        self.newstuFinger_combox.setItemText(
+            1, _translate("sysmainwindow", "False"))
+        self.newstuFinger_combox.setItemText(
+            2, _translate("sysmainwindow", "True"))
         self.newstuClass_label.setText(_translate("sysmainwindow", "班级"))
-        self.newstuFinger_combox_2.setItemText(0, _translate("sysmainwindow", "All"))
-        self.newstuFinger_combox_2.setItemText(1, _translate("sysmainwindow", "False"))
-        self.newstuFinger_combox_2.setItemText(2, _translate("sysmainwindow", "True"))
+        self.newstuFinger_combox_2.setItemText(
+            0, _translate("sysmainwindow", "All"))
+        self.newstuFinger_combox_2.setItemText(
+            1, _translate("sysmainwindow", "False"))
+        self.newstuFinger_combox_2.setItemText(
+            2, _translate("sysmainwindow", "True"))
         self.newstuChoicall_checkbox.setText(_translate("sysmainwindow", "全选"))
         self.newstu_tabWidget.setTabText(self.newstu_tabWidget.indexOf(self.upload_tab),
                                          _translate("sysmainwindow", "上传"))
@@ -1365,8 +1453,10 @@ class Ui_sysmainwindow(object):
         self.ident_sametext_ph0.setText(_translate("sysmainwindow", "匹配程度"))
         self.ident_sametext_fin.setText(_translate("sysmainwindow", "匹配程度"))
         self.identNocard_buttn_2.setText(_translate("sysmainwindow", "无学生卡"))
-        self.identchoiceexam_label.setText(_translate("sysmainwindow", "请选择考场"))
-        self.ident_tab.setTabText(self.ident_tab.indexOf(self.input_tab), _translate("sysmainwindow", "身份比对"))
+        self.identchoiceexam_label.setText(
+            _translate("sysmainwindow", "请选择考场"))
+        self.ident_tab.setTabText(self.ident_tab.indexOf(
+            self.input_tab), _translate("sysmainwindow", "身份比对"))
         self.search_buttn.setText(_translate("sysmainwindow", "查找"))
         self.infosamerate.setText(_translate("sysmainwindow", "匹配程度"))
         self.info_photo.setText(_translate("sysmainwindow", "photo"))
@@ -1375,28 +1465,42 @@ class Ui_sysmainwindow(object):
         self.identName_label.setText(_translate("sysmainwindow", "姓名"))
         self.identClass_label.setText(_translate("sysmainwindow", "班级"))
         self.identFinger_label.setText(_translate("sysmainwindow", "是否有指纹"))
-        self.identFinger_combox.setItemText(0, _translate("sysmainwindow", "All"))
-        self.identFinger_combox.setItemText(1, _translate("sysmainwindow", "False"))
-        self.identFinger_combox.setItemText(2, _translate("sysmainwindow", "True"))
+        self.identFinger_combox.setItemText(
+            0, _translate("sysmainwindow", "All"))
+        self.identFinger_combox.setItemText(
+            1, _translate("sysmainwindow", "False"))
+        self.identFinger_combox.setItemText(
+            2, _translate("sysmainwindow", "True"))
         self.identFace_label.setText(_translate("sysmainwindow", "是否有照片"))
-        self.identFace_combox.setItemText(0, _translate("sysmainwindow", "All"))
-        self.identFace_combox.setItemText(1, _translate("sysmainwindow", "False"))
-        self.identFace_combox.setItemText(2, _translate("sysmainwindow", "True"))
+        self.identFace_combox.setItemText(
+            0, _translate("sysmainwindow", "All"))
+        self.identFace_combox.setItemText(
+            1, _translate("sysmainwindow", "False"))
+        self.identFace_combox.setItemText(
+            2, _translate("sysmainwindow", "True"))
         self.identIC_label.setText(_translate("sysmainwindow", "是否有IC卡"))
         self.identIC_combox.setItemText(0, _translate("sysmainwindow", "All"))
-        self.identIC_combox.setItemText(1, _translate("sysmainwindow", "False"))
+        self.identIC_combox.setItemText(
+            1, _translate("sysmainwindow", "False"))
         self.identIC_combox.setItemText(2, _translate("sysmainwindow", "True"))
         self.label.setText(_translate("sysmainwindow", "是否比对成功"))
-        self.identIsmatch_comboBox.setItemText(0, _translate("sysmainwindow", "All"))
-        self.identIsmatch_comboBox.setItemText(1, _translate("sysmainwindow", "False"))
-        self.identIsmatch_comboBox.setItemText(2, _translate("sysmainwindow", "True"))
+        self.identIsmatch_comboBox.setItemText(
+            0, _translate("sysmainwindow", "All"))
+        self.identIsmatch_comboBox.setItemText(
+            1, _translate("sysmainwindow", "False"))
+        self.identIsmatch_comboBox.setItemText(
+            2, _translate("sysmainwindow", "True"))
         self.label_2.setText(_translate("sysmainwindow", "是否为考场考生"))
-        self.identIsappend_comboBox.setItemText(0, _translate("sysmainwindow", "All"))
-        self.identIsappend_comboBox.setItemText(1, _translate("sysmainwindow", "False"))
-        self.identIsappend_comboBox.setItemText(2, _translate("sysmainwindow", "True"))
+        self.identIsappend_comboBox.setItemText(
+            0, _translate("sysmainwindow", "All"))
+        self.identIsappend_comboBox.setItemText(
+            1, _translate("sysmainwindow", "False"))
+        self.identIsappend_comboBox.setItemText(
+            2, _translate("sysmainwindow", "True"))
         self.identUpload_buttn.setText(_translate("sysmainwindow", "上传"))
         self.identChoicall_checkbox.setText(_translate("sysmainwindow", "全选"))
-        self.ident_tab.setTabText(self.ident_tab.indexOf(self.Upload_tab), _translate("sysmainwindow", "数据上传"))
+        self.ident_tab.setTabText(self.ident_tab.indexOf(
+            self.Upload_tab), _translate("sysmainwindow", "数据上传"))
         self.spkStart_buttn.setText(_translate("sysmainwindow", "开启新讲座"))
         self.spkContinue_buttn.setText(_translate("sysmainwindow", "继续当前讲座"))
         self.spkEnd_buttn.setText(_translate("sysmainwindow", "结束当前讲座"))
@@ -1412,10 +1516,13 @@ class Ui_sysmainwindow(object):
         self.spkId_label.setText(_translate("sysmainwindow", "学   号:"))
         self.spkClass_label.setText(_translate("sysmainwindow", "班   级:"))
         self.continue_buttn.setText(_translate("sysmainwindow", "继续录入"))
-        self.spkSpeechname_label.setText(_translate("sysmainwindow", "请输入讲座名称"))
-        self.spkSpeechroom_label.setText(_translate("sysmainwindow", "请输入进行讲座的教室"))
+        self.spkSpeechname_label.setText(
+            _translate("sysmainwindow", "请输入讲座名称"))
+        self.spkSpeechroom_label.setText(
+            _translate("sysmainwindow", "请输入进行讲座的教室"))
         self.spkSubmit_buttn.setText(_translate("sysmainwindow", "提交"))
-        self.spk_tabWidget.setTabText(self.spk_tabWidget.indexOf(self.input_tab_2), _translate("sysmainwindow", "讲座签到"))
+        self.spk_tabWidget.setTabText(self.spk_tabWidget.indexOf(
+            self.input_tab_2), _translate("sysmainwindow", "讲座签到"))
         self.spkUpload_buttn.setText(_translate("sysmainwindow", "上传"))
         self.spkspeechName_label.setText(_translate("sysmainwindow", "讲座名称"))
         self.spkFind_buttn.setText(_translate("sysmainwindow", "查找"))
@@ -1428,7 +1535,8 @@ class Ui_sysmainwindow(object):
         self.updata_user_2.setText(_translate("sysmainwindow", "更新本地所有用户数据"))
         self.updata_tabWidget.setTabText(self.updata_tabWidget.indexOf(self.updata_user),
                                          _translate("sysmainwindow", "下载用户信息"))
-        self.updatadelect_buttn.setText(_translate("sysmainwindow", "一键清除本机存储数据"))
+        self.updatadelect_buttn.setText(
+            _translate("sysmainwindow", "一键清除本机存储数据"))
         self.updataDeiniti_buttn.setText(_translate("sysmainwindow", "恢复出厂设置"))
         self.updata_tabWidget.setTabText(self.updata_tabWidget.indexOf(self.updata_delete),
                                          _translate("sysmainwindow", "清除本机数据"))
@@ -1466,36 +1574,49 @@ class Ui_sysmainwindow(object):
 
     def lihaoViewCam(self):
         if self.lihaoTabIndex == 2:
-            ret,self.image0 = self.cap.read()#从摄像头读取图片
+            ret, self.image0 = self.cap.read()  # 从摄像头读取图片
             if not ret:
                 return None
-            self.image = cv2.cvtColor(elf.image0,cv2.COLOR_BGR2RGB)#格式转换
-            height,width,channel = self.image.shape#获取图片大小
-            step = channel * width #更具图片大小获得step
-            qImg = QImage(self.image.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-            self.lihaoLabel.setPixmap(QPixmap.fromImage(qImg))
+            self.image = cv2.cvtColor(self.image0, cv2.COLOR_BGR2RGB)  # 格式转换
+            height, width, channel = self.image.shape  # 获取图片大小
+            step = channel * width  # 更具图片大小获得step
+            qImg = QImage(self.image.data, width, height, step,
+                          QImage.Format_RGB888)  # 根据图片大小产生QImage
+            pix = QPixmap.fromImage(qImg)
+            newpix = QPixmap(pix.scaled(self.lihaoLabel2.width(),
+                       self.lihaoLabel2.height(), Qt.KeepAspectRatio))
+            self.lihaoLabel.setPixmap(newpix)
+
         elif self.lihaoTabIndex == 0:
-            ret,self.image0 = self.cap.read()#从摄像头读取图片
-            self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
-            height,width,channel = self.image.shape#获取图片大小
-            step = channel * width #更具图片大小获得step
-            qImg = QImage(self.image.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-            self.lihaoLabel2.setPixmap(QPixmap.fromImage(qImg))
+            ret, self.image0 = self.cap.read()  # 从摄像头读取图片
+            if not ret:
+                return None
+            self.image = cv2.cvtColor(self.image0, cv2.COLOR_BGR2RGB)  # 格式转换
+            height, width, channel = self.image.shape  # 获取图片大小
+            step = channel * width  # 更具图片大小获得step
+            qImg = QImage(self.image.data, width, height, step,
+                          QImage.Format_RGB888)  # 根据图片大小产生QImage
+            pix = QPixmap.fromImage(qImg)
+            newpix = QPixmap(pix.scaled(self.lihaoLabel2.width(),
+                       self.lihaoLabel2.height(), Qt.KeepAspectRatio))
+            self.lihaoLabel2.setPixmap(newpix)
+
     def lihaoFunc(self):
-        self.lihaoTabIndex = 0 
+        self.lihaoTabIndex = 0
+
     def lihaoFunc2(self):
-        self.lihaoTabIndex = 2 
-    def lihaoTakePhoto(self):
-        cv2.imwrite("temp.jpg",self.image0)
-        self.image1 = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
-        height,width,channel = self.image1.shape#获取图片大小
-        step = channel * width #更具图片大小获得step
-        qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-        self.ident_photoimg.setPixmap(QPixmap.fromImage(qImg))
-    def lihaoTakePhoto2(self):
-        cv2.imwrite("temp_2.jpg",self.image0)
-        self.image1 = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
-        height,width,channel = self.image1.shape#获取图片大小
-        step = channel * width #更具图片大小获得step
-        qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
-        self.stu_photoimg.setPixmap(QPixmap.fromImage(qImg))
+        self.lihaoTabIndex = 2
+    # def lihaoTakePhoto(self):
+    #     # cv2.imwrite("temp.jpg",self.image0)
+    #     self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
+    #     height,width,channel = self.image1.shape#获取图片大小
+    #     step = channel * width #更具图片大小获得step
+    #     qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+    #     self.ident_photoimg.setPixmap(QPixmap.fromImage(qImg))
+    # def lihaoTakePhoto2(self):
+    #     # cv2.imwrite("temp_2.jpg",self.image0)
+    #     self.image = cv2.cvtColor(self.image0,cv2.COLOR_BGR2RGB)#格式转换
+    #     height,width,channel = self.image1.shape#获取图片大小
+    #     step = channel * width #更具图片大小获得step
+    #     qImg = QImage(self.image1.data, width,height,step,QImage.Format_RGB888)#根据图片大小产生QImage
+    #     self.stu_photoimg.setPixmap(QPixmap.fromImage(qImg))

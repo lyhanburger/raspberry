@@ -16,11 +16,10 @@ def getPort():
     port = None
     for ports in port_list:
         print(ports.device)
-        if (re.match('/dev/ttyUSB0', ports.device)):
+        if (re.match('/dev/ttyUSB1', ports.device)):
             port = ports.device
             break
     return port
-
 
 def readID():
     port = getPort()
