@@ -1186,26 +1186,45 @@ class setdevice(QMainWindow):
         self.ui.image = cv2.cvtColor(
             self.ui.image0, cv2.COLOR_BGR2RGB)  # 格式转换
         face_image = self.ui.image
+        qImg = None
         face_locations = face_recognition.face_locations(self.ui.image)
         if len(face_locations) != 0:
-            top, right, bottom, left = face_locations[0]
-            face_image = self.ui.image[
-                top - 30:bottom + 30, left - 10:right + 10]
-            face_image = Image.fromarray(face_image)
-            qImg = ImageQt(face_image)
-            face_image.save(savename)
+            if len(face_locations) == 1:
+                top, right, bottom, left = face_locations[0]
+                face_image = self.ui.image[
+                    top - 30:bottom + 30, left - 10:right + 10]
+                face_image = Image.fromarray(face_image)
+                face_image.save(savename)
+                qImg = ImageQt(face_image)
+            else:
+                choose_photo = Ui_CHOOSE_PHOTO(parent=self, photos=face_locations, image=self.ui.image)
+                choose_photo.move((QApplication.desktop().width() - 800) / 2,
+                                  (QApplication.desktop().height() - 600) / 2)
+                if choose_photo.exec_():
+                    cur_index = choose_photo.cur_index
+                    top, right, bottom, left = face_locations[cur_index]
+                    face_image = self.ui.image[
+                        top - 30:bottom + 30, left - 10:right + 10]
+                    face_image = Image.fromarray(face_image)
+                    face_image.save(savename)
+                    qImg = ImageQt(face_image)
+                choose_photo.destroy()
         else:
             cv2.imwrite(savename, self.ui.image0)
             height, width, channel = face_image.shape  # 获取图片大小
             step = channel * width  # 更具图片大小获得step
             qImg = QImage(face_image, width, height, step,
                           QImage.Format_RGB888)  # 根据图片大小产生QImage
-        qpix = QPixmap.fromImage(qImg)
-        newpix = QPixmap(qpix.scaled(self.ui.stu_photoimg.width(),
-                                     self.ui.stu_photoimg.height(),
-                                     Qt.KeepAspectRatio))
+        if qImg:
+            qpix = QPixmap.fromImage(qImg)
+            newpix = QPixmap(qpix.scaled(self.ui.stu_photoimg.width(),
+                                         self.ui.stu_photoimg.height(),
+                                         Qt.KeepAspectRatio))
 
-        self.ui.ident_photoimg.setPixmap(newpix)
+            self.ui.ident_photoimg.setPixmap(newpix)
+        else:
+            self.ui.ident_photoimg.clear()
+
         stuid = self.ui.showId.text()
 
         if stuid:
