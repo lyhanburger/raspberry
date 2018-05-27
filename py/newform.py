@@ -12,7 +12,7 @@ from PyQt5.QtCore import *
 class Ui_Newform(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)
-        self.resize(312, 326)
+        self.resize(328, 290)
         self.setStyleSheet("QWidget{\n"
                             "background-color:rgb(210,210,210);\n"
                             "}\n"

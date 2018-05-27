@@ -42,12 +42,11 @@ class Ui_WAIT(QDialog):
 "}")
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
-        
         self.retranslateUi(WAIT)
         self.setWindowFlags(Qt.FramelessWindowHint)  # 隐藏标签栏
         self.timer = QTimer()
         self.timer.timeout.connect(self.process)
-        self.timer.start(25)
+        self.timer.start(24)
         QtCore.QMetaObject.connectSlotsByName(WAIT)
 
 
